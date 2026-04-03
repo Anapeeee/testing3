@@ -40,6 +40,7 @@
       --radius-sm: 18px;
       --max: 1180px;
       --header-height: 82px;
+      --logo-color: #1c446b;
     }
 
     * {
@@ -68,7 +69,8 @@
       text-decoration: none;
     }
 
-    img {
+    img,
+    svg {
       display: block;
       max-width: 100%;
     }
@@ -111,16 +113,23 @@
       flex-shrink: 0;
     }
 
-    .brand img {
+    .monkey-logo {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: var(--logo-color);
+      filter: drop-shadow(0 6px 12px rgba(28, 68, 107, 0.16));
+    }
+
+    .brand .monkey-logo {
       width: 46px;
       height: 46px;
-      object-fit: contain;
-      background: transparent;
-      padding: 0;
-      border: none;
-      box-shadow: none;
-      border-radius: 0;
-      filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.08));
+    }
+
+    .brand .monkey-logo svg {
+      width: 100%;
+      height: 100%;
     }
 
     .brand span {
@@ -346,16 +355,16 @@
       margin-bottom: 20px;
     }
 
-    .hero-profile img {
+    .hero-profile .monkey-logo {
       width: 60px;
       height: 60px;
-      object-fit: contain;
-      background: transparent;
-      padding: 0;
-      border: none;
-      box-shadow: none;
-      border-radius: 0;
-      filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.12));
+      color: #ffffff;
+      filter: drop-shadow(0 8px 16px rgba(7, 25, 42, 0.22));
+    }
+
+    .hero-profile .monkey-logo svg {
+      width: 100%;
+      height: 100%;
     }
 
     .hero-profile strong {
@@ -853,14 +862,14 @@
     .process-shell {
       position: relative;
       overflow: hidden;
-      padding: 54px 42px 38px;
+      padding: 54px 42px 34px;
       border-radius: 34px;
       background:
-        radial-gradient(circle at top left, rgba(114, 199, 229, 0.12), transparent 26%),
-        radial-gradient(circle at top right, rgba(183, 140, 243, 0.12), transparent 22%),
-        linear-gradient(180deg, #f5fbff 0%, #edf7fc 100%);
-      border: 1px solid rgba(28, 68, 107, 0.08);
-      box-shadow: 0 24px 60px rgba(28, 68, 107, 0.08);
+        radial-gradient(circle at top left, rgba(114, 199, 229, 0.10), transparent 26%),
+        radial-gradient(circle at top right, rgba(183, 140, 243, 0.08), transparent 22%),
+        linear-gradient(180deg, #f6fbff 0%, #edf6fb 100%);
+      border: 1px solid rgba(28, 68, 107, 0.06);
+      box-shadow: 0 20px 50px rgba(28, 68, 107, 0.06);
     }
 
     .process-intro {
@@ -887,12 +896,13 @@
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 22px;
-      align-items: start;
+      align-items: stretch;
     }
 
     .process-step {
       position: relative;
-      padding-top: 36px;
+      padding-top: 34px;
+      display: flex;
     }
 
     .process-icon {
@@ -900,26 +910,26 @@
       top: 0;
       left: 50%;
       transform: translate(-50%, 0);
-      width: 96px;
-      height: 96px;
+      width: 92px;
+      height: 92px;
       border-radius: 50%;
-      background: linear-gradient(180deg, #ffffff 0%, #f6fbff 100%);
+      background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
       border: 4px solid transparent;
       background-image:
-        linear-gradient(#ffffff, #f6fbff),
-        linear-gradient(135deg, var(--accent), #2f7dff);
+        linear-gradient(#ffffff, #f8fbff),
+        linear-gradient(135deg, #8f84f6 0%, #5f8dff 100%);
       background-origin: border-box;
       background-clip: padding-box, border-box;
-      box-shadow: 0 14px 30px rgba(28, 68, 107, 0.10);
+      box-shadow: 0 12px 26px rgba(57, 106, 161, 0.10);
       display: grid;
       place-items: center;
       z-index: 2;
     }
 
     .process-icon svg {
-      width: 40px;
-      height: 40px;
-      stroke: var(--primary);
+      width: 38px;
+      height: 38px;
+      stroke: #264f79;
       stroke-width: 2.2;
       fill: none;
       stroke-linecap: round;
@@ -928,40 +938,45 @@
 
     .process-card {
       position: relative;
-      min-height: 338px;
-      padding: 88px 26px 28px;
+      width: 100%;
+      height: 100%;
+      min-height: 250px;
+      padding: 84px 28px 28px;
       border-radius: 26px;
-      background: rgba(255, 255, 255, 0.94);
-      border: 1px solid rgba(28, 68, 107, 0.07);
-      box-shadow: 0 18px 40px rgba(28, 68, 107, 0.08);
+      background: rgba(255, 255, 255, 0.88);
+      border: 1px solid rgba(28, 68, 107, 0.05);
+      box-shadow: 0 14px 32px rgba(28, 68, 107, 0.06);
       text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
     }
 
     .process-card::before {
       content: "";
       position: absolute;
       left: 0;
-      top: 58px;
-      bottom: 0;
+      top: 88px;
+      bottom: 18px;
       width: 4px;
       border-radius: 999px;
-      background: linear-gradient(180deg, #2f7dff 0%, var(--accent) 100%);
-      box-shadow: 0 10px 20px rgba(47, 125, 255, 0.18);
+      background: linear-gradient(180deg, #5e95ff 0%, #a879ef 100%);
+      box-shadow: 0 8px 18px rgba(110, 130, 255, 0.16);
     }
 
     .process-card h3 {
       margin: 0 0 12px;
-      color: var(--primary);
-      font-size: 1.12rem;
+      color: #244c76;
+      font-size: 1.08rem;
       line-height: 1.15;
       letter-spacing: -0.03em;
     }
 
     .process-card p {
       margin: 0;
-      color: var(--muted);
-      font-size: 0.98rem;
-      line-height: 1.65;
+      color: #688198;
+      font-size: 0.97rem;
+      line-height: 1.62;
     }
 
     .contact-card {
@@ -1069,6 +1084,10 @@
         margin: 0 auto;
         width: 100%;
       }
+
+      .process-card {
+        min-height: 220px;
+      }
     }
 
     @media (max-width: 760px) {
@@ -1139,6 +1158,7 @@
 
       .process-card {
         min-height: auto;
+        padding: 80px 22px 24px;
       }
     }
   </style>
@@ -1147,7 +1167,18 @@
   <header class="site-header">
     <div class="container header-inner">
       <a href="#home" class="brand" aria-label="APE Solutions home">
-        <img src="logo-seamless.png" alt="APE Solutions logo" />
+        <span class="monkey-logo" aria-hidden="true">
+          <svg viewBox="0 0 64 64" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="15" cy="28" r="8"/>
+            <circle cx="49" cy="28" r="8"/>
+            <path d="M32 8C21.5 8 13 16.5 13 27v9c0 11 8.5 20 19 20s19-9 19-20v-9C51 16.5 42.5 8 32 8z"/>
+            <path fill="#ffffff" d="M22 24c-4.8 0-8.5 3.7-8.5 8.5 0 8.6 7.1 16.5 18.5 16.5s18.5-7.9 18.5-16.5C50.5 27.7 46.8 24 42 24c-4.5 0-7.4 2.1-10 5-2.6-2.9-5.5-5-10-5z"/>
+            <circle cx="24.5" cy="30" r="2.6"/>
+            <circle cx="39.5" cy="30" r="2.6"/>
+            <path d="M28.8 39.2c1.8-1.9 4.6-1.9 6.4 0l1.1 1.1c1 1 1 2.7 0 3.7l-1.8 1.8c-1.4 1.4-3.7 1.4-5.1 0L27.7 44c-1-1-1-2.7 0-3.7l1.1-1.1z"/>
+            <rect x="25" y="47.5" width="14" height="3.6" rx="1.8"/>
+          </svg>
+        </span>
         <div>
           <span>APE Solutions</span>
           <small>LinkedIn, Email & Deliverability</small>
@@ -1193,7 +1224,18 @@
 
             <aside class="hero-card" aria-label="Highlights">
               <div class="hero-profile">
-                <img src="logo-seamless.png" alt="APE Solutions profile image" />
+                <span class="monkey-logo" aria-hidden="true">
+                  <svg viewBox="0 0 64 64" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="15" cy="28" r="8"/>
+                    <circle cx="49" cy="28" r="8"/>
+                    <path d="M32 8C21.5 8 13 16.5 13 27v9c0 11 8.5 20 19 20s19-9 19-20v-9C51 16.5 42.5 8 32 8z"/>
+                    <path fill="#ffffff" d="M22 24c-4.8 0-8.5 3.7-8.5 8.5 0 8.6 7.1 16.5 18.5 16.5s18.5-7.9 18.5-16.5C50.5 27.7 46.8 24 42 24c-4.5 0-7.4 2.1-10 5-2.6-2.9-5.5-5-10-5z"/>
+                    <circle cx="24.5" cy="30" r="2.6"/>
+                    <circle cx="39.5" cy="30" r="2.6"/>
+                    <path d="M28.8 39.2c1.8-1.9 4.6-1.9 6.4 0l1.1 1.1c1 1 1 2.7 0 3.7l-1.8 1.8c-1.4 1.4-3.7 1.4-5.1 0L27.7 44c-1-1-1-2.7 0-3.7l1.1-1.1z"/>
+                    <rect x="25" y="47.5" width="14" height="3.6" rx="1.8"/>
+                  </svg>
+                </span>
                 <div>
                   <strong>APE Solutions</strong>
                   <span>We fix the parts everyone hates doing</span>
