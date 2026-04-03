@@ -19,20 +19,20 @@
     :root {
       --bg: #f7fbff;
       --bg-soft: #eef7fc;
-      --surface: rgba(255, 255, 255, 0.88);
+      --surface: rgba(255, 255, 255, 0.9);
       --surface-strong: #ffffff;
-      --line: rgba(28, 68, 107, 0.10);
+      --line: rgba(28, 68, 107, 0.1);
       --text: #14324f;
       --muted: #61788d;
       --primary: #1c446b;
-      --primary-2: #2e78a6;
-      --primary-3: #72c7e5;
-      --accent: #b78cf3;
-      --accent-strong: #9a6ee6;
-      --accent-soft: rgba(183, 140, 243, 0.14);
+      --primary-2: #2f79a8;
+      --primary-3: #77c7e3;
+      --accent: #a98cf0;
+      --accent-strong: #8f72e0;
+      --accent-soft: rgba(169, 140, 240, 0.14);
       --warm-soft: rgba(255, 207, 157, 0.18);
       --white: #ffffff;
-      --shadow: 0 18px 40px rgba(27, 88, 131, 0.10);
+      --shadow: 0 18px 40px rgba(27, 88, 131, 0.1);
       --shadow-strong: 0 28px 70px rgba(27, 88, 131, 0.14);
       --radius-xl: 34px;
       --radius-lg: 28px;
@@ -40,7 +40,6 @@
       --radius-sm: 18px;
       --max: 1180px;
       --header-height: 82px;
-      --logo-color: #1c446b;
     }
 
     * {
@@ -56,7 +55,7 @@
       font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       background:
         radial-gradient(circle at top left, rgba(114, 199, 229, 0.16), transparent 24%),
-        radial-gradient(circle at top right, rgba(183, 140, 243, 0.10), transparent 18%),
+        radial-gradient(circle at top right, rgba(183, 140, 243, 0.1), transparent 18%),
         linear-gradient(180deg, #fbfdff 0%, #eef8fc 100%);
       color: var(--text);
       line-height: 1.6;
@@ -91,7 +90,7 @@
       top: 0;
       z-index: 1000;
       backdrop-filter: blur(18px);
-      background: rgba(255, 255, 255, 0.82);
+      background: rgba(255, 255, 255, 0.84);
       border-bottom: 1px solid rgba(28, 68, 107, 0.08);
     }
 
@@ -113,23 +112,29 @@
       flex-shrink: 0;
     }
 
-    .monkey-logo {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
+    .brand-logo {
+      width: 58px;
+      height: 58px;
+      display: grid;
+      place-items: center;
       flex-shrink: 0;
-      color: var(--logo-color);
-      filter: drop-shadow(0 6px 12px rgba(28, 68, 107, 0.16));
     }
 
-    .brand .monkey-logo {
-      width: 46px;
-      height: 46px;
-    }
-
-    .brand .monkey-logo svg {
+    .brand-logo img {
       width: 100%;
       height: 100%;
+      object-fit: contain;
+      background: transparent;
+      border: none;
+      padding: 0;
+      border-radius: 0;
+      box-shadow: none;
+      opacity: 0.98;
+      mix-blend-mode: multiply;
+      filter:
+        saturate(1.02)
+        contrast(1.06)
+        drop-shadow(0 6px 14px rgba(28, 68, 107, 0.12));
     }
 
     .brand span {
@@ -223,7 +228,7 @@
       bottom: -90px;
       background: radial-gradient(
         circle,
-        rgba(183, 140, 243, 0.20) 0%,
+        rgba(183, 140, 243, 0.2) 0%,
         rgba(183, 140, 243, 0.03) 64%,
         transparent 76%
       );
@@ -247,13 +252,13 @@
       padding: 11px 17px;
       border-radius: 999px;
       background: rgba(255, 255, 255, 0.12);
-      border: 1px solid rgba(255, 255, 255, 0.20);
+      border: 1px solid rgba(255, 255, 255, 0.2);
       color: rgba(255, 255, 255, 0.98);
       font-size: 0.9rem;
       font-weight: 700;
       letter-spacing: 0.01em;
       margin-bottom: 20px;
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.08);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
     }
 
     .hero h1 {
@@ -318,7 +323,7 @@
     .btn-primary {
       background: white;
       color: var(--primary);
-      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.10);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
     }
 
     .btn-primary:hover {
@@ -326,7 +331,7 @@
     }
 
     .btn-secondary {
-      background: rgba(255, 255, 255, 0.10);
+      background: rgba(255, 255, 255, 0.1);
       color: white;
       border: 1px solid rgba(255, 255, 255, 0.28);
     }
@@ -355,16 +360,18 @@
       margin-bottom: 20px;
     }
 
-    .hero-profile .monkey-logo {
-      width: 60px;
-      height: 60px;
-      color: #ffffff;
-      filter: drop-shadow(0 8px 16px rgba(7, 25, 42, 0.22));
+    .hero-profile .brand-logo {
+      width: 62px;
+      height: 62px;
     }
 
-    .hero-profile .monkey-logo svg {
-      width: 100%;
-      height: 100%;
+    .hero-profile .brand-logo img {
+      mix-blend-mode: screen;
+      opacity: 0.98;
+      filter:
+        brightness(1.18)
+        contrast(1.08)
+        drop-shadow(0 8px 16px rgba(7, 25, 42, 0.18));
     }
 
     .hero-profile strong {
@@ -402,7 +409,7 @@
       color: #efe6ff;
       font-weight: 900;
       font-size: 0.98rem;
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.18);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18);
     }
 
     .hero-point b {
@@ -413,7 +420,7 @@
 
     .hero-point span {
       display: block;
-      color: rgba(255, 255, 255, 0.80);
+      color: rgba(255, 255, 255, 0.8);
       font-size: 0.91rem;
       line-height: 1.45;
     }
@@ -448,7 +455,7 @@
       padding: 34px;
       border-radius: 28px;
       background:
-        linear-gradient(180deg, rgba(255,255,255,0.96), rgba(247,252,255,0.92)),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(247, 252, 255, 0.92)),
         linear-gradient(135deg, rgba(114, 199, 229, 0.08), rgba(183, 140, 243, 0.06));
       border: 1px solid rgba(28, 68, 107, 0.08);
       box-shadow: 0 20px 50px rgba(28, 68, 107, 0.06);
@@ -495,8 +502,8 @@
       overflow: hidden;
       padding: 30px;
       background:
-        linear-gradient(180deg, rgba(255,255,255,0.98), rgba(252,254,255,0.94)),
-        linear-gradient(135deg, rgba(114, 199, 229, 0.14), rgba(183, 140, 243, 0.10));
+        linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(252, 254, 255, 0.94)),
+        linear-gradient(135deg, rgba(114, 199, 229, 0.14), rgba(183, 140, 243, 0.1));
       border: 1px solid rgba(28, 68, 107, 0.06);
     }
 
@@ -516,11 +523,20 @@
       display: grid;
       place-items: center;
       margin-bottom: 16px;
-      background: linear-gradient(180deg, rgba(114, 199, 229, 0.16), rgba(183, 140, 243, 0.14));
+      background: linear-gradient(180deg, rgba(114, 199, 229, 0.14), rgba(183, 140, 243, 0.12));
       color: var(--primary);
-      font-size: 1.2rem;
-      font-weight: 900;
       border: 1px solid rgba(28, 68, 107, 0.08);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.4);
+    }
+
+    .audience-icon svg {
+      width: 24px;
+      height: 24px;
+      stroke: currentColor;
+      stroke-width: 2;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
     }
 
     .audience-card h3 {
@@ -615,8 +631,8 @@
       position: relative;
       overflow: hidden;
       background:
-        radial-gradient(circle at top right, rgba(183, 140, 243, 0.10), transparent 24%),
-        linear-gradient(180deg, rgba(255,255,255,0.97), rgba(248,252,255,0.95));
+        radial-gradient(circle at top right, rgba(183, 140, 243, 0.1), transparent 24%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.97), rgba(248, 252, 255, 0.95));
     }
 
     .reason-stack {
@@ -865,7 +881,7 @@
       padding: 54px 42px 34px;
       border-radius: 34px;
       background:
-        radial-gradient(circle at top left, rgba(114, 199, 229, 0.10), transparent 26%),
+        radial-gradient(circle at top left, rgba(114, 199, 229, 0.1), transparent 26%),
         radial-gradient(circle at top right, rgba(183, 140, 243, 0.08), transparent 22%),
         linear-gradient(180deg, #f6fbff 0%, #edf6fb 100%);
       border: 1px solid rgba(28, 68, 107, 0.06);
@@ -920,7 +936,7 @@
         linear-gradient(135deg, #8f84f6 0%, #5f8dff 100%);
       background-origin: border-box;
       background-clip: padding-box, border-box;
-      box-shadow: 0 12px 26px rgba(57, 106, 161, 0.10);
+      box-shadow: 0 12px 26px rgba(57, 106, 161, 0.1);
       display: grid;
       place-items: center;
       z-index: 2;
@@ -993,7 +1009,7 @@
       width: 260px;
       height: 260px;
       border-radius: 50%;
-      background: rgba(255, 255, 255, 0.10);
+      background: rgba(255, 255, 255, 0.1);
       top: -80px;
       right: -80px;
     }
@@ -1167,17 +1183,8 @@
   <header class="site-header">
     <div class="container header-inner">
       <a href="#home" class="brand" aria-label="APE Solutions home">
-        <span class="monkey-logo" aria-hidden="true">
-          <svg viewBox="0 0 64 64" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="15" cy="28" r="8"/>
-            <circle cx="49" cy="28" r="8"/>
-            <path d="M32 8C21.5 8 13 16.5 13 27v9c0 11 8.5 20 19 20s19-9 19-20v-9C51 16.5 42.5 8 32 8z"/>
-            <path fill="#ffffff" d="M22 24c-4.8 0-8.5 3.7-8.5 8.5 0 8.6 7.1 16.5 18.5 16.5s18.5-7.9 18.5-16.5C50.5 27.7 46.8 24 42 24c-4.5 0-7.4 2.1-10 5-2.6-2.9-5.5-5-10-5z"/>
-            <circle cx="24.5" cy="30" r="2.6"/>
-            <circle cx="39.5" cy="30" r="2.6"/>
-            <path d="M28.8 39.2c1.8-1.9 4.6-1.9 6.4 0l1.1 1.1c1 1 1 2.7 0 3.7l-1.8 1.8c-1.4 1.4-3.7 1.4-5.1 0L27.7 44c-1-1-1-2.7 0-3.7l1.1-1.1z"/>
-            <rect x="25" y="47.5" width="14" height="3.6" rx="1.8"/>
-          </svg>
+        <span class="brand-logo">
+          <img src="logo-seamless.png" alt="APE Solutions logo" />
         </span>
         <div>
           <span>APE Solutions</span>
@@ -1224,17 +1231,8 @@
 
             <aside class="hero-card" aria-label="Highlights">
               <div class="hero-profile">
-                <span class="monkey-logo" aria-hidden="true">
-                  <svg viewBox="0 0 64 64" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="15" cy="28" r="8"/>
-                    <circle cx="49" cy="28" r="8"/>
-                    <path d="M32 8C21.5 8 13 16.5 13 27v9c0 11 8.5 20 19 20s19-9 19-20v-9C51 16.5 42.5 8 32 8z"/>
-                    <path fill="#ffffff" d="M22 24c-4.8 0-8.5 3.7-8.5 8.5 0 8.6 7.1 16.5 18.5 16.5s18.5-7.9 18.5-16.5C50.5 27.7 46.8 24 42 24c-4.5 0-7.4 2.1-10 5-2.6-2.9-5.5-5-10-5z"/>
-                    <circle cx="24.5" cy="30" r="2.6"/>
-                    <circle cx="39.5" cy="30" r="2.6"/>
-                    <path d="M28.8 39.2c1.8-1.9 4.6-1.9 6.4 0l1.1 1.1c1 1 1 2.7 0 3.7l-1.8 1.8c-1.4 1.4-3.7 1.4-5.1 0L27.7 44c-1-1-1-2.7 0-3.7l1.1-1.1z"/>
-                    <rect x="25" y="47.5" width="14" height="3.6" rx="1.8"/>
-                  </svg>
+                <span class="brand-logo">
+                  <img src="logo-seamless.png" alt="APE Solutions logo" />
                 </span>
                 <div>
                   <strong>APE Solutions</strong>
@@ -1287,7 +1285,13 @@
 
           <div class="audience-grid">
             <div class="audience-card">
-              <div class="audience-icon">◫</div>
+              <div class="audience-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <rect x="3" y="7" width="18" height="12" rx="2"></rect>
+                  <path d="M8 7V5.8C8 4.8 8.8 4 9.8 4h4.4C15.2 4 16 4.8 16 5.8V7"></path>
+                  <path d="M3 11h18"></path>
+                </svg>
+              </div>
               <h3>For companies</h3>
               <p>
                 Built for teams that need outreach to feel cleaner, more strategic and less chaotic.
@@ -1300,7 +1304,11 @@
             </div>
 
             <div class="audience-card">
-              <div class="audience-icon">✦</div>
+              <div class="audience-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path d="M12 3l1.9 4.6L18.5 9l-4.6 1.4L12 15l-1.9-4.6L5.5 9l4.6-1.4L12 3z"></path>
+                </svg>
+              </div>
               <h3>For individuals</h3>
               <p>
                 For people who need clarity, sharper positioning and a better way to get noticed.
