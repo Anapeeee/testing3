@@ -19,9 +19,9 @@
     :root {
       --bg: #f6fbff;
       --bg-soft: #eef6fb;
-      --surface: rgba(255, 255, 255, 0.92);
+      --surface: rgba(255, 255, 255, 0.94);
       --surface-strong: #ffffff;
-      --line: rgba(28, 68, 107, 0.1);
+      --line: rgba(28, 68, 107, 0.09);
       --text: #163554;
       --muted: #60798f;
       --primary: #1c446b;
@@ -32,14 +32,13 @@
       --accent-soft: rgba(168, 140, 240, 0.14);
       --warm-soft: rgba(255, 208, 159, 0.18);
       --white: #ffffff;
-      --success-soft: rgba(117, 200, 142, 0.12);
-      --shadow: 0 18px 40px rgba(27, 88, 131, 0.09);
+      --shadow: 0 18px 40px rgba(27, 88, 131, 0.08);
       --shadow-strong: 0 28px 70px rgba(27, 88, 131, 0.14);
       --radius-xl: 34px;
       --radius-lg: 28px;
       --radius-md: 22px;
       --radius-sm: 18px;
-      --max: 1180px;
+      --max: 1240px;
       --header-height: 84px;
     }
 
@@ -56,7 +55,7 @@
       font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       background:
         radial-gradient(circle at top left, rgba(117, 200, 229, 0.16), transparent 24%),
-        radial-gradient(circle at top right, rgba(183, 140, 243, 0.1), transparent 18%),
+        radial-gradient(circle at top right, rgba(183, 140, 243, 0.08), transparent 18%),
         linear-gradient(180deg, #fbfdff 0%, #eef8fc 100%);
       color: var(--text);
       line-height: 1.6;
@@ -114,34 +113,31 @@
     }
 
     .brand-logo {
-      width: 62px;
-      height: 62px;
+      width: 68px;
+      height: 68px;
       display: grid;
       place-items: center;
       flex-shrink: 0;
-      border-radius: 20px;
-      padding: 9px;
-      background:
-        linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(244, 250, 255, 0.94));
-      border: 1px solid rgba(28, 68, 107, 0.1);
+      border-radius: 999px;
+      padding: 8px;
+      background: linear-gradient(180deg, #ffffff 0%, #f3f7fb 100%);
+      border: 1px solid rgba(255, 255, 255, 0.78);
       box-shadow:
-        0 12px 28px rgba(28, 68, 107, 0.12),
-        inset 0 1px 0 rgba(255, 255, 255, 0.7);
+        0 10px 24px rgba(28, 68, 107, 0.16),
+        inset 0 0 0 7px #ffffff,
+        inset 0 0 0 8px rgba(28, 68, 107, 0.06);
+      overflow: hidden;
     }
 
     .brand-logo img {
       width: 100%;
       height: 100%;
-      object-fit: contain;
-      background: transparent;
-      border: none;
-      padding: 0;
-      border-radius: 0;
-      box-shadow: none;
+      object-fit: cover;
+      border-radius: 999px;
       filter:
-        saturate(1.04)
-        contrast(1.06)
-        drop-shadow(0 6px 14px rgba(28, 68, 107, 0.12));
+        saturate(1.02)
+        contrast(1.04)
+        drop-shadow(0 4px 10px rgba(28, 68, 107, 0.08));
     }
 
     .brand span {
@@ -235,7 +231,7 @@
       bottom: -90px;
       background: radial-gradient(
         circle,
-        rgba(183, 140, 243, 0.2) 0%,
+        rgba(183, 140, 243, 0.18) 0%,
         rgba(183, 140, 243, 0.03) 64%,
         transparent 76%
       );
@@ -292,7 +288,7 @@
       font-size: clamp(1.08rem, 1.95vw, 1.45rem);
       font-weight: 700;
       line-height: 1.24;
-      max-width: 22ch;
+      max-width: 24ch;
     }
 
     .hero-copy {
@@ -302,12 +298,20 @@
       font-size: 1rem;
     }
 
-    .hero-scan-list {
+    .hero-scan-list,
+    .audience-list,
+    .service-list,
+    .course-list,
+    .simple-list {
       list-style: none;
       padding: 0;
-      margin: 24px 0 0;
+      margin: 0;
       display: grid;
       gap: 10px;
+    }
+
+    .hero-scan-list {
+      margin-top: 24px;
       max-width: 50ch;
     }
 
@@ -320,13 +324,20 @@
       line-height: 1.45;
     }
 
-    .hero-scan-list li::before {
+    .hero-scan-list li::before,
+    .audience-list li::before,
+    .course-list li::before,
+    .simple-list li::before {
       content: "•";
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       line-height: 1;
-      color: #efe6ff;
+      color: var(--accent-strong);
       margin-top: 1px;
       font-weight: 900;
+    }
+
+    .hero-scan-list li::before {
+      color: #efe6ff;
     }
 
     .hero-actions {
@@ -395,21 +406,14 @@
     }
 
     .hero-profile .brand-logo {
-      width: 64px;
-      height: 64px;
-      background:
-        linear-gradient(180deg, rgba(255,255,255,0.96), rgba(235, 246, 255, 0.9));
-      border: 1px solid rgba(255, 255, 255, 0.28);
+      width: 72px;
+      height: 72px;
+      background: linear-gradient(180deg, #ffffff 0%, #eef4f8 100%);
+      border: 1px solid rgba(255, 255, 255, 0.78);
       box-shadow:
-        0 14px 28px rgba(7, 25, 42, 0.15),
-        inset 0 1px 0 rgba(255,255,255,0.72);
-    }
-
-    .hero-profile .brand-logo img {
-      filter:
-        brightness(1.06)
-        contrast(1.06)
-        drop-shadow(0 8px 16px rgba(7, 25, 42, 0.14));
+        0 12px 28px rgba(7, 25, 42, 0.16),
+        inset 0 0 0 8px #ffffff,
+        inset 0 0 0 9px rgba(28, 68, 107, 0.05);
     }
 
     .hero-profile strong {
@@ -467,13 +471,15 @@
       padding: 46px 0;
     }
 
-    .section-head {
-      max-width: 760px;
+    .section-head,
+    .courses-intro {
+      max-width: 780px;
       margin: 0 auto 32px;
       text-align: center;
     }
 
-    .section-head h2 {
+    .section-head h2,
+    .courses-intro h2 {
       margin: 0 0 14px;
       color: var(--primary);
       font-size: clamp(2rem, 4vw, 3rem);
@@ -481,7 +487,8 @@
       line-height: 1.04;
     }
 
-    .section-head p {
+    .section-head p,
+    .courses-intro p {
       margin: 0;
       color: var(--muted);
       font-size: 1.02rem;
@@ -533,10 +540,22 @@
       white-space: nowrap;
     }
 
-    .audience-grid {
+    .audience-grid,
+    .about-grid,
+    .courses-grid,
+    .process-track,
+    .contact-grid {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 22px;
+    }
+
+    .audience-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .about-grid {
+      grid-template-columns: 1.02fr 0.98fr;
+      align-items: stretch;
     }
 
     .audience-card,
@@ -544,9 +563,7 @@
     .service-card,
     .course-card,
     .contact-card,
-    .cta-panel,
-    .testimonial-card,
-    .trust-card {
+    .cta-panel {
       background: var(--surface);
       backdrop-filter: blur(8px);
       border: 1px solid var(--line);
@@ -608,63 +625,15 @@
       color: var(--muted);
     }
 
-    .audience-list,
-    .service-list,
-    .course-list,
-    .simple-list,
-    .trust-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: grid;
-      gap: 10px;
-    }
-
     .audience-list li,
-    .service-list li,
     .course-list li,
-    .simple-list li,
-    .trust-list li {
+    .simple-list li {
       display: flex;
       gap: 10px;
       align-items: flex-start;
+      color: #4d677a;
       font-size: 0.94rem;
       line-height: 1.45;
-    }
-
-    .audience-list li {
-      color: #4d677a;
-    }
-
-    .audience-list li::before,
-    .course-list li::before,
-    .simple-list li::before,
-    .trust-list li::before {
-      content: "•";
-      color: var(--accent-strong);
-      font-weight: 900;
-      font-size: 1.1rem;
-      line-height: 1;
-      margin-top: 1px;
-    }
-
-    .service-list li {
-      color: #426074;
-    }
-
-    .service-list li::before {
-      content: "✓";
-      color: var(--accent-strong);
-      font-weight: 900;
-      line-height: 1.2;
-      margin-top: 1px;
-    }
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1.02fr 0.98fr;
-      gap: 24px;
-      align-items: stretch;
     }
 
     .panel {
@@ -766,27 +735,8 @@
       flex-shrink: 0;
     }
 
-    .split-section {
-      position: relative;
-      margin-top: 34px;
-      padding-top: 16px;
-    }
-
-    .split-section::before {
-      content: "";
-      display: block;
-      width: 100%;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(28, 68, 107, 0.18), transparent);
-      margin-bottom: 28px;
-    }
-
     .services-group {
-      margin-top: 28px;
-    }
-
-    .services-group:first-of-type {
-      margin-top: 0;
+      margin-top: 10px;
     }
 
     .services-group-title {
@@ -829,18 +779,25 @@
 
     .services-wrap {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 22px;
+      align-items: stretch;
     }
 
     .service-card {
       position: relative;
-      display: block;
+      display: flex;
+      flex-direction: column;
       padding: 26px;
-      background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(255, 255, 255, 0.88));
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.97), rgba(255, 255, 255, 0.9));
       overflow: hidden;
       min-height: 100%;
       transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    }
+
+    .service-card:nth-child(2),
+    .service-card:nth-child(4) {
+      transform: translateY(20px);
     }
 
     .service-card::before {
@@ -879,6 +836,7 @@
       background: linear-gradient(180deg, rgba(117, 200, 229, 0.18), rgba(183, 140, 243, 0.12));
       border: 1px solid rgba(28, 68, 107, 0.08);
       font-weight: 900;
+      flex-shrink: 0;
     }
 
     .price {
@@ -895,25 +853,38 @@
     }
 
     .service-card h4 {
-      margin: 0 0 8px;
+      margin: 0 0 10px;
       color: var(--text);
-      font-size: 1.25rem;
+      font-size: 1.15rem;
       letter-spacing: -0.03em;
-    }
-
-    .service-sub {
-      margin: 0 0 12px;
-      color: var(--primary);
-      font-size: 0.9rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
+      min-height: 58px;
     }
 
     .service-card p {
       margin: 0 0 18px;
       color: var(--muted);
-      font-size: 0.96rem;
+      font-size: 0.95rem;
+    }
+
+    .service-list {
+      margin-top: auto;
+    }
+
+    .service-list li {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      color: #426074;
+      font-size: 0.93rem;
+      line-height: 1.45;
+    }
+
+    .service-list li::before {
+      content: "✓";
+      color: var(--accent-strong);
+      font-weight: 900;
+      line-height: 1.2;
+      margin-top: 1px;
     }
 
     .service-cta {
@@ -928,7 +899,7 @@
 
     .cta-panel {
       padding: 28px;
-      margin-top: 26px;
+      margin-top: 42px;
       background:
         linear-gradient(180deg, rgba(255,255,255,0.98), rgba(247,252,255,0.94)),
         linear-gradient(135deg, rgba(117,200,229,0.08), rgba(183,140,243,0.06));
@@ -966,97 +937,8 @@
       text-align: center;
     }
 
-    .trust-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 22px;
-      margin-top: 26px;
-    }
-
-    .trust-card {
-      padding: 24px;
-      background:
-        linear-gradient(180deg, rgba(255,255,255,0.98), rgba(250,253,255,0.95));
-    }
-
-    .trust-card h3 {
-      margin: 0 0 10px;
-      color: var(--primary);
-      font-size: 1.12rem;
-      letter-spacing: -0.03em;
-    }
-
-    .trust-card p {
-      margin: 0 0 14px;
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
-    .trust-list li {
-      color: #476277;
-    }
-
-    .testimonials-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 22px;
-      margin-top: 24px;
-    }
-
-    .testimonial-card {
-      padding: 26px;
-      background:
-        linear-gradient(180deg, rgba(255,255,255,0.98), rgba(247,252,255,0.94));
-    }
-
-    .testimonial-card p {
-      margin: 0 0 14px;
-      color: var(--text);
-      font-size: 1rem;
-      line-height: 1.6;
-    }
-
-    .testimonial-card strong {
-      color: var(--primary);
-      font-size: 0.95rem;
-      display: block;
-    }
-
-    .testimonial-card span {
-      color: var(--muted);
-      font-size: 0.9rem;
-      display: block;
-      margin-top: 4px;
-    }
-
-    .courses-wrap {
-      display: grid;
-      gap: 22px;
-    }
-
-    .courses-intro {
-      max-width: 760px;
-      margin: 0 auto 8px;
-      text-align: center;
-    }
-
-    .courses-intro h2 {
-      margin: 0 0 12px;
-      color: var(--primary);
-      font-size: clamp(2rem, 4vw, 3rem);
-      letter-spacing: -0.04em;
-      line-height: 1.04;
-    }
-
-    .courses-intro p {
-      margin: 0;
-      color: var(--muted);
-    }
-
     .courses-grid {
-      display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 22px;
     }
 
     .course-card {
@@ -1074,23 +956,15 @@
       font-weight: 900;
       text-transform: uppercase;
       letter-spacing: 0.04em;
-      margin-bottom: 14px;
+      margin-bottom: 16px;
     }
 
     .course-card h3 {
-      margin: 0 0 8px;
+      margin: 0 0 14px;
       color: var(--primary);
-      font-size: 1.22rem;
+      font-size: 1.28rem;
       letter-spacing: -0.03em;
-    }
-
-    .course-label {
-      margin: 0 0 12px;
-      color: var(--primary);
-      font-size: 0.88rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
+      min-height: auto;
     }
 
     .course-card p {
@@ -1103,6 +977,11 @@
       font-weight: 900;
       margin-bottom: 12px;
       font-size: 1rem;
+    }
+
+    .course-list li {
+      color: #4d677a;
+      font-size: 0.94rem;
     }
 
     .process-section {
@@ -1124,7 +1003,7 @@
     }
 
     .process-intro {
-      max-width: 680px;
+      max-width: 700px;
       margin: 0 auto 34px;
       text-align: center;
     }
@@ -1144,9 +1023,7 @@
     }
 
     .process-track {
-      display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 22px;
       align-items: stretch;
     }
 
@@ -1251,9 +1128,7 @@
 
     .contact-grid {
       position: relative;
-      display: grid;
       grid-template-columns: 1fr auto;
-      gap: 24px;
       align-items: center;
     }
 
@@ -1311,17 +1186,24 @@
       font-weight: 800;
     }
 
-    @media (max-width: 1120px) {
+    @media (max-width: 1180px) {
       .hero-grid,
       .about-grid,
       .audience-grid,
       .courses-grid,
       .process-track,
       .contact-grid,
-      .trust-grid,
-      .testimonials-grid,
       .cta-panel-inner {
         grid-template-columns: 1fr;
+      }
+
+      .services-wrap {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .service-card:nth-child(2),
+      .service-card:nth-child(4) {
+        transform: none;
       }
 
       .hero-grid {
@@ -1379,9 +1261,7 @@
       .service-card,
       .course-card,
       .contact-card,
-      .cta-panel,
-      .testimonial-card,
-      .trust-card {
+      .cta-panel {
         padding: 22px;
       }
 
@@ -1408,9 +1288,13 @@
         width: 100%;
       }
 
-      .services-group-title {
-        flex-direction: column;
-        align-items: flex-start;
+      .services-wrap {
+        grid-template-columns: 1fr;
+      }
+
+      .service-card:nth-child(2),
+      .service-card:nth-child(4) {
+        transform: none;
       }
 
       .process-shell {
@@ -1461,7 +1345,7 @@
               </h1>
 
               <div class="hero-kicker">
-                Jobs. Leads. Deliverability. Messaging.
+                Jobs. Leads. Deliverability.
               </div>
 
               <p class="hero-copy">
@@ -1469,9 +1353,9 @@
               </p>
 
               <ul class="hero-scan-list">
-                <li>For companies that need cleaner outreach and stronger systems.</li>
-                <li>For individuals who need sharper positioning and a better way to get noticed.</li>
-                <li>Done with you or done for you, depending on how involved you want to be.</li>
+                <li>For companies that need sharper outreach and stronger systems.</li>
+                <li>For individuals who need better positioning and clearer direction.</li>
+                <li>Hands-on help or practical guidance, depending on what you need.</li>
               </ul>
 
               <div class="hero-actions">
@@ -1487,7 +1371,7 @@
                 </span>
                 <div>
                   <strong>APE Solutions</strong>
-                  <span>We fix the parts everyone hates doing</span>
+                  <span>We fix the parts people usually avoid</span>
                 </div>
               </div>
 
@@ -1511,7 +1395,7 @@
                 <div class="hero-point">
                   <div class="icon-badge">✓</div>
                   <div>
-                    <b>Inboxing badly?</b>
+                    <b>Landing badly?</b>
                     <span>We look at setup, deliverability and campaign logic before your outreach burns itself out.</span>
                   </div>
                 </div>
@@ -1580,6 +1464,7 @@
             <p>
               Most people are not missing effort. They are missing clarity, structure and clean execution.
             </p>
+
             <ul class="simple-list">
               <li>Sharper positioning so people understand who you are and why they should care</li>
               <li>Better messaging so your emails, profiles and outreach stop blending in</li>
@@ -1604,8 +1489,8 @@
               </div>
 
               <div class="stat">
-                <strong>Done-for-you</strong>
-                <span>available when you want the result without carrying the whole load</span>
+                <strong>Flexible</strong>
+                <span>you can get guidance, setup help or ongoing support</span>
               </div>
             </div>
           </div>
@@ -1643,62 +1528,6 @@
             </div>
           </div>
         </div>
-
-        <div class="trust-grid">
-          <div class="trust-card">
-            <h3>Practical, not performative</h3>
-            <p>
-              No fake guru voice. No bloated strategies. No vague advice that sounds nice and fixes nothing.
-            </p>
-            <ul class="trust-list">
-              <li>Clear direction</li>
-              <li>Clean execution</li>
-              <li>Useful fixes</li>
-            </ul>
-          </div>
-
-          <div class="trust-card">
-            <h3>Built around real friction</h3>
-            <p>
-              We focus on the places where people usually lose time, lose trust, or lose opportunities.
-            </p>
-            <ul class="trust-list">
-              <li>Messaging that misses</li>
-              <li>Positioning that feels flat</li>
-              <li>Outreach that dies quietly</li>
-            </ul>
-          </div>
-
-          <div class="trust-card">
-            <h3>Honest scope</h3>
-            <p>
-              You will know whether you need a service, coaching, or a self-serve course. No confusion, no bait and switch.
-            </p>
-            <ul class="trust-list">
-              <li>Done-for-you services</li>
-              <li>1:1 guidance</li>
-              <li>Learn-it-yourself courses</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="testimonials-grid">
-          <div class="testimonial-card">
-            <p>
-              “What I liked most was that nothing felt vague. We got clear direction fast, fixed what was messy, and finally had outreach that made sense.”
-            </p>
-            <strong>Client feedback</strong>
-            <span>Positioning and outreach support</span>
-          </div>
-
-          <div class="testimonial-card">
-            <p>
-              “We were overthinking everything. They stripped the noise out, tightened the setup, and gave us a version of the process we could actually use.”
-            </p>
-            <strong>Client feedback</strong>
-            <span>Systems and deliverability support</span>
-          </div>
-        </div>
       </div>
     </section>
 
@@ -1708,7 +1537,7 @@
           <div class="section-label">Services</div>
           <h2>Pick the part you need fixed</h2>
           <p>
-            Or let us look at the whole thing and tell you what is actually broken.
+            Or let us look at the whole thing and tell you what is actually getting in the way.
           </p>
         </div>
 
@@ -1716,9 +1545,9 @@
           <div class="services-group-title">
             <div>
               <div class="group-tag">For companies</div>
-              <h3>Done-for-you company support</h3>
+              <h3>Company support</h3>
               <p>
-                Best for teams that need clearer outreach, stronger systems and a cleaner path to conversations.
+                Built for teams that need clearer outreach, stronger systems and a cleaner path to conversations.
               </p>
             </div>
           </div>
@@ -1730,7 +1559,6 @@
                 <div class="price">From €100</div>
               </div>
 
-              <div class="service-sub">Service</div>
               <h4>Email Outreach Setup</h4>
               <p>
                 We build the email system so you know what to send, who to send it to and how to send it without making a mess.
@@ -1751,7 +1579,6 @@
                 <div class="price">From €200</div>
               </div>
 
-              <div class="service-sub">Service</div>
               <h4>LinkedIn Outreach Setup</h4>
               <p>
                 We turn LinkedIn into something useful instead of random connection requests and awkward follow-ups.
@@ -1772,7 +1599,6 @@
                 <div class="price">Monthly</div>
               </div>
 
-              <div class="service-sub">Service</div>
               <h4>Campaign Management</h4>
               <p>
                 We keep your outreach running cleaner and more usefully over time so it does not fall apart after week one.
@@ -1794,10 +1620,9 @@
                 <div class="price">Custom</div>
               </div>
 
-              <div class="service-sub">Service</div>
               <h4>Deliverability Audit</h4>
               <p>
-                If emails are landing badly, we look at the setup, the patterns and the weak points before you waste more sends.
+                If emails are landing badly, we look at the setup, patterns and weak points before you waste more sends.
               </p>
 
               <ul class="service-list">
@@ -1813,92 +1638,12 @@
           <div class="cta-panel">
             <div class="cta-panel-inner">
               <div>
-                <h3>Need someone to look at the whole thing?</h3>
+                <h3>Need a second set of eyes?</h3>
                 <p>
                   If you are not sure whether the problem is messaging, setup, positioning or deliverability, start with a free audit request and we will point you in the right direction.
                 </p>
               </div>
               <a href="mailto:info@apecstudio.com?subject=Free%20Audit%20Request" class="btn btn-primary">Request a free audit</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="split-section">
-          <div class="services-group">
-            <div class="services-group-title">
-              <div>
-                <div class="group-tag">For individuals</div>
-                <h3>Done-for-you personal support</h3>
-                <p>
-                  Best for people who want sharper positioning, stronger materials and less guesswork around how they show up.
-                </p>
-              </div>
-            </div>
-
-            <div class="services-wrap">
-              <a class="service-card" href="mailto:info@apecstudio.com?subject=LinkedIn%20Profile%20Optimization%20Inquiry" aria-label="LinkedIn Profile Optimization">
-                <div class="service-top">
-                  <div class="service-icon">in</div>
-                  <div class="price">€200 to €500</div>
-                </div>
-
-                <div class="service-sub">Service</div>
-                <h4>LinkedIn Profile Optimization</h4>
-                <p>
-                  We make your LinkedIn clearly show who you are, what you do and why someone should care.
-                </p>
-
-                <ul class="service-list">
-                  <li>Headline, About and experience rewrite</li>
-                  <li>Clear positioning and target direction</li>
-                  <li>Profile structure and content direction</li>
-                  <li>Competitor profile analysis</li>
-                </ul>
-
-                <span class="service-cta">Ask about this service →</span>
-              </a>
-
-              <a class="service-card" href="mailto:info@apecstudio.com?subject=CV%20and%20Personal%20Branding%20Inquiry" aria-label="CV and Personal Branding">
-                <div class="service-top">
-                  <div class="service-icon">CV</div>
-                  <div class="price">From €150</div>
-                </div>
-
-                <div class="service-sub">Service</div>
-                <h4>CV & Personal Branding</h4>
-                <p>
-                  If your CV feels flat or generic, we fix the story, structure and positioning behind it.
-                </p>
-
-                <ul class="service-list">
-                  <li>CV rewrite and structure improvement</li>
-                  <li>ATS-aware formatting and optimization</li>
-                  <li>Clear positioning aligned with your goals</li>
-                </ul>
-
-                <span class="service-cta">Ask about this service →</span>
-              </a>
-
-              <a class="service-card" href="mailto:info@apecstudio.com?subject=Coaching%20Inquiry" aria-label="Coaching">
-                <div class="service-top">
-                  <div class="service-icon">★</div>
-                  <div class="price">1:1</div>
-                </div>
-
-                <div class="service-sub">Service</div>
-                <h4>Coaching</h4>
-                <p>
-                  For people who want someone to actually tell them what to do, what to fix and what to stop wasting time on.
-                </p>
-
-                <ul class="service-list">
-                  <li>Profile, outreach or campaign reviews</li>
-                  <li>Positioning and message refinement</li>
-                  <li>Practical next steps you can use immediately</li>
-                </ul>
-
-                <span class="service-cta">Ask about this service →</span>
-              </a>
             </div>
           </div>
         </div>
@@ -1910,59 +1655,54 @@
     <section id="courses">
       <div class="container">
         <div class="courses-intro">
-          <div class="section-label">Self-serve</div>
+          <div class="section-label">Courses</div>
           <h2>Learn the playbook</h2>
           <p>
-            These are self-serve courses, not done-for-you services. Built for people who want the framework before paying for hands-on help.
+            Self-serve courses for people who want the framework before paying for hands-on help.
           </p>
         </div>
 
-        <div class="courses-wrap">
-          <div class="courses-grid">
-            <div class="course-card">
-              <div class="course-tag">Individual</div>
-              <div class="course-label">Course</div>
-              <h3>Get clearer positioning for job search</h3>
-              <p>
-                LinkedIn, CV, positioning, outreach and how to stop sounding like everyone else.
-              </p>
-              <div class="price-line">From €15</div>
-              <ul class="course-list">
-                <li>Short, useful lessons</li>
-                <li>Direct examples</li>
-                <li>Immediate fixes you can apply alone</li>
-              </ul>
-            </div>
+        <div class="courses-grid">
+          <div class="course-card">
+            <div class="course-tag">Individual</div>
+            <h3>Get Hired</h3>
+            <p>
+              LinkedIn, CV, positioning, outreach and how to stop sounding like everyone else.
+            </p>
+            <div class="price-line">From €15</div>
+            <ul class="course-list">
+              <li>Short, useful lessons</li>
+              <li>Direct examples</li>
+              <li>Immediate fixes you can apply alone</li>
+            </ul>
+          </div>
 
-            <div class="course-card">
-              <div class="course-tag">Company</div>
-              <div class="course-label">Course</div>
-              <h3>Build a cleaner lead generation system</h3>
-              <p>
-                Targeting, messaging, sequences, follow-up logic and why your outreach is not landing.
-              </p>
-              <div class="price-line">From €15</div>
-              <ul class="course-list">
-                <li>Built for founders and small teams</li>
-                <li>Practical system design</li>
-                <li>Less guesswork, more structure</li>
-              </ul>
-            </div>
+          <div class="course-card">
+            <div class="course-tag">Company</div>
+            <h3>Get Leads</h3>
+            <p>
+              Targeting, messaging, sequences, follow-up logic and why your outreach is not landing.
+            </p>
+            <div class="price-line">From €15</div>
+            <ul class="course-list">
+              <li>Built for founders and small teams</li>
+              <li>Practical system design</li>
+              <li>Less guesswork, more structure</li>
+            </ul>
+          </div>
 
-            <div class="course-card">
-              <div class="course-tag">Deliverability</div>
-              <div class="course-label">Course</div>
-              <h3>Spot what is quietly killing results</h3>
-              <p>
-                Deliverability, positioning and campaign mistakes that quietly damage performance.
-              </p>
-              <div class="price-line">From €15</div>
-              <ul class="course-list">
-                <li>Simple explanations</li>
-                <li>No fake guru tone</li>
-                <li>No fluff, just what matters</li>
-              </ul>
-            </div>
+          <div class="course-card">
+            <div class="course-tag">Deliverability</div>
+            <h3>Inbox Better</h3>
+            <p>
+              Deliverability, positioning and campaign mistakes that quietly damage performance.
+            </p>
+            <div class="price-line">From €15</div>
+            <ul class="course-list">
+              <li>Simple explanations</li>
+              <li>Clear examples</li>
+              <li>Only what matters</li>
+            </ul>
           </div>
         </div>
       </div>
@@ -1973,8 +1713,8 @@
         <div class="process-shell">
           <div class="process-intro">
             <div class="section-label">How it works</div>
-            <h2>Fast, clear and not weirdly overcomplicated</h2>
-            <p>We look at the real issue first, then decide whether you need a fix, guidance, or full handling.</p>
+            <h2>Clear, fast and easy to follow</h2>
+            <p>We look at the real issue first, then decide whether you need a fix, guidance, or full support.</p>
           </div>
 
           <div class="process-track">
@@ -1990,7 +1730,7 @@
               <div class="process-card">
                 <h3>We look</h3>
                 <p>
-                  We figure out what is actually broken instead of guessing based on symptoms.
+                  We figure out what is actually broken instead of guessing from symptoms.
                 </p>
               </div>
             </article>
@@ -2022,9 +1762,9 @@
                 </svg>
               </div>
               <div class="process-card">
-                <h3>We guide or do it</h3>
+                <h3>We guide</h3>
                 <p>
-                  You either get clear next steps or we handle the work for you, depending on what makes more sense.
+                  You either get clear next steps or we step in more directly where it makes sense.
                 </p>
               </div>
             </article>
@@ -2057,7 +1797,7 @@
             <div>
               <h2>Want us to handle it?</h2>
               <p>
-                If you are tired of overthinking LinkedIn, email, deliverability, campaigns or how you are showing up online, reach out. We’ll either show you the fix or do it for you.
+                If you are tired of overthinking LinkedIn, email, deliverability, campaigns or how you are showing up online, reach out. We’ll either show you the fix or help you sort it properly.
               </p>
             </div>
 
