@@ -3,59 +3,47 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>APE Solutions | Don’t think about it. We’ll fix it.</title>
-  <meta
-    name="description"
-    content="APE Solutions helps companies and individuals with LinkedIn, email, outreach, deliverability, and practical systems that actually work."
-  />
+  <title>APE Solutions | Don't think about it. We'll fix it.</title>
+  <meta name="description" content="APE Solutions helps companies and individuals with LinkedIn, email, outreach, and done-for-you systems." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
-    rel="stylesheet"
-  />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet" />
 
   <style>
     :root {
-      --bg: #f6fbff;
-      --bg-soft: #eef6fb;
-      --surface: rgba(255, 255, 255, 0.94);
+      --bg: #f7fbff;
+      --bg-soft: #eef7fc;
+      --surface: rgba(255,255,255,0.9);
       --surface-strong: #ffffff;
-      --line: rgba(28, 68, 107, 0.09);
-      --text: #163554;
-      --muted: #60798f;
+      --line: rgba(28,68,107,0.1);
+      --text: #14324f;
+      --muted: #61788d;
       --primary: #1c446b;
       --primary-2: #2f79a8;
-      --primary-3: #75c8e5;
-      --accent: #a88cf0;
-      --accent-strong: #8d71df;
-      --accent-soft: rgba(168, 140, 240, 0.14);
-      --warm-soft: rgba(255, 208, 159, 0.18);
+      --primary-3: #77c7e3;
+      --accent: #a98cf0;
+      --accent-strong: #8f72e0;
+      --accent-soft: rgba(169,140,240,0.14);
       --white: #ffffff;
-      --shadow: 0 18px 40px rgba(27, 88, 131, 0.08);
-      --shadow-strong: 0 28px 70px rgba(27, 88, 131, 0.14);
+      --shadow: 0 18px 40px rgba(27,88,131,0.1);
+      --shadow-strong: 0 28px 70px rgba(27,88,131,0.14);
       --radius-xl: 34px;
       --radius-lg: 28px;
       --radius-md: 22px;
       --radius-sm: 18px;
-      --max: 1240px;
-      --header-height: 84px;
+      --max: 1180px;
+      --header-height: 82px;
     }
 
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
-      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-family: "DM Sans", system-ui, sans-serif;
       background:
-        radial-gradient(circle at top left, rgba(117, 200, 229, 0.16), transparent 24%),
-        radial-gradient(circle at top right, rgba(183, 140, 243, 0.08), transparent 18%),
+        radial-gradient(circle at top left, rgba(114,199,229,0.16), transparent 24%),
+        radial-gradient(circle at top right, rgba(183,140,243,0.1), transparent 18%),
         linear-gradient(180deg, #fbfdff 0%, #eef8fc 100%);
       color: var(--text);
       line-height: 1.6;
@@ -63,35 +51,66 @@
       text-rendering: optimizeLegibility;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
+    h1,h2,h3,h4,h5 { font-family: "Syne", sans-serif; }
 
-    img,
-    svg {
-      display: block;
-      max-width: 100%;
-    }
-
-    button,
-    input,
-    textarea {
-      font: inherit;
-    }
+    a { color: inherit; text-decoration: none; }
+    img, svg { display: block; max-width: 100%; }
+    button, input, textarea { font: inherit; }
 
     .container {
       width: min(calc(100% - 34px), var(--max));
       margin: 0 auto;
     }
 
+    /* ── LOGO FRAME ─────────────────────────────── */
+    .logo-frame {
+      position: relative;
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+    }
+
+    .logo-frame::before {
+      content: "";
+      position: absolute;
+      inset: -3px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary-3), var(--accent), var(--primary-2));
+      opacity: 0.28;
+      filter: blur(4px);
+    }
+
+    .logo-frame img {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.85);
+      padding: 6px;
+      box-shadow: 0 4px 14px rgba(28,68,107,0.13);
+    }
+
+    .logo-frame--light img {
+      mix-blend-mode: multiply;
+      filter: saturate(1.05) contrast(1.08) drop-shadow(0 2px 8px rgba(28,68,107,0.1));
+    }
+
+    .logo-frame--dark img {
+      mix-blend-mode: screen;
+      background: rgba(255,255,255,0.08);
+      filter: brightness(1.15) contrast(1.06) drop-shadow(0 4px 14px rgba(7,25,42,0.2));
+    }
+
+    /* ── HEADER ─────────────────────────────────── */
     .site-header {
       position: sticky;
       top: 0;
       z-index: 1000;
       backdrop-filter: blur(18px);
-      background: rgba(255, 255, 255, 0.84);
-      border-bottom: 1px solid rgba(28, 68, 107, 0.08);
+      background: rgba(255,255,255,0.84);
+      border-bottom: 1px solid rgba(28,68,107,0.08);
     }
 
     .header-inner {
@@ -107,59 +126,33 @@
       align-items: center;
       gap: 14px;
       color: var(--primary);
-      font-weight: 900;
+      font-weight: 800;
+      font-family: "Syne", sans-serif;
       letter-spacing: -0.03em;
       flex-shrink: 0;
     }
 
-    .brand-logo {
-      width: 68px;
-      height: 68px;
-      display: grid;
-      place-items: center;
-      flex-shrink: 0;
-      border-radius: 999px;
-      padding: 8px;
-      background: linear-gradient(180deg, #ffffff 0%, #f3f7fb 100%);
-      border: 1px solid rgba(255, 255, 255, 0.78);
-      box-shadow:
-        0 10px 24px rgba(28, 68, 107, 0.16),
-        inset 0 0 0 7px #ffffff,
-        inset 0 0 0 8px rgba(28, 68, 107, 0.06);
-      overflow: hidden;
+    .brand .logo-frame {
+      width: 52px;
+      height: 52px;
     }
 
-    .brand-logo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 999px;
-      filter:
-        saturate(1.02)
-        contrast(1.04)
-        drop-shadow(0 4px 10px rgba(28, 68, 107, 0.08));
-    }
-
-    .brand span {
-      display: block;
-      font-size: 1.05rem;
-      line-height: 1.05;
-    }
-
+    .brand span { display: block; font-size: 1.05rem; line-height: 1.05; }
     .brand small {
       display: block;
       margin-top: 3px;
       color: var(--muted);
       font-size: 0.76rem;
-      font-weight: 700;
+      font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.04em;
+      font-family: "DM Sans", sans-serif;
     }
 
     .nav {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 6px;
       flex-wrap: wrap;
       justify-content: flex-end;
     }
@@ -173,36 +166,33 @@
       transition: 0.22s ease;
     }
 
-    .nav a:hover,
-    .nav a:focus-visible {
-      background: rgba(117, 200, 229, 0.12);
+    .nav a:hover, .nav a:focus-visible {
+      background: rgba(114,199,229,0.12);
       outline: none;
     }
 
     .nav .nav-cta {
       background: white;
-      border: 1px solid rgba(28, 68, 107, 0.14);
-      box-shadow: 0 8px 16px rgba(28, 68, 107, 0.06);
+      border: 1px solid rgba(28,68,107,0.14);
+      box-shadow: 0 8px 16px rgba(28,68,107,0.06);
     }
 
-    .hero {
-      padding: 24px 0 34px;
-    }
+    /* ── HERO ───────────────────────────────────── */
+    .hero { padding: 24px 0 34px; }
 
     .hero-shell {
       position: relative;
       overflow: hidden;
       border-radius: var(--radius-xl);
       background:
-        radial-gradient(circle at 78% 34%, rgba(255, 255, 255, 0.14), transparent 19%),
-        radial-gradient(circle at 15% 85%, rgba(255, 208, 159, 0.12), transparent 18%),
+        radial-gradient(circle at 78% 34%, rgba(255,255,255,0.14), transparent 19%),
+        radial-gradient(circle at 15% 85%, rgba(255,207,157,0.12), transparent 18%),
         linear-gradient(135deg, #193d63 0%, #2b6f9c 48%, #77cae7 100%);
       box-shadow: var(--shadow-strong);
       isolation: isolate;
     }
 
-    .hero-shell::before,
-    .hero-shell::after {
+    .hero-shell::before, .hero-shell::after {
       content: "";
       position: absolute;
       border-radius: 50%;
@@ -211,30 +201,16 @@
     }
 
     .hero-shell::before {
-      width: 620px;
-      height: 620px;
-      right: -160px;
-      top: 50%;
+      width: 620px; height: 620px;
+      right: -160px; top: 50%;
       transform: translateY(-50%);
-      background: radial-gradient(
-        circle,
-        rgba(255, 255, 255, 0.16) 0%,
-        rgba(255, 255, 255, 0.05) 58%,
-        transparent 74%
-      );
+      background: radial-gradient(circle, rgba(255,255,255,0.16) 0%, rgba(255,255,255,0.05) 58%, transparent 74%);
     }
 
     .hero-shell::after {
-      width: 280px;
-      height: 280px;
-      left: -70px;
-      bottom: -90px;
-      background: radial-gradient(
-        circle,
-        rgba(183, 140, 243, 0.18) 0%,
-        rgba(183, 140, 243, 0.03) 64%,
-        transparent 76%
-      );
+      width: 280px; height: 280px;
+      left: -70px; bottom: -90px;
+      background: radial-gradient(circle, rgba(183,140,243,0.2) 0%, rgba(183,140,243,0.03) 64%, transparent 76%);
     }
 
     .hero-grid {
@@ -244,7 +220,7 @@
       grid-template-columns: 1.08fr 0.92fr;
       gap: 30px;
       align-items: center;
-      min-height: 690px;
+      min-height: 680px;
       padding: 58px 52px;
     }
 
@@ -254,90 +230,51 @@
       gap: 8px;
       padding: 11px 17px;
       border-radius: 999px;
-      background: rgba(255, 255, 255, 0.12);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      color: rgba(255, 255, 255, 0.98);
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: rgba(255,255,255,0.98);
       font-size: 0.9rem;
       font-weight: 700;
       letter-spacing: 0.01em;
       margin-bottom: 20px;
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.08);
+      font-family: "DM Sans", sans-serif;
     }
 
     .hero h1 {
       margin: 0;
-      font-size: clamp(3rem, 6vw, 5.2rem);
-      line-height: 0.94;
-      letter-spacing: -0.07em;
-      max-width: 8.7ch;
+      font-size: clamp(2.95rem, 6vw, 5.15rem);
+      line-height: 0.96;
+      letter-spacing: -0.065em;
+      max-width: 8.8ch;
       color: white;
       text-wrap: balance;
     }
 
     .hero h1 .accent {
       display: inline-block;
-      background: linear-gradient(135deg, #d9c5ff 0%, #b78cf3 48%, #efe7ff 100%);
+      background: linear-gradient(135deg, #d8c3ff 0%, #b78cf3 48%, #efe7ff 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      filter: drop-shadow(0 8px 24px rgba(183, 140, 243, 0.18));
+      filter: drop-shadow(0 8px 24px rgba(183,140,243,0.18));
     }
 
     .hero-kicker {
-      margin: 20px 0 0;
-      color: rgba(255, 255, 255, 0.98);
-      font-size: clamp(1.08rem, 1.95vw, 1.45rem);
-      font-weight: 700;
+      margin: 18px 0 0;
+      color: rgba(255,255,255,0.97);
+      font-size: clamp(1.08rem, 1.9vw, 1.45rem);
+      font-weight: 600;
       line-height: 1.24;
-      max-width: 24ch;
+      max-width: 28ch;
+      font-family: "Syne", sans-serif;
+      letter-spacing: -0.01em;
     }
 
     .hero-copy {
-      margin: 16px 0 0;
-      max-width: 57ch;
-      color: rgba(255, 255, 255, 0.84);
+      margin: 18px 0 0;
+      max-width: 54ch;
+      color: rgba(255,255,255,0.84);
       font-size: 1rem;
-    }
-
-    .hero-scan-list,
-    .audience-list,
-    .service-list,
-    .course-list,
-    .simple-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: grid;
-      gap: 10px;
-    }
-
-    .hero-scan-list {
-      margin-top: 24px;
-      max-width: 50ch;
-    }
-
-    .hero-scan-list li {
-      display: flex;
-      gap: 10px;
-      align-items: flex-start;
-      color: rgba(255, 255, 255, 0.92);
-      font-size: 0.97rem;
-      line-height: 1.45;
-    }
-
-    .hero-scan-list li::before,
-    .audience-list li::before,
-    .course-list li::before,
-    .simple-list li::before {
-      content: "•";
-      font-size: 1.1rem;
-      line-height: 1;
-      color: var(--accent-strong);
-      margin-top: 1px;
-      font-weight: 900;
-    }
-
-    .hero-scan-list li::before {
-      color: #efe6ff;
     }
 
     .hero-actions {
@@ -355,46 +292,59 @@
       min-height: 54px;
       padding: 0 22px;
       border-radius: 999px;
-      font-weight: 800;
+      font-weight: 700;
+      font-family: "Syne", sans-serif;
       border: none;
-      transition: transform 0.22s ease, box-shadow 0.22s ease, background 0.22s ease, border-color 0.22s ease;
+      transition: transform 0.22s ease, box-shadow 0.22s ease, background 0.22s ease;
       cursor: pointer;
+      font-size: 0.97rem;
     }
 
-    .btn:hover {
-      transform: translateY(-2px);
-    }
+    .btn:hover { transform: translateY(-2px); }
 
     .btn-primary {
       background: white;
       color: var(--primary);
-      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.1);
     }
 
-    .btn-primary:hover {
-      background: #fbf8ff;
-    }
+    .btn-primary:hover { background: #fbf8ff; }
 
     .btn-secondary {
-      background: rgba(255, 255, 255, 0.1);
+      background: rgba(255,255,255,0.1);
       color: white;
-      border: 1px solid rgba(255, 255, 255, 0.28);
+      border: 1px solid rgba(255,255,255,0.28);
     }
 
-    .btn-secondary:hover {
-      background: rgba(255, 255, 255, 0.16);
+    .btn-secondary:hover { background: rgba(255,255,255,0.16); }
+
+    .btn-dark {
+      background: var(--primary);
+      color: white;
+      box-shadow: 0 12px 28px rgba(28,68,107,0.22);
     }
 
+    .btn-dark:hover { background: #1e4e7a; }
+
+    .btn-outline-dark {
+      background: transparent;
+      color: var(--primary);
+      border: 1.5px solid rgba(28,68,107,0.22);
+    }
+
+    .btn-outline-dark:hover { background: rgba(28,68,107,0.04); }
+
+    /* ── HERO CARD ──────────────────────────────── */
     .hero-card {
       position: relative;
-      background: rgba(255, 255, 255, 0.12);
-      border: 1px solid rgba(255, 255, 255, 0.18);
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.18);
       border-radius: 30px;
       padding: 24px;
       color: white;
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.12);
       backdrop-filter: blur(10px);
-      max-width: 510px;
+      max-width: 500px;
       margin-left: auto;
     }
 
@@ -405,38 +355,30 @@
       margin-bottom: 20px;
     }
 
-    .hero-profile .brand-logo {
-      width: 72px;
-      height: 72px;
-      background: linear-gradient(180deg, #ffffff 0%, #eef4f8 100%);
-      border: 1px solid rgba(255, 255, 255, 0.78);
-      box-shadow:
-        0 12px 28px rgba(7, 25, 42, 0.16),
-        inset 0 0 0 8px #ffffff,
-        inset 0 0 0 9px rgba(28, 68, 107, 0.05);
+    .hero-profile .logo-frame {
+      width: 58px;
+      height: 58px;
     }
 
     .hero-profile strong {
       display: block;
       font-size: 1.08rem;
+      font-family: "Syne", sans-serif;
     }
 
     .hero-profile span {
-      color: rgba(255, 255, 255, 0.82);
+      color: rgba(255,255,255,0.82);
       font-size: 0.94rem;
     }
 
-    .hero-points {
-      display: grid;
-      gap: 12px;
-    }
+    .hero-points { display: grid; gap: 12px; }
 
     .hero-point {
       display: flex;
       gap: 12px;
       align-items: flex-start;
       padding: 15px 16px;
-      background: rgba(255, 255, 255, 0.08);
+      background: rgba(255,255,255,0.08);
       border-radius: 18px;
     }
 
@@ -447,39 +389,26 @@
       border-radius: 14px;
       display: grid;
       place-items: center;
-      background: rgba(255, 255, 255, 0.18);
+      background: rgba(255,255,255,0.18);
       color: #efe6ff;
       font-weight: 900;
       font-size: 0.98rem;
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.18);
     }
 
-    .hero-point b {
-      display: block;
-      margin-bottom: 2px;
-      font-size: 0.98rem;
-    }
+    .hero-point b { display: block; margin-bottom: 2px; font-size: 0.98rem; }
+    .hero-point span { display: block; color: rgba(255,255,255,0.8); font-size: 0.91rem; line-height: 1.45; }
 
-    .hero-point span {
-      display: block;
-      color: rgba(255, 255, 255, 0.82);
-      font-size: 0.91rem;
-      line-height: 1.45;
-    }
+    /* ── SECTIONS ───────────────────────────────── */
+    section { padding: 44px 0; }
 
-    section {
-      padding: 46px 0;
-    }
-
-    .section-head,
-    .courses-intro {
-      max-width: 780px;
+    .section-head {
+      max-width: 760px;
       margin: 0 auto 32px;
       text-align: center;
     }
 
-    .section-head h2,
-    .courses-intro h2 {
+    .section-head h2 {
       margin: 0 0 14px;
       color: var(--primary);
       font-size: clamp(2rem, 4vw, 3rem);
@@ -487,39 +416,19 @@
       line-height: 1.04;
     }
 
-    .section-head p,
-    .courses-intro p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 1.02rem;
-    }
+    .section-head p { margin: 0; color: var(--muted); font-size: 1.02rem; }
 
-    .section-label {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 14px;
-      padding: 8px 14px;
-      border-radius: 999px;
-      background: rgba(117, 200, 229, 0.12);
-      border: 1px solid rgba(28, 68, 107, 0.08);
-      color: var(--primary);
-      font-size: 0.8rem;
-      font-weight: 800;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-    }
-
+    /* ── AUDIENCE ───────────────────────────────── */
     .audience-wrapper {
       position: relative;
       margin-bottom: 34px;
       padding: 34px;
       border-radius: 28px;
       background:
-        linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(247, 252, 255, 0.92)),
-        linear-gradient(135deg, rgba(117, 200, 229, 0.08), rgba(183, 140, 243, 0.06));
-      border: 1px solid rgba(28, 68, 107, 0.08);
-      box-shadow: 0 20px 50px rgba(28, 68, 107, 0.06);
+        linear-gradient(180deg, rgba(255,255,255,0.96), rgba(247,252,255,0.92)),
+        linear-gradient(135deg, rgba(114,199,229,0.08), rgba(183,140,243,0.06));
+      border: 1px solid rgba(28,68,107,0.08);
+      box-shadow: 0 20px 50px rgba(28,68,107,0.06);
     }
 
     .audience-divider {
@@ -533,37 +442,21 @@
       font-size: 0.82rem;
       font-weight: 800;
       color: var(--primary);
-      border: 1px solid rgba(28, 68, 107, 0.08);
-      box-shadow: 0 8px 18px rgba(28, 68, 107, 0.08);
+      border: 1px solid rgba(28,68,107,0.08);
+      box-shadow: 0 8px 18px rgba(28,68,107,0.08);
       letter-spacing: 0.04em;
       text-transform: uppercase;
       white-space: nowrap;
-    }
-
-    .audience-grid,
-    .about-grid,
-    .courses-grid,
-    .process-track,
-    .contact-grid {
-      display: grid;
-      gap: 22px;
+      font-family: "Syne", sans-serif;
     }
 
     .audience-grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 22px;
     }
 
-    .about-grid {
-      grid-template-columns: 1.02fr 0.98fr;
-      align-items: stretch;
-    }
-
-    .audience-card,
-    .panel,
-    .service-card,
-    .course-card,
-    .contact-card,
-    .cta-panel {
+    .audience-card, .panel, .service-card, .course-card, .contact-card {
       background: var(--surface);
       backdrop-filter: blur(8px);
       border: 1px solid var(--line);
@@ -576,9 +469,9 @@
       overflow: hidden;
       padding: 30px;
       background:
-        linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(252, 254, 255, 0.94)),
-        linear-gradient(135deg, rgba(117, 200, 229, 0.14), rgba(183, 140, 243, 0.1));
-      border: 1px solid rgba(28, 68, 107, 0.06);
+        linear-gradient(180deg, rgba(255,255,255,0.98), rgba(252,254,255,0.94)),
+        linear-gradient(135deg, rgba(114,199,229,0.14), rgba(183,140,243,0.1));
+      border: 1px solid rgba(28,68,107,0.06);
     }
 
     .audience-card::before {
@@ -597,102 +490,58 @@
       display: grid;
       place-items: center;
       margin-bottom: 16px;
-      background: linear-gradient(180deg, rgba(117, 200, 229, 0.14), rgba(183, 140, 243, 0.12));
+      background: linear-gradient(180deg, rgba(114,199,229,0.14), rgba(183,140,243,0.12));
       color: var(--primary);
-      border: 1px solid rgba(28, 68, 107, 0.08);
+      border: 1px solid rgba(28,68,107,0.08);
       box-shadow: inset 0 1px 0 rgba(255,255,255,0.4);
     }
 
     .audience-icon svg {
-      width: 24px;
-      height: 24px;
-      stroke: currentColor;
-      stroke-width: 2;
-      fill: none;
-      stroke-linecap: round;
-      stroke-linejoin: round;
+      width: 24px; height: 24px;
+      stroke: currentColor; stroke-width: 2; fill: none;
+      stroke-linecap: round; stroke-linejoin: round;
     }
 
-    .audience-card h3 {
-      margin: 0 0 8px;
-      color: var(--primary);
-      font-size: 1.32rem;
-      letter-spacing: -0.03em;
-    }
+    .audience-card h3 { margin: 0 0 8px; color: var(--primary); font-size: 1.32rem; letter-spacing: -0.03em; }
+    .audience-card p { margin: 0 0 16px; color: var(--muted); }
 
-    .audience-card p {
-      margin: 0 0 16px;
-      color: var(--muted);
-    }
+    .audience-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 9px; }
+    .audience-list li { display: flex; gap: 10px; align-items: flex-start; color: #4d677a; font-size: 0.94rem; }
+    .audience-list li::before { content: "•"; color: var(--accent-strong); font-weight: 900; font-size: 1.1rem; line-height: 1; margin-top: 1px; }
 
-    .audience-list li,
-    .course-list li,
-    .simple-list li {
-      display: flex;
-      gap: 10px;
-      align-items: flex-start;
-      color: #4d677a;
-      font-size: 0.94rem;
-      line-height: 1.45;
-    }
-
-    .panel {
-      padding: 28px;
-    }
-
-    .panel h3 {
-      margin: 0 0 14px;
-      color: var(--primary);
-      font-size: 1.35rem;
-      letter-spacing: -0.03em;
-    }
-
-    .panel p {
-      margin: 0 0 16px;
-      color: var(--muted);
-    }
-
-    .stats {
+    /* ── ABOUT ──────────────────────────────────── */
+    .about-grid {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 16px;
-      margin-top: 20px;
+      grid-template-columns: 1.02fr 0.98fr;
+      gap: 24px;
+      align-items: stretch;
     }
+
+    .panel { padding: 28px; }
+    .panel h3 { margin: 0 0 14px; color: var(--primary); font-size: 1.35rem; letter-spacing: -0.03em; }
+    .panel p { margin: 0; color: var(--muted); }
+
+    .stats { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 16px; margin-top: 20px; }
 
     .stat {
       padding: 20px;
       border-radius: 20px;
-      background: linear-gradient(180deg, rgba(117, 200, 229, 0.11), rgba(183, 140, 243, 0.09));
-      border: 1px solid rgba(28, 68, 107, 0.08);
+      background: linear-gradient(180deg, rgba(114,199,229,0.11), rgba(183,140,243,0.09));
+      border: 1px solid rgba(28,68,107,0.08);
     }
 
-    .stat strong {
-      display: block;
-      color: var(--primary);
-      font-size: 1.65rem;
-      letter-spacing: -0.04em;
-      line-height: 1;
-      margin-bottom: 8px;
-    }
-
-    .stat span {
-      color: var(--muted);
-      font-size: 0.94rem;
-    }
+    .stat strong { display: block; color: var(--primary); font-size: 1.65rem; letter-spacing: -0.04em; line-height: 1; margin-bottom: 8px; font-family: "Syne", sans-serif; }
+    .stat span { color: var(--muted); font-size: 0.94rem; }
 
     .reason-panel {
       position: relative;
       overflow: hidden;
       background:
-        radial-gradient(circle at top right, rgba(183, 140, 243, 0.1), transparent 24%),
-        linear-gradient(180deg, rgba(255, 255, 255, 0.97), rgba(248, 252, 255, 0.95));
+        radial-gradient(circle at top right, rgba(183,140,243,0.1), transparent 24%),
+        linear-gradient(180deg, rgba(255,255,255,0.97), rgba(248,252,255,0.95));
     }
 
-    .reason-stack {
-      display: grid;
-      gap: 12px;
-      margin-top: 20px;
-    }
+    .reason-stack { display: grid; gap: 12px; margin-top: 20px; }
 
     .reason-item {
       display: flex;
@@ -700,34 +549,17 @@
       align-items: flex-start;
       padding: 14px 15px;
       border-radius: 18px;
-      background: rgba(117, 200, 229, 0.08);
-      border: 1px solid rgba(28, 68, 107, 0.07);
+      background: rgba(114,199,229,0.08);
+      border: 1px solid rgba(28,68,107,0.07);
     }
 
-    .reason-item:nth-child(2) {
-      background: rgba(183, 140, 243, 0.08);
-    }
-
-    .reason-item:nth-child(3) {
-      background: rgba(255, 208, 159, 0.11);
-    }
-
-    .reason-item b {
-      color: var(--primary);
-      display: block;
-      margin-bottom: 2px;
-      font-size: 0.97rem;
-    }
-
-    .reason-item span {
-      color: var(--muted);
-      font-size: 0.92rem;
-      line-height: 1.45;
-    }
+    .reason-item:nth-child(2) { background: rgba(183,140,243,0.08); }
+    .reason-item:nth-child(3) { background: rgba(255,207,157,0.11); }
+    .reason-item b { color: var(--primary); display: block; margin-bottom: 2px; font-size: 0.97rem; }
+    .reason-item span { color: var(--muted); font-size: 0.92rem; line-height: 1.45; }
 
     .reason-dot {
-      width: 10px;
-      height: 10px;
+      width: 10px; height: 10px;
       margin-top: 7px;
       border-radius: 50%;
       background: linear-gradient(180deg, var(--accent), var(--accent-strong));
@@ -735,69 +567,61 @@
       flex-shrink: 0;
     }
 
-    .services-group {
-      margin-top: 10px;
+    /* ── SERVICES ───────────────────────────────── */
+    .services-group { margin-top: 28px; }
+    .services-group:first-of-type { margin-top: 0; }
+
+    .services-group-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 16px;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      font-family: "Syne", sans-serif;
+    }
+
+    .services-group-label--company {
+      background: rgba(28,68,107,0.08);
+      color: var(--primary);
+      border: 1px solid rgba(28,68,107,0.1);
+    }
+
+    .services-group-label--individual {
+      background: var(--accent-soft);
+      color: var(--accent-strong);
+      border: 1px solid rgba(169,140,240,0.18);
     }
 
     .services-group-title {
       display: flex;
-      align-items: flex-end;
+      align-items: center;
       justify-content: space-between;
       gap: 16px;
       margin-bottom: 18px;
-      flex-wrap: wrap;
     }
 
-    .services-group-title h3 {
-      margin: 0;
-      color: var(--primary);
-      font-size: 1.5rem;
-      letter-spacing: -0.03em;
-    }
-
-    .services-group-title p {
-      margin: 6px 0 0;
-      color: var(--muted);
-      font-size: 0.96rem;
-      max-width: 58ch;
-    }
-
-    .group-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 12px;
-      border-radius: 999px;
-      background: rgba(117, 200, 229, 0.12);
-      color: var(--primary);
-      font-size: 0.78rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      border: 1px solid rgba(28, 68, 107, 0.07);
-    }
+    .services-group-title h3 { margin: 0; color: var(--primary); font-size: 1.45rem; letter-spacing: -0.03em; }
+    .services-group-title span { color: var(--muted); font-size: 0.95rem; font-weight: 600; }
 
     .services-wrap {
       display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 22px;
-      align-items: stretch;
     }
 
     .service-card {
       position: relative;
-      display: flex;
-      flex-direction: column;
+      display: block;
       padding: 26px;
-      background: linear-gradient(180deg, rgba(255, 255, 255, 0.97), rgba(255, 255, 255, 0.9));
+      background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(255,255,255,0.88));
       overflow: hidden;
       min-height: 100%;
       transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
-    }
-
-    .service-card:nth-child(2),
-    .service-card:nth-child(4) {
-      transform: translateY(20px);
     }
 
     .service-card::before {
@@ -809,11 +633,10 @@
       opacity: 0.98;
     }
 
-    .service-card:hover,
-    .service-card:focus-visible {
+    .service-card:hover, .service-card:focus-visible {
       transform: translateY(-6px);
-      box-shadow: 0 24px 40px rgba(26, 91, 134, 0.14);
-      border-color: rgba(28, 68, 107, 0.18);
+      box-shadow: 0 24px 40px rgba(26,91,134,0.14);
+      border-color: rgba(28,68,107,0.18);
       outline: none;
     }
 
@@ -826,17 +649,16 @@
     }
 
     .service-icon {
-      width: 54px;
-      height: 54px;
+      width: 54px; height: 54px;
       border-radius: 18px;
       display: grid;
       place-items: center;
       font-size: 1.3rem;
+      font-weight: 800;
+      font-family: "Syne", sans-serif;
       color: var(--primary);
-      background: linear-gradient(180deg, rgba(117, 200, 229, 0.18), rgba(183, 140, 243, 0.12));
-      border: 1px solid rgba(28, 68, 107, 0.08);
-      font-weight: 900;
-      flex-shrink: 0;
+      background: linear-gradient(180deg, rgba(114,199,229,0.18), rgba(183,140,243,0.12));
+      border: 1px solid rgba(28,68,107,0.08);
     }
 
     .price {
@@ -845,47 +667,20 @@
       justify-content: center;
       padding: 8px 12px;
       border-radius: 999px;
-      background: rgba(28, 68, 107, 0.08);
+      background: rgba(28,68,107,0.08);
       color: var(--primary);
       font-size: 0.86rem;
       font-weight: 800;
       white-space: nowrap;
+      font-family: "Syne", sans-serif;
     }
 
-    .service-card h4 {
-      margin: 0 0 10px;
-      color: var(--text);
-      font-size: 1.15rem;
-      letter-spacing: -0.03em;
-      min-height: 58px;
-    }
+    .service-card h4 { margin: 0 0 10px; color: var(--text); font-size: 1.25rem; letter-spacing: -0.03em; }
+    .service-card p { margin: 0 0 18px; color: var(--muted); font-size: 0.96rem; }
 
-    .service-card p {
-      margin: 0 0 18px;
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
-    .service-list {
-      margin-top: auto;
-    }
-
-    .service-list li {
-      display: flex;
-      gap: 10px;
-      align-items: flex-start;
-      color: #426074;
-      font-size: 0.93rem;
-      line-height: 1.45;
-    }
-
-    .service-list li::before {
-      content: "✓";
-      color: var(--accent-strong);
-      font-weight: 900;
-      line-height: 1.2;
-      margin-top: 1px;
-    }
+    .service-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
+    .service-list li { display: flex; gap: 10px; align-items: flex-start; color: #426074; font-size: 0.94rem; }
+    .service-list li::before { content: "✓"; color: var(--accent-strong); font-weight: 900; line-height: 1.2; margin-top: 1px; }
 
     .service-cta {
       display: inline-flex;
@@ -895,99 +690,45 @@
       color: var(--primary);
       font-size: 0.95rem;
       font-weight: 800;
+      font-family: "Syne", sans-serif;
     }
 
-    .cta-panel {
-      padding: 28px;
-      margin-top: 42px;
-      background:
-        linear-gradient(180deg, rgba(255,255,255,0.98), rgba(247,252,255,0.94)),
-        linear-gradient(135deg, rgba(117,200,229,0.08), rgba(183,140,243,0.06));
-    }
-
-    .cta-panel-inner {
-      display: grid;
-      grid-template-columns: 1.3fr auto;
-      gap: 20px;
-      align-items: center;
-    }
-
-    .cta-panel h3 {
-      margin: 0 0 10px;
-      color: var(--primary);
-      font-size: 1.35rem;
-      letter-spacing: -0.03em;
-    }
-
-    .cta-panel p {
-      margin: 0;
-      color: var(--muted);
-      max-width: 60ch;
-    }
-
-    .cta-panel .btn {
-      white-space: nowrap;
-      min-width: 220px;
-    }
-
-    .pricing-note {
-      margin-top: 16px;
-      color: var(--muted);
-      font-size: 0.9rem;
-      text-align: center;
-    }
-
+    /* ── COURSES ────────────────────────────────── */
     .courses-grid {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 22px;
     }
 
-    .course-card {
-      padding: 26px;
-      background: var(--surface);
-    }
+    .course-card { padding: 26px; }
 
-    .course-tag {
+    .course-card .tag {
       display: inline-flex;
       padding: 8px 12px;
       border-radius: 999px;
       background: var(--accent-soft);
       color: var(--accent-strong);
-      font-size: 0.8rem;
+      font-size: 0.82rem;
       font-weight: 900;
       text-transform: uppercase;
-      letter-spacing: 0.04em;
-      margin-bottom: 16px;
+      letter-spacing: 0.03em;
+      margin-bottom: 14px;
+      font-family: "Syne", sans-serif;
     }
 
-    .course-card h3 {
-      margin: 0 0 14px;
-      color: var(--primary);
-      font-size: 1.28rem;
-      letter-spacing: -0.03em;
-      min-height: auto;
-    }
+    .course-card h3 { margin: 0 0 10px; color: var(--primary); font-size: 1.25rem; letter-spacing: -0.03em; }
+    .course-card p { margin: 0 0 16px; color: var(--muted); }
+    .course-card .price-line { color: var(--primary); font-weight: 900; margin-bottom: 10px; font-family: "Syne", sans-serif; }
 
-    .course-card p {
-      margin: 0 0 14px;
+    .courses-note {
+      margin-top: 16px;
+      text-align: center;
       color: var(--muted);
+      font-size: 0.88rem;
     }
 
-    .price-line {
-      color: var(--primary);
-      font-weight: 900;
-      margin-bottom: 12px;
-      font-size: 1rem;
-    }
-
-    .course-list li {
-      color: #4d677a;
-      font-size: 0.94rem;
-    }
-
-    .process-section {
-      padding-top: 54px;
-      padding-bottom: 54px;
-    }
+    /* ── PROCESS ────────────────────────────────── */
+    .process-section { padding-top: 54px; padding-bottom: 54px; }
 
     .process-shell {
       position: relative;
@@ -995,15 +736,15 @@
       padding: 54px 42px 34px;
       border-radius: 34px;
       background:
-        radial-gradient(circle at top left, rgba(117, 200, 229, 0.1), transparent 26%),
-        radial-gradient(circle at top right, rgba(183, 140, 243, 0.08), transparent 22%),
+        radial-gradient(circle at top left, rgba(114,199,229,0.1), transparent 26%),
+        radial-gradient(circle at top right, rgba(183,140,243,0.08), transparent 22%),
         linear-gradient(180deg, #f6fbff 0%, #edf6fb 100%);
-      border: 1px solid rgba(28, 68, 107, 0.06);
-      box-shadow: 0 20px 50px rgba(28, 68, 107, 0.06);
+      border: 1px solid rgba(28,68,107,0.06);
+      box-shadow: 0 20px 50px rgba(28,68,107,0.06);
     }
 
     .process-intro {
-      max-width: 700px;
+      max-width: 680px;
       margin: 0 auto 34px;
       text-align: center;
     }
@@ -1016,14 +757,12 @@
       letter-spacing: -0.04em;
     }
 
-    .process-intro p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 1.02rem;
-    }
+    .process-intro p { margin: 0; color: var(--muted); font-size: 1.02rem; }
 
     .process-track {
-      grid-template-columns: repeat(4, minmax(0, 1fr));
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0,1fr));
+      gap: 22px;
       align-items: stretch;
     }
 
@@ -1038,42 +777,36 @@
       top: 0;
       left: 50%;
       transform: translate(-50%, 0);
-      width: 92px;
-      height: 92px;
+      width: 92px; height: 92px;
       border-radius: 50%;
-      background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+      background: linear-gradient(#ffffff, #f8fbff);
       border: 4px solid transparent;
       background-image:
         linear-gradient(#ffffff, #f8fbff),
         linear-gradient(135deg, #8f84f6 0%, #5f8dff 100%);
       background-origin: border-box;
       background-clip: padding-box, border-box;
-      box-shadow: 0 12px 26px rgba(57, 106, 161, 0.1);
+      box-shadow: 0 12px 26px rgba(57,106,161,0.1);
       display: grid;
       place-items: center;
       z-index: 2;
     }
 
     .process-icon svg {
-      width: 38px;
-      height: 38px;
-      stroke: #264f79;
-      stroke-width: 2.2;
-      fill: none;
-      stroke-linecap: round;
-      stroke-linejoin: round;
+      width: 38px; height: 38px;
+      stroke: #264f79; stroke-width: 2.2; fill: none;
+      stroke-linecap: round; stroke-linejoin: round;
     }
 
     .process-card {
       position: relative;
-      width: 100%;
-      height: 100%;
+      width: 100%; height: 100%;
       min-height: 250px;
       padding: 84px 28px 28px;
       border-radius: 26px;
-      background: rgba(255, 255, 255, 0.9);
-      border: 1px solid rgba(28, 68, 107, 0.05);
-      box-shadow: 0 14px 32px rgba(28, 68, 107, 0.06);
+      background: rgba(255,255,255,0.88);
+      border: 1px solid rgba(28,68,107,0.05);
+      box-shadow: 0 14px 32px rgba(28,68,107,0.06);
       text-align: center;
       display: flex;
       flex-direction: column;
@@ -1083,34 +816,265 @@
     .process-card::before {
       content: "";
       position: absolute;
-      left: 0;
-      top: 88px;
-      bottom: 18px;
+      left: 0; top: 88px; bottom: 18px;
       width: 4px;
       border-radius: 999px;
       background: linear-gradient(180deg, #5e95ff 0%, #a879ef 100%);
-      box-shadow: 0 8px 18px rgba(110, 130, 255, 0.16);
+      box-shadow: 0 8px 18px rgba(110,130,255,0.16);
     }
 
-    .process-card h3 {
+    .process-card h3 { margin: 0 0 12px; color: #244c76; font-size: 1.08rem; line-height: 1.15; letter-spacing: -0.03em; }
+    .process-card p { margin: 0; color: #688198; font-size: 0.97rem; line-height: 1.62; }
+
+    /* ── TESTIMONIALS ───────────────────────────── */
+    .testimonials-section {
+      padding: 44px 0;
+    }
+
+    .testimonials-shell {
+      border-radius: 34px;
+      background: linear-gradient(135deg, #14324f 0%, #1c4e75 60%, #1e5f8a 100%);
+      padding: 54px 52px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .testimonials-shell::before {
+      content: "";
+      position: absolute;
+      width: 400px; height: 400px;
+      border-radius: 50%;
+      top: -120px; right: -100px;
+      background: radial-gradient(circle, rgba(119,199,227,0.12), transparent 68%);
+      pointer-events: none;
+    }
+
+    .testimonials-head {
+      text-align: center;
+      margin-bottom: 36px;
+    }
+
+    .testimonials-head h2 {
+      margin: 0 0 10px;
+      color: white;
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      letter-spacing: -0.04em;
+    }
+
+    .testimonials-head p {
+      color: rgba(255,255,255,0.65);
+      font-size: 1rem;
+      margin: 0;
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 20px;
+    }
+
+    .testimonial-card {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 22px;
+      padding: 26px;
+      backdrop-filter: blur(8px);
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .testimonial-stars {
+      display: flex;
+      gap: 4px;
+    }
+
+    .testimonial-stars span {
+      width: 14px; height: 14px;
+      background: #f5c84a;
+      clip-path: polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%);
+      display: inline-block;
+    }
+
+    .testimonial-quote {
+      color: rgba(255,255,255,0.88);
+      font-size: 0.97rem;
+      line-height: 1.6;
+      flex: 1;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .testimonial-avatar {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary-3), var(--accent));
+      display: grid;
+      place-items: center;
+      color: white;
+      font-weight: 800;
+      font-size: 0.9rem;
+      font-family: "Syne", sans-serif;
+      flex-shrink: 0;
+    }
+
+    .testimonial-name {
+      display: block;
+      color: white;
+      font-weight: 700;
+      font-size: 0.94rem;
+      font-family: "Syne", sans-serif;
+    }
+
+    .testimonial-role {
+      display: block;
+      color: rgba(255,255,255,0.55);
+      font-size: 0.84rem;
+    }
+
+    /* ── BOOK A CALL ────────────────────────────── */
+    .book-section { padding: 44px 0; }
+
+    .book-shell {
+      border-radius: 34px;
+      background:
+        radial-gradient(circle at 10% 90%, rgba(114,199,229,0.1), transparent 28%),
+        linear-gradient(180deg, #f6fbff 0%, #edf6fb 100%);
+      border: 1px solid rgba(28,68,107,0.07);
+      box-shadow: 0 20px 50px rgba(28,68,107,0.06);
+      overflow: hidden;
+    }
+
+    .book-top {
+      padding: 48px 52px 36px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+
+    .book-top-text h2 {
       margin: 0 0 12px;
-      color: #244c76;
-      font-size: 1.08rem;
-      line-height: 1.15;
+      color: var(--primary);
+      font-size: clamp(1.9rem, 3.6vw, 2.8rem);
+      letter-spacing: -0.04em;
+      line-height: 1.05;
+    }
+
+    .book-top-text p {
+      margin: 0;
+      color: var(--muted);
+      max-width: 52ch;
+      font-size: 1rem;
+    }
+
+    .book-badges {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 16px;
+    }
+
+    .book-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(28,68,107,0.07);
+      color: var(--primary);
+      font-size: 0.85rem;
+      font-weight: 700;
+      border: 1px solid rgba(28,68,107,0.09);
+    }
+
+    .book-badge-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .book-calendar-wrap {
+      border-top: 1px solid rgba(28,68,107,0.07);
+      background: white;
+      min-height: 620px;
+      display: flex;
+      align-items: stretch;
+    }
+
+    .book-calendar-wrap iframe {
+      width: 100%;
+      min-height: 620px;
+      border: none;
+      display: block;
+    }
+
+    .book-calendar-placeholder {
+      width: 100%;
+      min-height: 620px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      padding: 48px;
+      text-align: center;
+      background: rgba(247,251,255,0.9);
+    }
+
+    .book-calendar-placeholder .placeholder-icon {
+      width: 72px; height: 72px;
+      border-radius: 22px;
+      background: linear-gradient(180deg, rgba(114,199,229,0.2), rgba(183,140,243,0.15));
+      border: 1px solid rgba(28,68,107,0.09);
+      display: grid;
+      place-items: center;
+    }
+
+    .book-calendar-placeholder .placeholder-icon svg {
+      width: 34px; height: 34px;
+      stroke: var(--primary); stroke-width: 1.8; fill: none;
+      stroke-linecap: round; stroke-linejoin: round;
+    }
+
+    .book-calendar-placeholder h3 {
+      margin: 0 0 8px;
+      color: var(--primary);
+      font-size: 1.3rem;
       letter-spacing: -0.03em;
     }
 
-    .process-card p {
+    .book-calendar-placeholder p {
       margin: 0;
-      color: #688198;
+      color: var(--muted);
+      max-width: 40ch;
       font-size: 0.97rem;
-      line-height: 1.62;
+      line-height: 1.6;
     }
 
+    .book-calendar-placeholder code {
+      display: inline-block;
+      margin-top: 14px;
+      padding: 10px 18px;
+      border-radius: 12px;
+      background: rgba(28,68,107,0.07);
+      color: var(--primary);
+      font-size: 0.88rem;
+      font-family: monospace;
+      border: 1px dashed rgba(28,68,107,0.15);
+    }
+
+    /* ── CONTACT ────────────────────────────────── */
     .contact-card {
       position: relative;
       overflow: hidden;
-      background: linear-gradient(135deg, rgba(28, 68, 107, 0.98), rgba(114, 199, 229, 0.94));
+      background: linear-gradient(135deg, rgba(28,68,107,0.98), rgba(114,199,229,0.94));
       padding: 34px;
       color: white;
     }
@@ -1118,17 +1082,17 @@
     .contact-card::before {
       content: "";
       position: absolute;
-      width: 260px;
-      height: 260px;
+      width: 260px; height: 260px;
       border-radius: 50%;
-      background: rgba(255, 255, 255, 0.1);
-      top: -80px;
-      right: -80px;
+      background: rgba(255,255,255,0.1);
+      top: -80px; right: -80px;
     }
 
     .contact-grid {
       position: relative;
+      display: grid;
       grid-template-columns: 1fr auto;
+      gap: 24px;
       align-items: center;
     }
 
@@ -1139,11 +1103,7 @@
       letter-spacing: -0.04em;
     }
 
-    .contact-card p {
-      margin: 0;
-      color: rgba(255, 255, 255, 0.86);
-      max-width: 58ch;
-    }
+    .contact-card p { margin: 0; color: rgba(255,255,255,0.85); max-width: 56ch; }
 
     .contact-actions {
       display: flex;
@@ -1153,9 +1113,7 @@
       min-width: 250px;
     }
 
-    .contact-actions .btn {
-      width: 100%;
-    }
+    .contact-actions .btn { width: 100%; }
 
     .contact-email {
       color: white;
@@ -1163,13 +1121,13 @@
       font-weight: 800;
       padding: 14px 18px;
       border-radius: 999px;
-      background: rgba(255, 255, 255, 0.12);
-      border: 1px solid rgba(255, 255, 255, 0.18);
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.18);
+      font-family: "Syne", sans-serif;
     }
 
-    footer {
-      padding: 26px 0 42px;
-    }
+    /* ── FOOTER ─────────────────────────────────── */
+    footer { padding: 26px 0 42px; }
 
     .footer-inner {
       display: flex;
@@ -1181,53 +1139,38 @@
       flex-wrap: wrap;
     }
 
-    .footer-inner a {
-      color: var(--primary);
-      font-weight: 800;
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
     }
 
-    @media (max-width: 1180px) {
-      .hero-grid,
-      .about-grid,
-      .audience-grid,
-      .courses-grid,
-      .process-track,
-      .contact-grid,
-      .cta-panel-inner {
-        grid-template-columns: 1fr;
-      }
+    .footer-brand .logo-frame {
+      width: 38px; height: 38px;
+    }
 
-      .services-wrap {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
+    .footer-brand span {
+      font-weight: 700;
+      color: var(--primary);
+      font-family: "Syne", sans-serif;
+      font-size: 0.95rem;
+    }
 
-      .service-card:nth-child(2),
-      .service-card:nth-child(4) {
-        transform: none;
-      }
+    .footer-inner a { color: var(--primary); font-weight: 700; }
 
-      .hero-grid {
-        min-height: auto;
-      }
+    /* ── RESPONSIVE ─────────────────────────────── */
+    @media (max-width: 1120px) {
+      .hero-grid, .about-grid, .audience-grid,
+      .courses-grid, .process-track, .contact-grid,
+      .testimonials-grid { grid-template-columns: 1fr; }
 
-      .hero-card {
-        margin-left: 0;
-        max-width: none;
-      }
+      .hero-grid { min-height: auto; }
+      .hero-card { margin-left: 0; max-width: none; }
 
-      .process-step {
-        max-width: 420px;
-        margin: 0 auto;
-        width: 100%;
-      }
+      .process-step { max-width: 420px; margin: 0 auto; width: 100%; }
+      .process-card { min-height: 220px; }
 
-      .process-card {
-        min-height: 220px;
-      }
-
-      .cta-panel .btn {
-        min-width: 0;
-      }
+      .book-top { flex-direction: column; align-items: flex-start; }
     }
 
     @media (max-width: 760px) {
@@ -1238,86 +1181,38 @@
         align-items: flex-start;
       }
 
-      .nav {
-        width: 100%;
-        justify-content: flex-start;
-        gap: 4px;
-      }
+      .nav { width: 100%; justify-content: flex-start; gap: 4px; }
+      .hero { padding-top: 18px; }
+      .hero-shell { border-radius: 28px; }
+      .hero-grid { padding: 34px 20px; }
 
-      .hero {
-        padding-top: 18px;
-      }
+      .audience-card, .panel, .service-card,
+      .course-card, .contact-card { padding: 22px; }
 
-      .hero-shell {
-        border-radius: 28px;
-      }
-
-      .hero-grid {
-        padding: 34px 20px;
-      }
-
-      .audience-card,
-      .panel,
-      .service-card,
-      .course-card,
-      .contact-card,
-      .cta-panel {
-        padding: 22px;
-      }
-
-      .audience-wrapper {
-        padding: 26px 18px 18px;
-      }
-
-      .audience-divider {
-        top: -12px;
-        font-size: 0.75rem;
-        padding: 7px 14px;
-      }
-
-      .stats {
-        grid-template-columns: 1fr;
-      }
-
-      .hero-actions,
-      .contact-actions {
-        width: 100%;
-      }
-
-      .btn {
-        width: 100%;
-      }
-
-      .services-wrap {
-        grid-template-columns: 1fr;
-      }
-
-      .service-card:nth-child(2),
-      .service-card:nth-child(4) {
-        transform: none;
-      }
-
-      .process-shell {
-        padding: 36px 18px 20px;
-      }
-
-      .process-card {
-        min-height: auto;
-        padding: 80px 22px 24px;
-      }
+      .audience-wrapper { padding: 26px 18px 18px; }
+      .audience-divider { top: -12px; font-size: 0.75rem; padding: 7px 14px; }
+      .stats { grid-template-columns: 1fr; }
+      .hero-actions, .contact-actions { width: 100%; }
+      .btn { width: 100%; }
+      .services-group-title { flex-direction: column; align-items: flex-start; }
+      .process-shell { padding: 36px 18px 20px; }
+      .process-card { min-height: auto; padding: 80px 22px 24px; }
+      .book-top { padding: 32px 22px 24px; }
+      .testimonials-shell { padding: 36px 22px; }
     }
   </style>
 </head>
 <body>
+
   <header class="site-header">
     <div class="container header-inner">
       <a href="#home" class="brand" aria-label="APE Solutions home">
-        <span class="brand-logo">
-          <img src="APE.Logo1.jpg" alt="APE Solutions logo" />
-        </span>
+        <div class="logo-frame logo-frame--light">
+          <img src="APE.Logo1.png" alt="APE Solutions logo" />
+        </div>
         <div>
           <span>APE Solutions</span>
-          <small>LinkedIn, Email & Deliverability</small>
+          <small>LinkedIn, Email &amp; Deliverability</small>
         </div>
       </a>
 
@@ -1326,12 +1221,15 @@
         <a href="#services">Services</a>
         <a href="#courses">Courses</a>
         <a href="#process">Process</a>
-        <a href="#contact" class="nav-cta">Contact</a>
+        <a href="#book">Book a call</a>
+        <a href="#contact" class="nav-cta">Get help</a>
       </nav>
     </div>
   </header>
 
   <main>
+
+    <!-- HERO -->
     <section class="hero" id="home">
       <div class="container">
         <div class="hero-shell">
@@ -1340,8 +1238,8 @@
               <div class="eyebrow">Something off?</div>
 
               <h1>
-                Don’t think about it.<br />
-                <span class="accent">We’ll fix it.</span>
+                Don't think about it.<br />
+                <span class="accent">We'll fix it.</span>
               </h1>
 
               <div class="hero-kicker">
@@ -1349,54 +1247,48 @@
               </div>
 
               <p class="hero-copy">
-                We clean up how you present yourself, how you reach out, and what is quietly blocking results.
+                We clean up how you present yourself and how you reach out so it actually works.
               </p>
-
-              <ul class="hero-scan-list">
-                <li>For companies that need sharper outreach and stronger systems.</li>
-                <li>For individuals who need better positioning and clearer direction.</li>
-                <li>Hands-on help or practical guidance, depending on what you need.</li>
-              </ul>
 
               <div class="hero-actions">
                 <a href="#services" class="btn btn-primary">Show me what to fix</a>
-                <a href="mailto:info@apecstudio.com?subject=Free%20Audit%20Request" class="btn btn-secondary">Get a free audit</a>
+                <a href="#contact" class="btn btn-secondary">Fix it for me</a>
               </div>
             </div>
 
             <aside class="hero-card" aria-label="Highlights">
               <div class="hero-profile">
-                <span class="brand-logo">
-                  <img src="APE.Logo1.jpg" alt="APE Solutions logo" />
-                </span>
+                <div class="logo-frame logo-frame--dark" style="width:58px;height:58px;">
+                  <img src="APE.Logo1.png" alt="APE Solutions logo" />
+                </div>
                 <div>
                   <strong>APE Solutions</strong>
-                  <span>We fix the parts people usually avoid</span>
+                  <span>We fix the parts everyone hates doing</span>
                 </div>
               </div>
 
               <div class="hero-points">
                 <div class="hero-point">
-                  <div class="icon-badge">✦</div>
+                  <div class="icon-badge">+</div>
                   <div>
-                    <b>Can’t get a job?</b>
-                    <span>We tighten your LinkedIn, CV, positioning and outreach so you stop sounding generic.</span>
+                    <b>Can't get a job?</b>
+                    <span>We fix your LinkedIn, CV, positioning and outreach so you stop winging it.</span>
                   </div>
                 </div>
 
                 <div class="hero-point">
-                  <div class="icon-badge">↗</div>
+                  <div class="icon-badge">^</div>
                   <div>
-                    <b>Can’t get leads?</b>
-                    <span>We build the targeting, messaging and systems behind your outreach so it feels intentional.</span>
+                    <b>Can't get leads?</b>
+                    <span>We build the targeting, messaging and system behind your outreach.</span>
                   </div>
                 </div>
 
                 <div class="hero-point">
-                  <div class="icon-badge">✓</div>
+                  <div class="icon-badge">ok</div>
                   <div>
-                    <b>Landing badly?</b>
-                    <span>We look at setup, deliverability and campaign logic before your outreach burns itself out.</span>
+                    <b>Don't want to deal with it?</b>
+                    <span>Good. We can guide you through it or just do it for you.</span>
                   </div>
                 </div>
               </div>
@@ -1406,20 +1298,18 @@
       </div>
     </section>
 
+    <!-- ABOUT -->
     <section id="about">
       <div class="container">
         <div class="section-head">
-          <div class="section-label">What we do</div>
           <h2>We help people show up better and reach out better</h2>
-          <p>
-            APE Solutions helps companies and individuals with LinkedIn, email, outreach, deliverability and the practical systems most people either overcomplicate or avoid.
-          </p>
+          <p>APE Solutions helps companies and individuals with LinkedIn, email, deliverability and the stuff most people either overcomplicate or avoid.</p>
         </div>
 
         <div class="audience-wrapper">
           <div class="audience-divider">Who this is for</div>
-
           <div class="audience-grid">
+
             <div class="audience-card">
               <div class="audience-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24">
@@ -1429,78 +1319,60 @@
                 </svg>
               </div>
               <h3>For companies</h3>
-              <p>
-                Built for teams that need outreach to feel cleaner, more strategic and less chaotic.
-              </p>
+              <p>Built for teams that need outreach to feel cleaner, more strategic and less chaotic.</p>
               <ul class="audience-list">
                 <li>Lead generation and targeting that actually makes sense</li>
-                <li>Email and LinkedIn systems that do not feel improvised</li>
-                <li>Deliverability support before campaigns quietly die</li>
+                <li>Email and LinkedIn outreach systems that feel structured</li>
+                <li>Deliverability support so campaigns stop dying quietly</li>
               </ul>
             </div>
 
             <div class="audience-card">
               <div class="audience-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24">
-                  <path d="M12 3l1.9 4.6L18.5 9l-4.6 1.4L12 15l-1.9-4.6L5.5 9l4.6-1.4L12 3z"></path>
+                  <circle cx="12" cy="8" r="4"></circle>
+                  <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"></path>
                 </svg>
               </div>
               <h3>For individuals</h3>
-              <p>
-                For people who need clarity, sharper positioning and a better way to get noticed.
-              </p>
+              <p>For people who need clarity, sharper positioning and a better way to get noticed.</p>
               <ul class="audience-list">
-                <li>LinkedIn and CV refinement that feels stronger and more premium</li>
-                <li>Better positioning for jobs, clients and opportunities</li>
+                <li>LinkedIn and CV refinement that feels more premium</li>
+                <li>Stronger personal positioning for jobs and opportunities</li>
                 <li>Practical direction when you are too in your head to move</li>
               </ul>
             </div>
+
           </div>
         </div>
 
         <div class="about-grid">
           <div class="panel">
-            <h3>What we actually help with</h3>
-            <p>
-              Most people are not missing effort. They are missing clarity, structure and clean execution.
-            </p>
-
-            <ul class="simple-list">
-              <li>Sharper positioning so people understand who you are and why they should care</li>
-              <li>Better messaging so your emails, profiles and outreach stop blending in</li>
-              <li>Cleaner campaign setup so results are not killed by weak systems</li>
-              <li>Practical support when you want guidance, or full handling when you do not</li>
-            </ul>
-
+            <h3>What we actually do</h3>
+            <p>We help people look sharper, message better and stop losing opportunities because the basics are messy. That means LinkedIn, cold email, deliverability, lead generation, campaign management, coaching and practical systems that make life easier.</p>
             <div class="stats">
               <div class="stat">
                 <strong>2</strong>
-                <span>core audiences: companies and individuals</span>
+                <span>main audiences: companies and individuals</span>
               </div>
-
               <div class="stat">
-                <strong>8+</strong>
-                <span>ways we help across outreach, LinkedIn, email and positioning</span>
+                <strong>7+</strong>
+                <span>core services across LinkedIn, email and growth systems</span>
               </div>
-
               <div class="stat">
                 <strong>1:1</strong>
-                <span>support for people who want clear direction without fluff</span>
+                <span>coaching for people who want guidance without the fluff</span>
               </div>
-
               <div class="stat">
-                <strong>Flexible</strong>
-                <span>you can get guidance, setup help or ongoing support</span>
+                <strong>DFY</strong>
+                <span>done-for-you available when you do not want to deal with any of it</span>
               </div>
             </div>
           </div>
 
           <div class="panel reason-panel">
             <h3>Why people come to us</h3>
-            <p>
-              Because the problem usually is not effort. It is unclear positioning, weak messaging, poor follow-up, spam issues or a system that never got set up properly in the first place.
-            </p>
-
+            <p>Because the problem usually is not effort. It is unclear positioning, weak messaging, poor follow-up, spam issues or a system that never got set up properly in the first place.</p>
             <div class="reason-stack">
               <div class="reason-item">
                 <div class="reason-dot"></div>
@@ -1509,7 +1381,6 @@
                   <span>They are doing a lot, but none of it feels clear, consistent or sharp.</span>
                 </div>
               </div>
-
               <div class="reason-item">
                 <div class="reason-dot"></div>
                 <div>
@@ -1517,7 +1388,6 @@
                   <span>Weak copy, weak positioning, weak setup and no clear idea what is actually blocking results.</span>
                 </div>
               </div>
-
               <div class="reason-item">
                 <div class="reason-dot"></div>
                 <div>
@@ -1528,68 +1398,53 @@
             </div>
           </div>
         </div>
+
       </div>
     </section>
 
+    <!-- SERVICES -->
     <section id="services">
       <div class="container">
         <div class="section-head">
-          <div class="section-label">Services</div>
-          <h2>Pick the part you need fixed</h2>
-          <p>
-            Or let us look at the whole thing and tell you what is actually getting in the way.
-          </p>
+          <h2>Services</h2>
+          <p>Pick the part you need fixed, or let us look at the whole thing and tell you what is wrong.</p>
         </div>
 
         <div class="services-group">
+          <div class="services-group-label services-group-label--company">For companies</div>
           <div class="services-group-title">
-            <div>
-              <div class="group-tag">For companies</div>
-              <h3>Company support</h3>
-              <p>
-                Built for teams that need clearer outreach, stronger systems and a cleaner path to conversations.
-              </p>
-            </div>
+            <h3>Leads, outreach and deliverability</h3>
+            <span>Done-for-you or guided</span>
           </div>
 
           <div class="services-wrap">
             <a class="service-card" href="mailto:info@apecstudio.com?subject=Email%20Outreach%20Setup%20Inquiry" aria-label="Email Outreach Setup">
               <div class="service-top">
-                <div class="service-icon">✉</div>
-                <div class="price">From €100</div>
+                <div class="service-icon">@</div>
+                <div class="price">EUR 100</div>
               </div>
-
               <h4>Email Outreach Setup</h4>
-              <p>
-                We build the email system so you know what to send, who to send it to and how to send it without making a mess.
-              </p>
-
+              <p>We build the email system so you know what to send, who to send it to and how to send it without making a mess.</p>
               <ul class="service-list">
-                <li>Strategic sequence ready for launch</li>
+                <li>Strategic email sequence ready for launch</li>
                 <li>Targeting direction and audience logic</li>
-                <li>Basic deliverability setup and structure</li>
+                <li>Basic deliverability setup</li>
               </ul>
-
               <span class="service-cta">Ask about this service →</span>
             </a>
 
             <a class="service-card" href="mailto:info@apecstudio.com?subject=LinkedIn%20Outreach%20Setup%20Inquiry" aria-label="LinkedIn Outreach Setup">
               <div class="service-top">
-                <div class="service-icon">◎</div>
-                <div class="price">From €200</div>
+                <div class="service-icon">in</div>
+                <div class="price">EUR 200</div>
               </div>
-
               <h4>LinkedIn Outreach Setup</h4>
-              <p>
-                We turn LinkedIn into something useful instead of random connection requests and awkward follow-ups.
-              </p>
-
+              <p>We turn LinkedIn into something useful instead of random connection requests and awkward follow-ups.</p>
               <ul class="service-list">
                 <li>ICP definition and targeting strategy</li>
                 <li>Connection and follow-up flows</li>
                 <li>Safe sending setup and warm-up guidance</li>
               </ul>
-
               <span class="service-cta">Ask about this service →</span>
             </a>
 
@@ -1598,123 +1453,125 @@
                 <div class="service-icon">↺</div>
                 <div class="price">Monthly</div>
               </div>
-
               <h4>Campaign Management</h4>
-              <p>
-                We keep your outreach running cleaner and more usefully over time so it does not fall apart after week one.
-              </p>
-
+              <p>We keep your outreach running, cleaner and more useful over time so it does not fall apart after week one.</p>
               <ul class="service-list">
                 <li>Managing campaigns across email and LinkedIn</li>
-                <li>Safer scaling with warm-up and inbox care</li>
+                <li>Safe scaling with inbox and domain warm-up</li>
                 <li>Monitoring, reporting and continuous improvements</li>
                 <li>Lead generation aligned with your strategy</li>
               </ul>
-
               <span class="service-cta">Ask about this service →</span>
             </a>
-
-            <a class="service-card" href="mailto:info@apecstudio.com?subject=Deliverability%20Audit%20Inquiry" aria-label="Deliverability Audit">
-              <div class="service-top">
-                <div class="service-icon">✓</div>
-                <div class="price">Custom</div>
-              </div>
-
-              <h4>Deliverability Audit</h4>
-              <p>
-                If emails are landing badly, we look at the setup, patterns and weak points before you waste more sends.
-              </p>
-
-              <ul class="service-list">
-                <li>Setup review and risk check</li>
-                <li>Messaging and sending pattern review</li>
-                <li>Clear next steps on what to fix first</li>
-              </ul>
-
-              <span class="service-cta">Ask about this service →</span>
-            </a>
-          </div>
-
-          <div class="cta-panel">
-            <div class="cta-panel-inner">
-              <div>
-                <h3>Need a second set of eyes?</h3>
-                <p>
-                  If you are not sure whether the problem is messaging, setup, positioning or deliverability, start with a free audit request and we will point you in the right direction.
-                </p>
-              </div>
-              <a href="mailto:info@apecstudio.com?subject=Free%20Audit%20Request" class="btn btn-primary">Request a free audit</a>
-            </div>
           </div>
         </div>
 
-        <p class="pricing-note">All listed prices are in EUR unless a custom quote is agreed separately.</p>
+        <div class="services-group" style="margin-top:42px;">
+          <div class="services-group-label services-group-label--individual">For individuals</div>
+          <div class="services-group-title">
+            <h3>Jobs, positioning and personal brand</h3>
+            <span>Done-for-you or guided</span>
+          </div>
+
+          <div class="services-wrap">
+            <a class="service-card" href="mailto:info@apecstudio.com?subject=LinkedIn%20Profile%20Optimization%20Inquiry" aria-label="LinkedIn Profile Optimization">
+              <div class="service-top">
+                <div class="service-icon">in</div>
+                <div class="price">EUR 200-500</div>
+              </div>
+              <h4>LinkedIn Profile Optimization</h4>
+              <p>We make your LinkedIn clearly show who you are, what you do and why someone should care.</p>
+              <ul class="service-list">
+                <li>Headline, About and experience rewrite</li>
+                <li>Clear positioning and target direction</li>
+                <li>What to post and how your profile should look</li>
+                <li>Competitor profile analysis</li>
+              </ul>
+              <span class="service-cta">Ask about this service →</span>
+            </a>
+
+            <a class="service-card" href="mailto:info@apecstudio.com?subject=CV%20and%20Personal%20Branding%20Inquiry" aria-label="CV and Personal Branding">
+              <div class="service-top">
+                <div class="service-icon">CV</div>
+                <div class="price">EUR 150</div>
+              </div>
+              <h4>CV &amp; Personal Branding</h4>
+              <p>If your CV feels flat or generic, we fix the story, structure and positioning behind it.</p>
+              <ul class="service-list">
+                <li>CV rewrite and structure improvement</li>
+                <li>ATS-friendly formatting and optimization</li>
+                <li>Clear positioning aligned with your goals</li>
+              </ul>
+              <span class="service-cta">Ask about this service →</span>
+            </a>
+
+            <a class="service-card" href="mailto:info@apecstudio.com?subject=Coaching%20Inquiry" aria-label="Coaching">
+              <div class="service-top">
+                <div class="service-icon">1:1</div>
+                <div class="price">Custom</div>
+              </div>
+              <h4>Coaching</h4>
+              <p>For people who want someone to actually tell them what to do, what to fix and what to stop wasting time on.</p>
+              <ul class="service-list">
+                <li>Campaign and sequence reviews</li>
+                <li>ICP and trigger refinement</li>
+                <li>Multichannel outreach approaches</li>
+                <li>Full outbound stack audit</li>
+                <li>Dedicated Notion page for future campaigns</li>
+              </ul>
+              <span class="service-cta">Ask about this service →</span>
+            </a>
+          </div>
+        </div>
+
       </div>
     </section>
 
+    <!-- COURSES -->
     <section id="courses">
       <div class="container">
-        <div class="courses-intro">
-          <div class="section-label">Courses</div>
-          <h2>Learn the playbook</h2>
-          <p>
-            Self-serve courses for people who want the framework before paying for hands-on help.
-          </p>
+        <div class="section-head">
+          <h2>Self-serve courses</h2>
+          <p>Learn the playbook before paying for done-for-you help. Cheap, practical and straight to the point.</p>
         </div>
 
         <div class="courses-grid">
           <div class="course-card">
-            <div class="course-tag">Individual</div>
-            <h3>Get Hired</h3>
-            <p>
-              LinkedIn, CV, positioning, outreach and how to stop sounding like everyone else.
-            </p>
-            <div class="price-line">From €15</div>
-            <ul class="course-list">
-              <li>Short, useful lessons</li>
-              <li>Direct examples</li>
-              <li>Immediate fixes you can apply alone</li>
-            </ul>
+            <div class="tag">Individual</div>
+            <h3>Can't get a job? We'll tell you how.</h3>
+            <p>LinkedIn, CV, positioning, outreach and how to stop sounding like everyone else.</p>
+            <div class="price-line">From $15</div>
+            <p>Short, useful lessons you can actually apply right away.</p>
           </div>
 
           <div class="course-card">
-            <div class="course-tag">Company</div>
-            <h3>Get Leads</h3>
-            <p>
-              Targeting, messaging, sequences, follow-up logic and why your outreach is not landing.
-            </p>
-            <div class="price-line">From €15</div>
-            <ul class="course-list">
-              <li>Built for founders and small teams</li>
-              <li>Practical system design</li>
-              <li>Less guesswork, more structure</li>
-            </ul>
+            <div class="tag">Company</div>
+            <h3>Can't get leads? We'll tell you how.</h3>
+            <p>Targeting, messaging, sequences, follow-up logic and why your outreach is not landing.</p>
+            <div class="price-line">From $15</div>
+            <p>Built for founders, consultants and small teams that need a cleaner system.</p>
           </div>
 
           <div class="course-card">
-            <div class="course-tag">Deliverability</div>
-            <h3>Inbox Better</h3>
-            <p>
-              Deliverability, positioning and campaign mistakes that quietly damage performance.
-            </p>
-            <div class="price-line">From €15</div>
-            <ul class="course-list">
-              <li>Simple explanations</li>
-              <li>Clear examples</li>
-              <li>Only what matters</li>
-            </ul>
+            <div class="tag">Deliverability</div>
+            <h3>Can't get results? We'll tell you what is wrong.</h3>
+            <p>Deliverability, positioning and campaign mistakes that quietly kill performance.</p>
+            <div class="price-line">From $15</div>
+            <p>Simple explanations, no fake guru tone, no fluff.</p>
           </div>
         </div>
+
+        <p class="courses-note">Prices shown in USD. Services are priced in EUR. Both accepted.</p>
       </div>
     </section>
 
+    <!-- PROCESS -->
     <section id="process" class="process-section">
       <div class="container">
         <div class="process-shell">
           <div class="process-intro">
-            <div class="section-label">How it works</div>
-            <h2>Clear, fast and easy to follow</h2>
-            <p>We look at the real issue first, then decide whether you need a fix, guidance, or full support.</p>
+            <h2>How it works</h2>
+            <p>Fast, clear and not weirdly overcomplicated.</p>
           </div>
 
           <div class="process-track">
@@ -1723,34 +1580,24 @@
                 <svg viewBox="0 0 24 24">
                   <circle cx="11" cy="11" r="6"></circle>
                   <line x1="16" y1="16" x2="21" y2="21"></line>
-                  <line x1="11" y1="8.5" x2="11" y2="11"></line>
-                  <line x1="13.2" y1="11.7" x2="11.8" y2="11"></line>
                 </svg>
               </div>
               <div class="process-card">
                 <h3>We look</h3>
-                <p>
-                  We figure out what is actually broken instead of guessing from symptoms.
-                </p>
+                <p>We figure out what is actually broken instead of guessing.</p>
               </div>
             </article>
 
             <article class="process-step">
               <div class="process-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24">
-                  <circle cx="8" cy="8" r="2"></circle>
-                  <circle cx="16" cy="16" r="2"></circle>
-                  <path d="M9.5 9.5L14.5 14.5"></path>
-                  <path d="M14 5l5 5"></path>
-                  <path d="M19 5l-5 5"></path>
-                  <path d="M5 19l5-5"></path>
+                  <path d="M12 20h9"></path>
+                  <path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"></path>
                 </svg>
               </div>
               <div class="process-card">
                 <h3>We fix</h3>
-                <p>
-                  We clean up the setup, positioning or messaging that is holding you back.
-                </p>
+                <p>We clean up the messaging, positioning or setup that is holding you back.</p>
               </div>
             </article>
 
@@ -1762,10 +1609,8 @@
                 </svg>
               </div>
               <div class="process-card">
-                <h3>We guide</h3>
-                <p>
-                  You either get clear next steps or we step in more directly where it makes sense.
-                </p>
+                <h3>We guide or do it</h3>
+                <p>You either get clear instructions or we handle the work for you.</p>
               </div>
             </article>
 
@@ -1780,43 +1625,166 @@
               </div>
               <div class="process-card">
                 <h3>We improve</h3>
-                <p>
-                  We keep sharpening what works so the system stays useful instead of going stale.
-                </p>
+                <p>We keep testing and sharpening what works so it does not go stale.</p>
               </div>
             </article>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="testimonials-section" id="testimonials">
+      <div class="container">
+        <div class="testimonials-shell">
+          <div class="testimonials-head">
+            <h2>What people say</h2>
+            <p>Real results from real people who stopped overthinking and just got it fixed.</p>
+          </div>
+
+          <div class="testimonials-grid">
+            <div class="testimonial-card">
+              <div class="testimonial-stars">
+                <span></span><span></span><span></span><span></span><span></span>
+              </div>
+              <p class="testimonial-quote">
+                "Within two weeks of fixing my LinkedIn and rewriting my outreach sequences, I had three warm conversations with leads that had been going cold for months. The positioning work alone was worth it."
+              </p>
+              <div class="testimonial-author">
+                <div class="testimonial-avatar">MS</div>
+                <div>
+                  <span class="testimonial-name">Marco S.</span>
+                  <span class="testimonial-role">Founder, B2B SaaS</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="testimonial-card">
+              <div class="testimonial-stars">
+                <span></span><span></span><span></span><span></span><span></span>
+              </div>
+              <p class="testimonial-quote">
+                "My emails were going straight to spam and I had no idea why. They identified the issue in the first session - a broken SPF record and a warm-up that was never set up properly. Fixed in a day."
+              </p>
+              <div class="testimonial-author">
+                <div class="testimonial-avatar">LK</div>
+                <div>
+                  <span class="testimonial-name">Laura K.</span>
+                  <span class="testimonial-role">Growth Lead, Agency</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="testimonial-card">
+              <div class="testimonial-stars">
+                <span></span><span></span><span></span><span></span><span></span>
+              </div>
+              <p class="testimonial-quote">
+                "I had been applying for six months with zero traction. After the CV and LinkedIn overhaul I landed two interviews in the first week. Direct, no fluff, no upsell. Just results."
+              </p>
+              <div class="testimonial-author">
+                <div class="testimonial-avatar">RP</div>
+                <div>
+                  <span class="testimonial-name">Rina P.</span>
+                  <span class="testimonial-role">Senior Product Manager</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- BOOK A CALL -->
+    <section class="book-section" id="book">
+      <div class="container">
+        <div class="book-shell">
+
+          <div class="book-top">
+            <div class="book-top-text">
+              <h2>Book a free call</h2>
+              <p>Not sure what you need? Book a quick call. We will tell you exactly what is wrong and what to do about it, no strings attached.</p>
+              <div class="book-badges">
+                <div class="book-badge"><div class="book-badge-dot"></div>30 minutes</div>
+                <div class="book-badge"><div class="book-badge-dot"></div>No pitch, no fluff</div>
+                <div class="book-badge"><div class="book-badge-dot"></div>Real diagnosis</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="book-calendar-wrap">
+            <!--
+              INSTRUCTIONS:
+              Replace the src below with your calendar embed URL.
+              Examples:
+                Calendly:  https://calendly.com/your-username/30min?embed_domain=...&embed_type=Inline
+                Cal.com:   https://cal.com/your-username/30min?embed=true
+                TidyCal:   https://tidycal.com/your-username/30min
+
+              Then remove the .book-calendar-placeholder div below and uncomment the iframe.
+            -->
+
+            <!-- <iframe
+              src="YOUR_CALENDAR_EMBED_URL_HERE"
+              title="Book a call with APE Solutions"
+              loading="lazy"
+              allow="camera; microphone; payment"
+            ></iframe> -->
+
+            <div class="book-calendar-placeholder">
+              <div class="placeholder-icon">
+                <svg viewBox="0 0 24 24">
+                  <rect x="3" y="4" width="18" height="18" rx="3"></rect>
+                  <path d="M16 2v4M8 2v4M3 10h18"></path>
+                  <path d="M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01"></path>
+                </svg>
+              </div>
+              <h3>Your calendar goes here</h3>
+              <p>Paste your Calendly, Cal.com or TidyCal embed URL into the iframe src in the code. It will render directly on this page.</p>
+              <code>Replace src="YOUR_CALENDAR_EMBED_URL_HERE"</code>
+            </div>
+
           </div>
         </div>
       </div>
     </section>
 
+    <!-- CONTACT -->
     <section id="contact">
       <div class="container">
         <div class="contact-card">
           <div class="contact-grid">
             <div>
               <h2>Want us to handle it?</h2>
-              <p>
-                If you are tired of overthinking LinkedIn, email, deliverability, campaigns or how you are showing up online, reach out. We’ll either show you the fix or help you sort it properly.
-              </p>
+              <p>If you are tired of overthinking LinkedIn, email, deliverability, campaigns or how you are showing up online, reach out. We will either show you the fix or do it for you.</p>
             </div>
 
             <div class="contact-actions">
               <a href="mailto:info@apecstudio.com?subject=I%20want%20help" class="btn btn-primary">I want help</a>
-              <a href="mailto:info@apecstudio.com?subject=Free%20Audit%20Request" class="btn btn-secondary">Get a free audit</a>
+              <a href="#book" class="btn btn-secondary">Book a free call</a>
               <a href="mailto:info@apecstudio.com" class="contact-email">info@apecstudio.com</a>
             </div>
           </div>
         </div>
       </div>
     </section>
+
   </main>
 
   <footer>
     <div class="container footer-inner">
+      <div class="footer-brand">
+        <div class="logo-frame logo-frame--light">
+          <img src="APE.Logo1.png" alt="APE Solutions logo" />
+        </div>
+        <span>APE Solutions</span>
+      </div>
       <span>© 2026 APE Solutions. All rights reserved.</span>
       <a href="#home">Back to top</a>
     </div>
   </footer>
+
 </body>
 </html>
