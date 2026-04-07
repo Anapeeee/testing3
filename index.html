@@ -3,110 +3,108 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>APE Solutions | Don’t think about it. We’ll fix it.</title>
-  <meta
-    name="description"
-    content="APE Solutions helps companies and individuals with LinkedIn, email, outreach, deliverability, and practical systems that actually work."
-  />
+  <title>APE Solutions | Don't think about it. We'll fix it.</title>
+  <meta name="description" content="APE Solutions helps companies and individuals with LinkedIn, email, outreach, and done-for-you systems." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap"
-    rel="stylesheet"
-  />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
 
   <style>
     :root {
-      --bg: #f6fbff;
-      --bg-soft: #eef6fb;
-      --surface: rgba(255, 255, 255, 0.94);
+      --bg: #f7fbff;
+      --bg-soft: #eef7fc;
+      --surface: rgba(255,255,255,0.9);
       --surface-strong: #ffffff;
-      --line: rgba(28, 68, 107, 0.09);
-      --text: #163554;
-      --muted: #60798f;
+      --line: rgba(28,68,107,0.1);
+      --text: #14324f;
+      --muted: #61788d;
       --primary: #1c446b;
       --primary-2: #2f79a8;
-      --primary-3: #75c8e5;
-      --accent: #a88cf0;
-      --accent-strong: #8d71df;
-      --accent-soft: rgba(168, 140, 240, 0.14);
-      --warm-soft: rgba(255, 208, 159, 0.18);
+      --primary-3: #77c7e3;
+      --accent: #a98cf0;
+      --accent-strong: #8f72e0;
+      --accent-soft: rgba(169,140,240,0.14);
       --white: #ffffff;
-      --shadow: 0 18px 40px rgba(27, 88, 131, 0.08);
-      --shadow-strong: 0 28px 70px rgba(27, 88, 131, 0.14);
+      --shadow: 0 18px 40px rgba(27,88,131,0.1);
+      --shadow-strong: 0 28px 70px rgba(27,88,131,0.14);
       --radius-xl: 34px;
       --radius-lg: 28px;
       --radius-md: 22px;
       --radius-sm: 18px;
-      --max: 1320px;
-      --header-height: 84px;
+      --max: 1180px;
+      --header-height: 82px;
     }
 
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
-      font-family: "DM Sans", system-ui, sans-serif;
+      font-family: "Inter", system-ui, -apple-system, sans-serif;
       background:
-        radial-gradient(circle at top left, rgba(117, 200, 229, 0.16), transparent 24%),
-        radial-gradient(circle at top right, rgba(183, 140, 243, 0.08), transparent 18%),
+        radial-gradient(circle at top left, rgba(114,199,229,0.16), transparent 24%),
+        radial-gradient(circle at top right, rgba(183,140,243,0.1), transparent 18%),
         linear-gradient(180deg, #fbfdff 0%, #eef8fc 100%);
       color: var(--text);
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
     }
 
-    h1, h2, h3, h4, h5, h6,
-    .brand,
-    .btn,
-    .section-label,
-    .group-tag,
-    .price,
-    .service-cta,
-    .course-tag,
-    .contact-email,
-    .nav a {
-      font-family: "Syne", sans-serif;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    img,
-    svg {
-      display: block;
-      max-width: 100%;
-    }
-
-    button,
-    input,
-    textarea {
-      font: inherit;
-    }
+    a { color: inherit; text-decoration: none; }
+    img, svg { display: block; max-width: 100%; }
+    button, input, textarea { font: inherit; }
 
     .container {
       width: min(calc(100% - 34px), var(--max));
       margin: 0 auto;
     }
 
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(22px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+    @keyframes floatCard {
+      0%, 100% { transform: translateY(0px); }
+      50%       { transform: translateY(-8px); }
+    }
+    @keyframes shimmer {
+      0%   { background-position: -400px 0; }
+      100% { background-position: 400px 0; }
+    }
+    @keyframes pulseRing {
+      0%   { box-shadow: 0 0 0 0 rgba(169,140,240,0.35); }
+      70%  { box-shadow: 0 0 0 12px rgba(169,140,240,0); }
+      100% { box-shadow: 0 0 0 0 rgba(169,140,240,0); }
+    }
+    @keyframes spinSlow {
+      from { transform: rotate(0deg); }
+      to   { transform: rotate(360deg); }
+    }
+
+    .anim-fadeup {
+      opacity: 0;
+      animation: fadeUp 0.65s cubic-bezier(.22,.68,0,1.1) forwards;
+    }
+    .anim-fadeup.d1 { animation-delay: 0.05s; }
+    .anim-fadeup.d2 { animation-delay: 0.15s; }
+    .anim-fadeup.d3 { animation-delay: 0.25s; }
+    .anim-fadeup.d4 { animation-delay: 0.35s; }
+    .anim-fadeup.d5 { animation-delay: 0.45s; }
+
+    /* ── HEADER ── */
     .site-header {
       position: sticky;
       top: 0;
       z-index: 1000;
       backdrop-filter: blur(18px);
-      background: rgba(255, 255, 255, 0.84);
-      border-bottom: 1px solid rgba(28, 68, 107, 0.08);
+      background: rgba(255,255,255,0.84);
+      border-bottom: 1px solid rgba(28,68,107,0.08);
     }
-
     .header-inner {
       min-height: var(--header-height);
       display: flex;
@@ -114,56 +112,53 @@
       justify-content: space-between;
       gap: 20px;
     }
-
     .brand {
       display: flex;
       align-items: center;
       gap: 14px;
       color: var(--primary);
-      font-weight: 800;
+      font-weight: 900;
       letter-spacing: -0.03em;
       flex-shrink: 0;
     }
 
-    .brand-logo {
-      width: 68px;
-      height: 68px;
+    /* ── LOGO CIRCLE ── */
+    .logo-circle {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: #ffffff;
+      border: 2px solid rgba(28,68,107,0.14);
+      box-shadow: 0 4px 16px rgba(28,68,107,0.12), inset 0 1px 0 rgba(255,255,255,0.9);
       display: grid;
       place-items: center;
-      flex-shrink: 0;
-      border-radius: 50%;
-      padding: 8px;
-      background:
-        linear-gradient(180deg, #ffffff 0%, #f3f7fb 100%);
-      border: 1px solid rgba(255, 255, 255, 0.82);
-      box-shadow:
-        0 12px 28px rgba(28, 68, 107, 0.16),
-        inset 0 0 0 7px #ffffff,
-        inset 0 0 0 8px rgba(28, 68, 107, 0.06);
       overflow: hidden;
-      position: relative;
+      flex-shrink: 0;
+      transition: box-shadow 0.25s ease, transform 0.25s ease;
     }
-
-    .brand-logo::after {
-      content: "";
-      position: absolute;
-      inset: 6px;
-      border-radius: 50%;
-      border: 1px solid rgba(28, 68, 107, 0.06);
-      pointer-events: none;
+    .logo-circle:hover {
+      box-shadow: 0 8px 24px rgba(28,68,107,0.18);
+      transform: translateY(-1px);
     }
-
-    .brand-logo img {
-      width: 100%;
-      height: 100%;
+    .logo-circle img {
+      width: 80%;
+      height: 80%;
       object-fit: contain;
-      object-position: center;
-      border-radius: 50%;
-      background: transparent;
-      filter:
-        saturate(1.02)
-        contrast(1.04)
-        drop-shadow(0 4px 10px rgba(28, 68, 107, 0.08));
+      display: block;
+    }
+
+    /* Hero card logo — slightly larger, on dark bg */
+    .logo-circle--hero {
+      width: 62px;
+      height: 62px;
+      background: #ffffff;
+      border: 2.5px solid rgba(255,255,255,0.6);
+      box-shadow: 0 8px 28px rgba(0,0,0,0.22), inset 0 1px 0 rgba(255,255,255,1);
+      animation: pulseRing 3s ease-in-out infinite;
+    }
+    .logo-circle--hero img {
+      width: 82%;
+      height: 82%;
     }
 
     .brand span {
@@ -171,16 +166,14 @@
       font-size: 1.05rem;
       line-height: 1.05;
     }
-
     .brand small {
       display: block;
       margin-top: 3px;
       color: var(--muted);
       font-size: 0.76rem;
-      font-weight: 600;
+      font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.04em;
-      font-family: "DM Sans", sans-serif;
     }
 
     .nav {
@@ -190,7 +183,6 @@
       flex-wrap: wrap;
       justify-content: flex-end;
     }
-
     .nav a {
       padding: 10px 14px;
       border-radius: 999px;
@@ -199,35 +191,26 @@
       color: var(--primary);
       transition: 0.22s ease;
     }
-
-    .nav a:hover,
-    .nav a:focus-visible {
-      background: rgba(117, 200, 229, 0.12);
-      outline: none;
-    }
-
+    .nav a:hover { background: rgba(114,199,229,0.12); }
     .nav .nav-cta {
       background: white;
-      border: 1px solid rgba(28, 68, 107, 0.14);
-      box-shadow: 0 8px 16px rgba(28, 68, 107, 0.06);
+      border: 1px solid rgba(28,68,107,0.14);
+      box-shadow: 0 8px 16px rgba(28,68,107,0.06);
     }
 
-    .hero {
-      padding: 24px 0 34px;
-    }
-
+    /* ── HERO ── */
+    .hero { padding: 24px 0 34px; }
     .hero-shell {
       position: relative;
       overflow: hidden;
       border-radius: var(--radius-xl);
       background:
-        radial-gradient(circle at 78% 34%, rgba(255, 255, 255, 0.14), transparent 19%),
-        radial-gradient(circle at 15% 85%, rgba(255, 208, 159, 0.12), transparent 18%),
+        radial-gradient(circle at 78% 34%, rgba(255,255,255,0.14), transparent 19%),
+        radial-gradient(circle at 15% 85%, rgba(255,207,157,0.12), transparent 18%),
         linear-gradient(135deg, #193d63 0%, #2b6f9c 48%, #77cae7 100%);
       box-shadow: var(--shadow-strong);
       isolation: isolate;
     }
-
     .hero-shell::before,
     .hero-shell::after {
       content: "";
@@ -236,34 +219,17 @@
       pointer-events: none;
       z-index: 0;
     }
-
     .hero-shell::before {
-      width: 620px;
-      height: 620px;
-      right: -160px;
-      top: 50%;
+      width: 620px; height: 620px;
+      right: -160px; top: 50%;
       transform: translateY(-50%);
-      background: radial-gradient(
-        circle,
-        rgba(255, 255, 255, 0.16) 0%,
-        rgba(255, 255, 255, 0.05) 58%,
-        transparent 74%
-      );
+      background: radial-gradient(circle, rgba(255,255,255,0.16) 0%, rgba(255,255,255,0.05) 58%, transparent 74%);
     }
-
     .hero-shell::after {
-      width: 280px;
-      height: 280px;
-      left: -70px;
-      bottom: -90px;
-      background: radial-gradient(
-        circle,
-        rgba(183, 140, 243, 0.18) 0%,
-        rgba(183, 140, 243, 0.03) 64%,
-        transparent 76%
-      );
+      width: 280px; height: 280px;
+      left: -70px; bottom: -90px;
+      background: radial-gradient(circle, rgba(183,140,243,0.2) 0%, rgba(183,140,243,0.03) 64%, transparent 76%);
     }
-
     .hero-grid {
       position: relative;
       z-index: 1;
@@ -271,105 +237,53 @@
       grid-template-columns: 1.08fr 0.92fr;
       gap: 30px;
       align-items: center;
-      min-height: 690px;
+      min-height: 680px;
       padding: 58px 52px;
     }
-
     .eyebrow {
       display: inline-flex;
       align-items: center;
       gap: 8px;
       padding: 11px 17px;
       border-radius: 999px;
-      background: rgba(255, 255, 255, 0.12);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      color: rgba(255, 255, 255, 0.98);
-      font-size: 0.88rem;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: rgba(255,255,255,0.98);
+      font-size: 0.9rem;
       font-weight: 700;
       letter-spacing: 0.01em;
       margin-bottom: 20px;
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
-      font-family: "DM Sans", sans-serif;
     }
-
     .hero h1 {
       margin: 0;
-      font-size: clamp(3rem, 6vw, 5.2rem);
-      line-height: 0.94;
-      letter-spacing: -0.07em;
-      max-width: 8.7ch;
+      font-size: clamp(2.95rem, 6vw, 5.15rem);
+      line-height: 0.96;
+      letter-spacing: -0.065em;
+      max-width: 8.8ch;
       color: white;
       text-wrap: balance;
     }
-
     .hero h1 .accent {
       display: inline-block;
-      background: linear-gradient(135deg, #d9c5ff 0%, #b78cf3 48%, #efe7ff 100%);
+      background: linear-gradient(135deg, #d8c3ff 0%, #b78cf3 48%, #efe7ff 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      filter: drop-shadow(0 8px 24px rgba(183, 140, 243, 0.18));
+      filter: drop-shadow(0 8px 24px rgba(183,140,243,0.18));
     }
-
     .hero-kicker {
-      margin: 20px 0 0;
-      color: rgba(255, 255, 255, 0.98);
-      font-size: clamp(1.08rem, 1.95vw, 1.45rem);
-      font-weight: 700;
+      margin: 18px 0 0;
+      color: rgba(255,255,255,0.97);
+      font-size: clamp(1.08rem, 1.9vw, 1.45rem);
+      font-weight: 600;
       line-height: 1.24;
       max-width: 24ch;
-      letter-spacing: -0.02em;
     }
-
     .hero-copy {
-      margin: 16px 0 0;
-      max-width: 57ch;
-      color: rgba(255, 255, 255, 0.84);
+      margin: 18px 0 0;
+      max-width: 54ch;
+      color: rgba(255,255,255,0.84);
       font-size: 1rem;
-      font-family: "DM Sans", sans-serif;
     }
-
-    .hero-scan-list,
-    .audience-list,
-    .service-list,
-    .course-list,
-    .simple-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: grid;
-      gap: 10px;
-    }
-
-    .hero-scan-list {
-      margin-top: 24px;
-      max-width: 50ch;
-    }
-
-    .hero-scan-list li {
-      display: flex;
-      gap: 10px;
-      align-items: flex-start;
-      color: rgba(255, 255, 255, 0.92);
-      font-size: 0.97rem;
-      line-height: 1.45;
-    }
-
-    .hero-scan-list li::before,
-    .audience-list li::before,
-    .course-list li::before,
-    .simple-list li::before {
-      content: "•";
-      font-size: 1.1rem;
-      line-height: 1;
-      color: var(--accent-strong);
-      margin-top: 1px;
-      font-weight: 900;
-    }
-
-    .hero-scan-list li::before {
-      color: #efe6ff;
-    }
-
     .hero-actions {
       display: flex;
       gap: 14px;
@@ -377,6 +291,7 @@
       margin-top: 28px;
     }
 
+    /* ── BUTTONS ── */
     .btn {
       display: inline-flex;
       align-items: center;
@@ -385,94 +300,60 @@
       min-height: 54px;
       padding: 0 22px;
       border-radius: 999px;
-      font-weight: 700;
+      font-weight: 800;
       border: none;
-      transition: transform 0.22s ease, box-shadow 0.22s ease, background 0.22s ease, border-color 0.22s ease;
+      transition: transform 0.22s ease, box-shadow 0.22s ease, background 0.22s ease;
       cursor: pointer;
-      font-size: 0.96rem;
-      letter-spacing: -0.01em;
     }
-
-    .btn:hover {
-      transform: translateY(-2px);
-    }
-
+    .btn:hover { transform: translateY(-2px); }
     .btn-primary {
       background: white;
       color: var(--primary);
-      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.1);
     }
-
-    .btn-primary:hover {
-      background: #fbf8ff;
-    }
-
+    .btn-primary:hover { background: #fbf8ff; box-shadow: 0 16px 32px rgba(0,0,0,0.13); }
     .btn-secondary {
-      background: rgba(255, 255, 255, 0.1);
+      background: rgba(255,255,255,0.1);
       color: white;
-      border: 1px solid rgba(255, 255, 255, 0.28);
+      border: 1px solid rgba(255,255,255,0.28);
     }
+    .btn-secondary:hover { background: rgba(255,255,255,0.16); }
 
-    .btn-secondary:hover {
-      background: rgba(255, 255, 255, 0.16);
-    }
-
+    /* ── HERO CARD ── */
     .hero-card {
       position: relative;
-      background: rgba(255, 255, 255, 0.12);
-      border: 1px solid rgba(255, 255, 255, 0.18);
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.18);
       border-radius: 30px;
       padding: 24px;
       color: white;
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.12);
       backdrop-filter: blur(10px);
-      max-width: 510px;
+      max-width: 500px;
       margin-left: auto;
+      animation: floatCard 6s ease-in-out infinite;
     }
-
     .hero-profile {
       display: flex;
       align-items: center;
       gap: 15px;
       margin-bottom: 20px;
     }
-
-    .hero-profile .brand-logo {
-      width: 72px;
-      height: 72px;
-      background: linear-gradient(180deg, #ffffff 0%, #eef4f8 100%);
-      border: 1px solid rgba(255, 255, 255, 0.78);
-      box-shadow:
-        0 12px 28px rgba(7, 25, 42, 0.16),
-        inset 0 0 0 8px #ffffff,
-        inset 0 0 0 9px rgba(28, 68, 107, 0.05);
-    }
-
-    .hero-profile strong {
-      display: block;
-      font-size: 1.08rem;
-    }
-
-    .hero-profile span {
-      color: rgba(255, 255, 255, 0.82);
-      font-size: 0.94rem;
-      font-family: "DM Sans", sans-serif;
-    }
-
-    .hero-points {
-      display: grid;
-      gap: 12px;
-    }
-
+    .hero-profile strong { display: block; font-size: 1.08rem; }
+    .hero-profile span { color: rgba(255,255,255,0.82); font-size: 0.94rem; }
+    .hero-points { display: grid; gap: 12px; }
     .hero-point {
       display: flex;
       gap: 12px;
       align-items: flex-start;
       padding: 15px 16px;
-      background: rgba(255, 255, 255, 0.08);
+      background: rgba(255,255,255,0.08);
       border-radius: 18px;
+      transition: background 0.2s ease;
     }
+    .hero-point:hover { background: rgba(255,255,255,0.13); }
 
+    /* icon-badge — SVG version */
     .icon-badge {
       min-width: 40px;
       width: 40px;
@@ -480,170 +361,14 @@
       border-radius: 14px;
       display: grid;
       place-items: center;
-      background: rgba(255, 255, 255, 0.18);
+      background: rgba(255,255,255,0.18);
       color: #efe6ff;
-      font-weight: 900;
-      font-size: 0.98rem;
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18);
-      font-family: "DM Sans", sans-serif;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.18);
+      flex-shrink: 0;
     }
-
-    .hero-point b {
-      display: block;
-      margin-bottom: 2px;
-      font-size: 0.98rem;
-      font-family: "Syne", sans-serif;
-    }
-
-    .hero-point span {
-      display: block;
-      color: rgba(255, 255, 255, 0.82);
-      font-size: 0.91rem;
-      line-height: 1.45;
-      font-family: "DM Sans", sans-serif;
-    }
-
-    section {
-      padding: 46px 0;
-    }
-
-    .section-head,
-    .courses-intro {
-      max-width: 860px;
-      margin: 0 auto 32px;
-      text-align: center;
-    }
-
-    .section-head h2,
-    .courses-intro h2 {
-      margin: 0 0 14px;
-      color: var(--primary);
-      font-size: clamp(2rem, 4vw, 3rem);
-      letter-spacing: -0.05em;
-      line-height: 1.02;
-    }
-
-    .section-head p,
-    .courses-intro p {
-      margin: 0 auto;
-      color: var(--muted);
-      font-size: 1.02rem;
-      max-width: 760px;
-      font-family: "DM Sans", sans-serif;
-    }
-
-    .section-label {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 14px;
-      padding: 8px 14px;
-      border-radius: 999px;
-      background: rgba(117, 200, 229, 0.12);
-      border: 1px solid rgba(28, 68, 107, 0.08);
-      color: var(--primary);
-      font-size: 0.8rem;
-      font-weight: 700;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-    }
-
-    .audience-wrapper {
-      position: relative;
-      margin-bottom: 34px;
-      padding: 34px;
-      border-radius: 28px;
-      background:
-        linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(247, 252, 255, 0.92)),
-        linear-gradient(135deg, rgba(117, 200, 229, 0.08), rgba(183, 140, 243, 0.06));
-      border: 1px solid rgba(28, 68, 107, 0.08);
-      box-shadow: 0 20px 50px rgba(28, 68, 107, 0.06);
-    }
-
-    .audience-divider {
-      position: absolute;
-      top: -14px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: white;
-      padding: 8px 18px;
-      border-radius: 999px;
-      font-size: 0.82rem;
-      font-weight: 700;
-      color: var(--primary);
-      border: 1px solid rgba(28, 68, 107, 0.08);
-      box-shadow: 0 8px 18px rgba(28, 68, 107, 0.08);
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      white-space: nowrap;
-    }
-
-    .audience-grid,
-    .about-grid,
-    .courses-grid,
-    .process-track,
-    .contact-grid {
-      display: grid;
-      gap: 22px;
-    }
-
-    .audience-grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .about-grid {
-      grid-template-columns: 1.02fr 0.98fr;
-      align-items: stretch;
-    }
-
-    .audience-card,
-    .panel,
-    .service-card,
-    .course-card,
-    .contact-card,
-    .cta-panel {
-      background: var(--surface);
-      backdrop-filter: blur(8px);
-      border: 1px solid var(--line);
-      border-radius: 24px;
-      box-shadow: var(--shadow);
-    }
-
-    .audience-card {
-      position: relative;
-      overflow: hidden;
-      padding: 30px;
-      background:
-        linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(252, 254, 255, 0.94)),
-        linear-gradient(135deg, rgba(117, 200, 229, 0.14), rgba(183, 140, 243, 0.1));
-      border: 1px solid rgba(28, 68, 107, 0.06);
-    }
-
-    .audience-card::before {
-      content: "";
-      position: absolute;
-      inset: 0 0 auto 0;
-      height: 4px;
-      background: linear-gradient(90deg, var(--primary-2), var(--primary-3), var(--accent));
-      opacity: 0.95;
-    }
-
-    .audience-icon {
-      width: 52px;
-      height: 52px;
-      border-radius: 50%;
-      display: grid;
-      place-items: center;
-      margin-bottom: 16px;
-      background: linear-gradient(180deg, rgba(117, 200, 229, 0.14), rgba(183, 140, 243, 0.12));
-      color: var(--primary);
-      border: 1px solid rgba(28, 68, 107, 0.08);
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.4);
-    }
-
-    .audience-icon svg {
-      width: 24px;
-      height: 24px;
+    .icon-badge svg {
+      width: 20px;
+      height: 20px;
       stroke: currentColor;
       stroke-width: 2;
       fill: none;
@@ -651,126 +376,166 @@
       stroke-linejoin: round;
     }
 
-    .audience-card h3 {
-      margin: 0 0 8px;
-      color: var(--primary);
-      font-size: 1.32rem;
-      letter-spacing: -0.04em;
-    }
+    .hero-point b { display: block; margin-bottom: 2px; font-size: 0.98rem; }
+    .hero-point span { display: block; color: rgba(255,255,255,0.8); font-size: 0.91rem; line-height: 1.45; }
 
-    .audience-card p {
-      margin: 0 0 16px;
-      color: var(--muted);
-      font-family: "DM Sans", sans-serif;
+    /* ── SECTIONS ── */
+    section { padding: 44px 0; }
+    .section-head {
+      max-width: 760px;
+      margin: 0 auto 32px;
+      text-align: center;
     }
-
-    .audience-list li,
-    .course-list li,
-    .simple-list li {
-      display: flex;
-      gap: 10px;
-      align-items: flex-start;
-      color: #4d677a;
-      font-size: 0.94rem;
-      line-height: 1.45;
-      font-family: "DM Sans", sans-serif;
-    }
-
-    .panel {
-      padding: 28px;
-    }
-
-    .panel h3 {
+    .section-head h2 {
       margin: 0 0 14px;
       color: var(--primary);
-      font-size: 1.35rem;
+      font-size: clamp(2rem, 4vw, 3rem);
       letter-spacing: -0.04em;
+      line-height: 1.04;
+    }
+    .section-head p { margin: 0; color: var(--muted); font-size: 1.02rem; }
+
+    /* ── AUDIENCE ── */
+    .audience-wrapper {
+      position: relative;
+      margin-bottom: 34px;
+      padding: 34px;
+      border-radius: 28px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.96), rgba(247,252,255,0.92)),
+        linear-gradient(135deg, rgba(114,199,229,0.08), rgba(183,140,243,0.06));
+      border: 1px solid rgba(28,68,107,0.08);
+      box-shadow: 0 20px 50px rgba(28,68,107,0.06);
+    }
+    .audience-divider {
+      position: absolute;
+      top: -14px; left: 50%;
+      transform: translateX(-50%);
+      background: white;
+      padding: 8px 18px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 800;
+      color: var(--primary);
+      border: 1px solid rgba(28,68,107,0.08);
+      box-shadow: 0 8px 18px rgba(28,68,107,0.08);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .audience-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 22px;
+    }
+    .audience-card {
+      position: relative;
+      overflow: hidden;
+      padding: 30px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.98), rgba(252,254,255,0.94)),
+        linear-gradient(135deg, rgba(114,199,229,0.14), rgba(183,140,243,0.1));
+      border: 1px solid rgba(28,68,107,0.06);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .audience-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-strong); }
+    .audience-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary-2), var(--primary-3), var(--accent));
+    }
+    .audience-icon {
+      width: 52px; height: 52px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      margin-bottom: 16px;
+      background: linear-gradient(180deg, rgba(114,199,229,0.14), rgba(183,140,243,0.12));
+      color: var(--primary);
+      border: 1px solid rgba(28,68,107,0.08);
+    }
+    .audience-icon svg {
+      width: 24px; height: 24px;
+      stroke: currentColor;
+      stroke-width: 2;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .audience-card h3 { margin: 0 0 8px; color: var(--primary); font-size: 1.32rem; letter-spacing: -0.03em; }
+    .audience-card p { margin: 0 0 16px; color: var(--muted); }
+    .audience-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 9px; }
+    .audience-list li {
+      display: flex; gap: 10px;
+      align-items: flex-start;
+      color: #4d677a; font-size: 0.94rem;
+    }
+    .audience-list li::before {
+      content: "\2022";
+      color: var(--accent-strong);
+      font-weight: 900; font-size: 1.1rem;
+      line-height: 1; margin-top: 1px;
     }
 
-    .panel p {
-      margin: 0 0 16px;
-      color: var(--muted);
-      font-family: "DM Sans", sans-serif;
+    /* ── ABOUT ── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.02fr 0.98fr;
+      gap: 24px;
+      align-items: stretch;
     }
-
+    .panel {
+      background: var(--surface);
+      backdrop-filter: blur(8px);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+      padding: 28px;
+    }
+    .panel h3 { margin: 0 0 14px; color: var(--primary); font-size: 1.35rem; letter-spacing: -0.03em; }
+    .panel p { margin: 0; color: var(--muted); }
     .stats {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-columns: repeat(2, minmax(0,1fr));
       gap: 16px;
       margin-top: 20px;
     }
-
     .stat {
       padding: 20px;
       border-radius: 20px;
-      background: linear-gradient(180deg, rgba(117, 200, 229, 0.11), rgba(183, 140, 243, 0.09));
-      border: 1px solid rgba(28, 68, 107, 0.08);
+      background: linear-gradient(180deg, rgba(114,199,229,0.11), rgba(183,140,243,0.09));
+      border: 1px solid rgba(28,68,107,0.08);
     }
-
-    .stat strong {
-      display: block;
-      color: var(--primary);
-      font-size: 1.65rem;
-      letter-spacing: -0.05em;
-      line-height: 1;
-      margin-bottom: 8px;
-    }
-
-    .stat span {
-      color: var(--muted);
-      font-size: 0.94rem;
-      font-family: "DM Sans", sans-serif;
-    }
-
+    .stat strong { display: block; color: var(--primary); font-size: 1.65rem; letter-spacing: -0.04em; line-height: 1; margin-bottom: 8px; }
+    .stat span { color: var(--muted); font-size: 0.94rem; }
     .reason-panel {
       position: relative;
       overflow: hidden;
       background:
-        radial-gradient(circle at top right, rgba(183, 140, 243, 0.1), transparent 24%),
-        linear-gradient(180deg, rgba(255, 255, 255, 0.97), rgba(248, 252, 255, 0.95));
+        radial-gradient(circle at top right, rgba(183,140,243,0.1), transparent 24%),
+        linear-gradient(180deg, rgba(255,255,255,0.97), rgba(248,252,255,0.95));
     }
-
-    .reason-stack {
-      display: grid;
-      gap: 12px;
-      margin-top: 20px;
-    }
-
+    .reason-stack { display: grid; gap: 12px; margin-top: 20px; }
     .reason-item {
-      display: flex;
-      gap: 12px;
+      display: flex; gap: 12px;
       align-items: flex-start;
       padding: 14px 15px;
       border-radius: 18px;
-      background: rgba(117, 200, 229, 0.08);
-      border: 1px solid rgba(28, 68, 107, 0.07);
+      background: rgba(114,199,229,0.08);
+      border: 1px solid rgba(28,68,107,0.07);
+      transition: transform 0.2s ease;
     }
-
-    .reason-item:nth-child(2) {
-      background: rgba(183, 140, 243, 0.08);
-    }
-
-    .reason-item:nth-child(3) {
-      background: rgba(255, 208, 159, 0.11);
-    }
-
-    .reason-item b {
-      color: var(--primary);
-      display: block;
-      margin-bottom: 2px;
-      font-size: 0.97rem;
-    }
-
-    .reason-item span {
-      color: var(--muted);
-      font-size: 0.92rem;
-      line-height: 1.45;
-      font-family: "DM Sans", sans-serif;
-    }
-
+    .reason-item:hover { transform: translateX(4px); }
+    .reason-item:nth-child(2) { background: rgba(183,140,243,0.08); }
+    .reason-item:nth-child(3) { background: rgba(255,207,157,0.11); }
+    .reason-item b { color: var(--primary); display: block; margin-bottom: 2px; font-size: 0.97rem; }
+    .reason-item span { color: var(--muted); font-size: 0.92rem; line-height: 1.45; }
     .reason-dot {
-      width: 10px;
-      height: 10px;
+      width: 10px; height: 10px;
       margin-top: 7px;
       border-radius: 50%;
       background: linear-gradient(180deg, var(--accent), var(--accent-strong));
@@ -778,89 +543,46 @@
       flex-shrink: 0;
     }
 
-    .services-group {
-      margin-top: 18px;
-      text-align: center;
-    }
-
+    /* ── SERVICES ── */
+    .services-group { margin-top: 28px; }
+    .services-group:first-of-type { margin-top: 0; }
     .services-group-title {
-      max-width: 780px;
-      margin: 0 auto 26px;
-      text-align: center;
-    }
-
-    .services-group-title h3 {
-      margin: 14px 0 10px;
-      color: var(--primary);
-      font-size: 1.6rem;
-      letter-spacing: -0.05em;
-    }
-
-    .services-group-title p {
-      margin: 0 auto;
-      color: var(--muted);
-      font-size: 0.98rem;
-      max-width: 700px;
-      font-family: "DM Sans", sans-serif;
-    }
-
-    .group-tag {
-      display: inline-flex;
+      display: flex;
       align-items: center;
-      gap: 8px;
-      padding: 8px 12px;
-      border-radius: 999px;
-      background: rgba(117, 200, 229, 0.12);
-      color: var(--primary);
-      font-size: 0.78rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      border: 1px solid rgba(28, 68, 107, 0.07);
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 18px;
     }
-
+    .services-group-title h3 { margin: 0; color: var(--primary); font-size: 1.45rem; letter-spacing: -0.03em; }
+    .services-group-title span { color: var(--muted); font-size: 0.95rem; font-weight: 600; }
     .services-wrap {
       display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
       gap: 22px;
-      align-items: stretch;
-      justify-content: center;
     }
-
     .service-card {
       position: relative;
-      display: flex;
-      flex-direction: column;
+      display: block;
       padding: 26px;
-      background: linear-gradient(180deg, rgba(255, 255, 255, 0.97), rgba(255, 255, 255, 0.9));
+      background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(255,255,255,0.88));
       overflow: hidden;
-      min-height: 100%;
-      text-align: left;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
       transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
     }
-
-    .service-card:nth-child(2),
-    .service-card:nth-child(4) {
-      transform: translateY(20px);
-    }
-
     .service-card::before {
       content: "";
       position: absolute;
       inset: 0 0 auto 0;
       height: 5px;
       background: linear-gradient(90deg, var(--primary), var(--primary-3), var(--accent));
-      opacity: 0.98;
     }
-
-    .service-card:hover,
-    .service-card:focus-visible {
+    .service-card:hover {
       transform: translateY(-6px);
-      box-shadow: 0 24px 40px rgba(26, 91, 134, 0.14);
-      border-color: rgba(28, 68, 107, 0.18);
-      outline: none;
+      box-shadow: 0 24px 40px rgba(26,91,134,0.14);
+      border-color: rgba(28,68,107,0.18);
     }
-
     .service-top {
       display: flex;
       align-items: flex-start;
@@ -868,73 +590,50 @@
       gap: 14px;
       margin-bottom: 18px;
     }
-
     .service-icon {
-      width: 54px;
-      height: 54px;
+      width: 54px; height: 54px;
       border-radius: 18px;
       display: grid;
       place-items: center;
-      font-size: 1.15rem;
       color: var(--primary);
-      background: linear-gradient(180deg, rgba(117, 200, 229, 0.18), rgba(183, 140, 243, 0.12));
-      border: 1px solid rgba(28, 68, 107, 0.08);
-      font-weight: 700;
-      flex-shrink: 0;
-      font-family: "DM Sans", sans-serif;
+      background: linear-gradient(180deg, rgba(114,199,229,0.18), rgba(183,140,243,0.12));
+      border: 1px solid rgba(28,68,107,0.08);
     }
-
+    .service-icon svg {
+      width: 26px; height: 26px;
+      stroke: currentColor;
+      stroke-width: 2;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
     .price {
       display: inline-flex;
       align-items: center;
       justify-content: center;
       padding: 8px 12px;
       border-radius: 999px;
-      background: rgba(28, 68, 107, 0.08);
+      background: rgba(28,68,107,0.08);
       color: var(--primary);
       font-size: 0.86rem;
-      font-weight: 700;
+      font-weight: 800;
       white-space: nowrap;
-      letter-spacing: -0.01em;
     }
-
-    .service-card h4 {
-      margin: 0 0 12px;
-      color: var(--text);
-      font-size: 1.15rem;
-      letter-spacing: -0.04em;
-      min-height: 58px;
-    }
-
-    .service-card p {
-      margin: 0 0 18px;
-      color: var(--muted);
-      font-size: 0.95rem;
-      font-family: "DM Sans", sans-serif;
-    }
-
-    .service-list {
-      margin-top: auto;
-    }
-
+    .service-card h4 { margin: 0 0 10px; color: var(--text); font-size: 1.25rem; letter-spacing: -0.03em; }
+    .service-card p { margin: 0 0 18px; color: var(--muted); font-size: 0.96rem; }
+    .service-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
     .service-list li {
-      display: flex;
-      gap: 10px;
+      display: flex; gap: 10px;
       align-items: flex-start;
-      color: #426074;
-      font-size: 0.93rem;
-      line-height: 1.45;
-      font-family: "DM Sans", sans-serif;
+      color: #426074; font-size: 0.94rem;
     }
-
     .service-list li::before {
-      content: "✓";
+      content: "\2713";
       color: var(--accent-strong);
       font-weight: 900;
       line-height: 1.2;
       margin-top: 1px;
     }
-
     .service-cta {
       display: inline-flex;
       align-items: center;
@@ -942,294 +641,360 @@
       margin-top: 20px;
       color: var(--primary);
       font-size: 0.95rem;
-      font-weight: 700;
-      letter-spacing: -0.01em;
+      font-weight: 800;
     }
 
-    .cta-panel {
-      padding: 28px;
-      margin: 42px auto 0;
-      max-width: 980px;
-      background:
-        linear-gradient(180deg, rgba(255,255,255,0.98), rgba(247,252,255,0.94)),
-        linear-gradient(135deg, rgba(117,200,229,0.08), rgba(183,140,243,0.06));
-    }
-
-    .cta-panel-inner {
-      display: grid;
-      grid-template-columns: 1.3fr auto;
-      gap: 20px;
-      align-items: center;
-    }
-
-    .cta-panel h3 {
-      margin: 0 0 10px;
-      color: var(--primary);
-      font-size: 1.35rem;
-      letter-spacing: -0.04em;
-    }
-
-    .cta-panel p {
-      margin: 0;
-      color: var(--muted);
-      max-width: 60ch;
-      font-family: "DM Sans", sans-serif;
-    }
-
-    .cta-panel .btn {
-      white-space: nowrap;
-      min-width: 220px;
-    }
-
-    .pricing-note {
-      margin-top: 16px;
-      color: var(--muted);
-      font-size: 0.9rem;
-      text-align: center;
-      font-family: "DM Sans", sans-serif;
-    }
-
+    /* ── COURSES ── */
     .courses-grid {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 22px;
     }
-
     .course-card {
       padding: 26px;
       background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
     }
-
-    .course-tag {
+    .course-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-strong); }
+    .course-icon {
+      width: 54px; height: 54px;
+      border-radius: 18px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 16px;
+      background: var(--accent-soft);
+      color: var(--accent-strong);
+      border: 1px solid rgba(169,140,240,0.18);
+    }
+    .course-icon svg {
+      width: 26px; height: 26px;
+      stroke: currentColor;
+      stroke-width: 2;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .tag {
       display: inline-flex;
       padding: 8px 12px;
       border-radius: 999px;
       background: var(--accent-soft);
       color: var(--accent-strong);
-      font-size: 0.8rem;
-      font-weight: 700;
+      font-size: 0.82rem;
+      font-weight: 900;
       text-transform: uppercase;
-      letter-spacing: 0.04em;
-      margin-bottom: 16px;
+      letter-spacing: 0.03em;
+      margin-bottom: 14px;
     }
-
-    .course-card h3 {
-      margin: 0 0 14px;
-      color: var(--primary);
-      font-size: 1.28rem;
-      letter-spacing: -0.04em;
-    }
-
-    .course-card p {
-      margin: 0 0 14px;
+    .course-card h3 { margin: 0 0 10px; color: var(--primary); font-size: 1.25rem; letter-spacing: -0.03em; }
+    .course-card p { margin: 0 0 16px; color: var(--muted); }
+    .course-card .price-line { color: var(--primary); font-weight: 900; margin-bottom: 10px; }
+    .currency-note {
+      margin-top: 16px;
+      text-align: center;
       color: var(--muted);
-      font-family: "DM Sans", sans-serif;
+      font-size: 0.88rem;
     }
 
-    .price-line {
-      color: var(--primary);
-      font-weight: 700;
-      margin-bottom: 12px;
-      font-size: 1rem;
-      letter-spacing: -0.01em;
-    }
-
-    .course-list li {
-      color: #4d677a;
-      font-size: 0.94rem;
-      font-family: "DM Sans", sans-serif;
-    }
-
-    .process-section {
-      padding-top: 54px;
-      padding-bottom: 54px;
-    }
-
+    /* ── PROCESS ── */
+    .process-section { padding-top: 54px; padding-bottom: 54px; }
     .process-shell {
       position: relative;
       overflow: hidden;
       padding: 54px 42px 34px;
       border-radius: 34px;
       background:
-        radial-gradient(circle at top left, rgba(117, 200, 229, 0.1), transparent 26%),
-        radial-gradient(circle at top right, rgba(183, 140, 243, 0.08), transparent 22%),
+        radial-gradient(circle at top left, rgba(114,199,229,0.1), transparent 26%),
+        radial-gradient(circle at top right, rgba(183,140,243,0.08), transparent 22%),
         linear-gradient(180deg, #f6fbff 0%, #edf6fb 100%);
-      border: 1px solid rgba(28, 68, 107, 0.06);
-      box-shadow: 0 20px 50px rgba(28, 68, 107, 0.06);
+      border: 1px solid rgba(28,68,107,0.06);
+      box-shadow: 0 20px 50px rgba(28,68,107,0.06);
     }
-
-    .process-intro {
-      max-width: 700px;
-      margin: 0 auto 34px;
-      text-align: center;
-    }
-
-    .process-intro h2 {
-      margin: 0 0 12px;
-      color: var(--primary);
-      font-size: clamp(2.1rem, 4vw, 3.1rem);
-      line-height: 1.02;
-      letter-spacing: -0.05em;
-    }
-
-    .process-intro p {
-      margin: 0 auto;
-      color: var(--muted);
-      font-size: 1.02rem;
-      max-width: 620px;
-      font-family: "DM Sans", sans-serif;
-    }
-
+    .process-intro { max-width: 680px; margin: 0 auto 34px; text-align: center; }
+    .process-intro h2 { margin: 0 0 12px; color: var(--primary); font-size: clamp(2.1rem, 4vw, 3.1rem); line-height: 1.02; letter-spacing: -0.04em; }
+    .process-intro p { margin: 0; color: var(--muted); font-size: 1.02rem; }
     .process-track {
-      grid-template-columns: repeat(4, minmax(0, 1fr));
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0,1fr));
+      gap: 22px;
       align-items: stretch;
     }
-
-    .process-step {
-      position: relative;
-      padding-top: 34px;
-      display: flex;
-    }
-
+    .process-step { position: relative; padding-top: 34px; display: flex; }
     .process-icon {
       position: absolute;
-      top: 0;
-      left: 50%;
+      top: 0; left: 50%;
       transform: translate(-50%, 0);
-      width: 92px;
-      height: 92px;
+      width: 92px; height: 92px;
       border-radius: 50%;
-      background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
-      border: 4px solid transparent;
       background-image:
         linear-gradient(#ffffff, #f8fbff),
         linear-gradient(135deg, #8f84f6 0%, #5f8dff 100%);
       background-origin: border-box;
       background-clip: padding-box, border-box;
-      box-shadow: 0 12px 26px rgba(57, 106, 161, 0.1);
+      border: 4px solid transparent;
+      box-shadow: 0 12px 26px rgba(57,106,161,0.1);
       display: grid;
       place-items: center;
       z-index: 2;
     }
-
     .process-icon svg {
-      width: 38px;
-      height: 38px;
+      width: 38px; height: 38px;
       stroke: #264f79;
       stroke-width: 2.2;
       fill: none;
       stroke-linecap: round;
       stroke-linejoin: round;
     }
-
     .process-card {
       position: relative;
-      width: 100%;
-      height: 100%;
+      width: 100%; height: 100%;
       min-height: 250px;
       padding: 84px 28px 28px;
       border-radius: 26px;
-      background: rgba(255, 255, 255, 0.9);
-      border: 1px solid rgba(28, 68, 107, 0.05);
-      box-shadow: 0 14px 32px rgba(28, 68, 107, 0.06);
+      background: rgba(255,255,255,0.88);
+      border: 1px solid rgba(28,68,107,0.05);
+      box-shadow: 0 14px 32px rgba(28,68,107,0.06);
       text-align: center;
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
     }
-
+    .process-card:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(28,68,107,0.1); }
     .process-card::before {
       content: "";
       position: absolute;
-      left: 0;
-      top: 88px;
-      bottom: 18px;
+      left: 0; top: 88px; bottom: 18px;
       width: 4px;
       border-radius: 999px;
       background: linear-gradient(180deg, #5e95ff 0%, #a879ef 100%);
-      box-shadow: 0 8px 18px rgba(110, 130, 255, 0.16);
     }
+    .process-card h3 { margin: 0 0 12px; color: #244c76; font-size: 1.08rem; letter-spacing: -0.03em; }
+    .process-card p { margin: 0; color: #688198; font-size: 0.97rem; line-height: 1.62; }
 
-    .process-card h3 {
-      margin: 0 0 12px;
-      color: #244c76;
-      font-size: 1.08rem;
-      line-height: 1.15;
+    /* ── BOOK A CALL ── */
+    .book-section { padding: 44px 0; }
+    .book-shell {
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      background: linear-gradient(135deg, #193d63 0%, #2b6f9c 60%, #77cae7 100%);
+      box-shadow: var(--shadow-strong);
+      padding: 52px;
+    }
+    .book-top {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 42px;
+      align-items: start;
+    }
+    .book-left h2 {
+      margin: 0 0 14px;
+      font-size: clamp(2rem, 4vw, 2.9rem);
+      color: white;
       letter-spacing: -0.04em;
+      line-height: 1.04;
+    }
+    .book-left p {
+      margin: 0 0 28px;
+      color: rgba(255,255,255,0.82);
+      font-size: 1rem;
+      max-width: 46ch;
+    }
+    .book-reasons { display: grid; gap: 12px; }
+    .book-reason {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      padding: 14px 18px;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.14);
+      border-radius: 16px;
+      color: white;
+      font-size: 0.96rem;
+      font-weight: 600;
+      transition: background 0.2s ease;
+    }
+    .book-reason:hover { background: rgba(255,255,255,0.16); }
+    .book-reason-icon {
+      width: 36px; height: 36px;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.16);
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+    }
+    .book-reason-icon svg {
+      width: 18px; height: 18px;
+      stroke: white;
+      stroke-width: 2;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .book-right {
+      background: white;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 24px 56px rgba(0,0,0,0.18);
+      min-height: 420px;
+      display: flex;
+      flex-direction: column;
+    }
+    .calendar-placeholder {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 32px;
+      gap: 18px;
+      text-align: center;
+    }
+    .calendar-placeholder-icon {
+      width: 72px; height: 72px;
+      border-radius: 24px;
+      background: linear-gradient(135deg, rgba(114,199,229,0.18), rgba(183,140,243,0.14));
+      border: 1px solid rgba(28,68,107,0.1);
+      display: grid;
+      place-items: center;
+      color: var(--primary);
+    }
+    .calendar-placeholder-icon svg {
+      width: 34px; height: 34px;
+      stroke: currentColor;
+      stroke-width: 2;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .calendar-placeholder h4 { margin: 0; color: var(--primary); font-size: 1.2rem; letter-spacing: -0.02em; }
+    .calendar-placeholder p { margin: 0; color: var(--muted); font-size: 0.95rem; max-width: 30ch; }
+    .calendar-placeholder code {
+      display: block;
+      margin-top: 8px;
+      font-size: 0.82rem;
+      color: var(--accent-strong);
+      background: var(--accent-soft);
+      padding: 8px 14px;
+      border-radius: 10px;
+      font-family: monospace;
+    }
+    /* Uncomment and drop your embed URL in src to activate */
+    .calendar-iframe {
+      width: 100%;
+      min-height: 520px;
+      border: none;
+      display: block;
     }
 
-    .process-card p {
-      margin: 0;
-      color: #688198;
+    /* ── TESTIMONIALS ── */
+    .testimonials-section { padding: 44px 0; }
+    .testimonials-strip {
+      background:
+        radial-gradient(circle at top right, rgba(183,140,243,0.08), transparent 28%),
+        linear-gradient(180deg, rgba(255,255,255,0.96), rgba(247,252,255,0.92));
+      border: 1px solid rgba(28,68,107,0.07);
+      border-radius: var(--radius-xl);
+      padding: 44px 42px;
+      box-shadow: 0 20px 50px rgba(28,68,107,0.06);
+    }
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 22px;
+      margin-top: 32px;
+    }
+    .testimonial-card {
+      padding: 26px;
+      background: white;
+      border: 1px solid rgba(28,68,107,0.07);
+      border-radius: 22px;
+      box-shadow: 0 10px 28px rgba(28,68,107,0.06);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .testimonial-card:hover { transform: translateY(-4px); box-shadow: 0 18px 40px rgba(28,68,107,0.1); }
+    .testimonial-stars {
+      display: flex;
+      gap: 4px;
+      margin-bottom: 14px;
+    }
+    .testimonial-stars svg {
+      width: 16px; height: 16px;
+      fill: #f5b93e;
+      stroke: none;
+    }
+    .testimonial-card blockquote {
+      margin: 0 0 18px;
+      color: var(--text);
       font-size: 0.97rem;
-      line-height: 1.62;
-      font-family: "DM Sans", sans-serif;
+      line-height: 1.58;
+      font-style: italic;
     }
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .author-avatar {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary-2), var(--accent));
+      display: grid;
+      place-items: center;
+      color: white;
+      font-weight: 900;
+      font-size: 0.92rem;
+      flex-shrink: 0;
+    }
+    .testimonial-author strong { display: block; color: var(--primary); font-size: 0.94rem; }
+    .testimonial-author span { color: var(--muted); font-size: 0.86rem; }
 
+    /* ── CONTACT ── */
     .contact-card {
       position: relative;
       overflow: hidden;
-      background: linear-gradient(135deg, rgba(28, 68, 107, 0.98), rgba(114, 199, 229, 0.94));
+      background: linear-gradient(135deg, rgba(28,68,107,0.98), rgba(114,199,229,0.94));
       padding: 34px;
       color: white;
+      border-radius: 24px;
+      box-shadow: var(--shadow-strong);
     }
-
     .contact-card::before {
       content: "";
       position: absolute;
-      width: 260px;
-      height: 260px;
+      width: 260px; height: 260px;
       border-radius: 50%;
-      background: rgba(255, 255, 255, 0.1);
-      top: -80px;
-      right: -80px;
+      background: rgba(255,255,255,0.1);
+      top: -80px; right: -80px;
     }
-
     .contact-grid {
       position: relative;
+      display: grid;
       grid-template-columns: 1fr auto;
+      gap: 24px;
       align-items: center;
     }
-
-    .contact-card h2 {
-      margin: 0 0 12px;
-      font-size: clamp(2rem, 3.8vw, 3rem);
-      line-height: 1.02;
-      letter-spacing: -0.05em;
-    }
-
-    .contact-card p {
-      margin: 0;
-      color: rgba(255, 255, 255, 0.86);
-      max-width: 58ch;
-      font-family: "DM Sans", sans-serif;
-    }
-
-    .contact-actions {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      align-items: stretch;
-      min-width: 250px;
-    }
-
-    .contact-actions .btn {
-      width: 100%;
-    }
-
+    .contact-card h2 { margin: 0 0 12px; font-size: clamp(2rem, 3.8vw, 3rem); line-height: 1.02; letter-spacing: -0.04em; }
+    .contact-card p { margin: 0; color: rgba(255,255,255,0.85); max-width: 56ch; }
+    .contact-actions { display: flex; flex-direction: column; gap: 12px; align-items: stretch; min-width: 250px; }
+    .contact-actions .btn { width: 100%; }
     .contact-email {
       color: white;
       text-align: center;
-      font-weight: 700;
+      font-weight: 800;
       padding: 14px 18px;
       border-radius: 999px;
-      background: rgba(255, 255, 255, 0.12);
-      border: 1px solid rgba(255, 255, 255, 0.18);
-      letter-spacing: -0.01em;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.18);
+      transition: background 0.2s ease;
     }
+    .contact-email:hover { background: rgba(255,255,255,0.18); }
 
-    footer {
-      padding: 26px 0 42px;
-    }
-
+    /* ── FOOTER ── */
+    footer { padding: 26px 0 42px; }
     .footer-inner {
       display: flex;
       justify-content: space-between;
@@ -1238,329 +1003,219 @@
       color: var(--muted);
       font-size: 0.92rem;
       flex-wrap: wrap;
-      font-family: "DM Sans", sans-serif;
     }
+    .footer-inner a { color: var(--primary); font-weight: 800; }
 
-    .footer-inner a {
-      color: var(--primary);
-      font-weight: 700;
-    }
-
-    @media (max-width: 1240px) {
-      .hero-grid,
-      .about-grid,
-      .audience-grid,
-      .courses-grid,
-      .process-track,
-      .contact-grid,
-      .cta-panel-inner {
-        grid-template-columns: 1fr;
-      }
-
-      .services-wrap {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .service-card:nth-child(2),
-      .service-card:nth-child(4) {
-        transform: none;
-      }
-
-      .hero-grid {
-        min-height: auto;
-      }
-
-      .hero-card {
-        margin-left: 0;
-        max-width: none;
-      }
-
-      .process-step {
-        max-width: 420px;
-        margin: 0 auto;
-        width: 100%;
-      }
-
-      .process-card {
-        min-height: 220px;
-      }
-
-      .cta-panel .btn {
-        min-width: 0;
-      }
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1120px) {
+      .hero-grid, .about-grid, .audience-grid,
+      .courses-grid, .process-track, .contact-grid,
+      .book-top, .testimonials-grid { grid-template-columns: 1fr; }
+      .hero-grid { min-height: auto; }
+      .hero-card { margin-left: 0; max-width: none; }
+      .process-step { max-width: 420px; margin: 0 auto; width: 100%; }
+      .process-card { min-height: 220px; }
+      .book-shell { padding: 36px 28px; }
     }
 
     @media (max-width: 760px) {
-      .header-inner {
-        min-height: auto;
-        padding: 14px 0;
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .nav {
-        width: 100%;
-        justify-content: flex-start;
-        gap: 4px;
-      }
-
-      .hero {
-        padding-top: 18px;
-      }
-
-      .hero-shell {
-        border-radius: 28px;
-      }
-
-      .hero-grid {
-        padding: 34px 20px;
-      }
-
-      .audience-card,
-      .panel,
-      .service-card,
-      .course-card,
-      .contact-card,
-      .cta-panel {
-        padding: 22px;
-      }
-
-      .audience-wrapper {
-        padding: 26px 18px 18px;
-      }
-
-      .audience-divider {
-        top: -12px;
-        font-size: 0.75rem;
-        padding: 7px 14px;
-      }
-
-      .stats {
-        grid-template-columns: 1fr;
-      }
-
-      .hero-actions,
-      .contact-actions {
-        width: 100%;
-      }
-
-      .btn {
-        width: 100%;
-      }
-
-      .services-wrap {
-        grid-template-columns: 1fr;
-      }
-
-      .service-card:nth-child(2),
-      .service-card:nth-child(4) {
-        transform: none;
-      }
-
-      .process-shell {
-        padding: 36px 18px 20px;
-      }
-
-      .process-card {
-        min-height: auto;
-        padding: 80px 22px 24px;
-      }
+      .header-inner { min-height: auto; padding: 14px 0; flex-direction: column; align-items: flex-start; }
+      .nav { width: 100%; justify-content: flex-start; gap: 4px; }
+      .hero { padding-top: 18px; }
+      .hero-shell { border-radius: 28px; }
+      .hero-grid { padding: 34px 20px; }
+      .audience-card, .panel, .service-card,
+      .course-card, .contact-card { padding: 22px; }
+      .audience-wrapper { padding: 26px 18px 18px; }
+      .audience-divider { top: -12px; font-size: 0.75rem; padding: 7px 14px; }
+      .stats { grid-template-columns: 1fr; }
+      .hero-actions, .contact-actions { width: 100%; }
+      .btn { width: 100%; }
+      .services-group-title { flex-direction: column; align-items: flex-start; }
+      .process-shell { padding: 36px 18px 20px; }
+      .process-card { min-height: auto; padding: 80px 22px 24px; }
+      .book-shell { padding: 28px 18px; }
+      .testimonials-strip { padding: 30px 20px; }
     }
   </style>
 </head>
 <body>
+
+  <!-- ═══ HEADER ═══ -->
   <header class="site-header">
     <div class="container header-inner">
       <a href="#home" class="brand" aria-label="APE Solutions home">
-        <span class="brand-logo">
+        <div class="logo-circle">
           <img src="APE.Logo1.png" alt="APE Solutions logo" />
-        </span>
+        </div>
         <div>
           <span>APE Solutions</span>
-          <small>LinkedIn, Email & Deliverability</small>
+          <small>LinkedIn, Email &amp; Deliverability</small>
         </div>
       </a>
-
       <nav class="nav" aria-label="Main navigation">
         <a href="#about">About</a>
         <a href="#services">Services</a>
         <a href="#courses">Courses</a>
         <a href="#process">Process</a>
-        <a href="#contact" class="nav-cta">Contact</a>
+        <a href="#book">Book a call</a>
+        <a href="#contact" class="nav-cta">Get help</a>
       </nav>
     </div>
   </header>
 
   <main>
+
+    <!-- ═══ HERO ═══ -->
     <section class="hero" id="home">
       <div class="container">
         <div class="hero-shell">
           <div class="hero-grid">
-            <div>
-              <div class="eyebrow">Something off?</div>
 
-              <h1>
-                Don’t think about it.<br />
-                <span class="accent">We’ll fix it.</span>
+            <div>
+              <div class="eyebrow anim-fadeup d1">Something off?</div>
+
+              <h1 class="anim-fadeup d2">
+                Don't think<br />about it.<br />
+                <span class="accent">We'll fix it.</span>
               </h1>
 
-              <div class="hero-kicker">
-                Jobs. Leads. Deliverability. Messaging.
+              <div class="hero-kicker anim-fadeup d3">
+                Jobs. Leads. Deliverability.
               </div>
 
-              <p class="hero-copy">
-                We clean up how you present yourself, how you reach out, and what is quietly blocking results.
+              <p class="hero-copy anim-fadeup d4">
+                We clean up how you present yourself and how you reach out so it actually works.
               </p>
 
-              <ul class="hero-scan-list">
-                <li>For companies that need sharper outreach and stronger systems.</li>
-                <li>For individuals who need better positioning and clearer direction.</li>
-                <li>Hands-on help or practical guidance, depending on what you need.</li>
-              </ul>
-
-              <div class="hero-actions">
+              <div class="hero-actions anim-fadeup d5">
                 <a href="#services" class="btn btn-primary">Show me what to fix</a>
-                <a href="mailto:info@apecstudio.com?subject=Free%20Audit%20Request" class="btn btn-secondary">Get a free audit</a>
+                <a href="#contact" class="btn btn-secondary">Fix it for me</a>
               </div>
             </div>
 
             <aside class="hero-card" aria-label="Highlights">
               <div class="hero-profile">
-                <span class="brand-logo">
+                <div class="logo-circle logo-circle--hero">
                   <img src="APE.Logo1.png" alt="APE Solutions logo" />
-                </span>
+                </div>
                 <div>
                   <strong>APE Solutions</strong>
-                  <span>We fix the parts people usually avoid</span>
+                  <span>We fix the parts everyone hates doing</span>
                 </div>
               </div>
 
               <div class="hero-points">
                 <div class="hero-point">
-                  <div class="icon-badge">✦</div>
+                  <div class="icon-badge">
+                    <!-- briefcase / job -->
+                    <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="12.01"/></svg>
+                  </div>
                   <div>
-                    <b>Can’t get a job?</b>
-                    <span>We tighten your LinkedIn, CV, positioning and outreach so you stop sounding generic.</span>
+                    <b>Can't get a job?</b>
+                    <span>We fix your LinkedIn, CV, positioning and outreach so you stop winging it.</span>
                   </div>
                 </div>
 
                 <div class="hero-point">
-                  <div class="icon-badge">↗</div>
+                  <div class="icon-badge">
+                    <!-- target / leads -->
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+                  </div>
                   <div>
-                    <b>Can’t get leads?</b>
-                    <span>We build the targeting, messaging and systems behind your outreach so it feels intentional.</span>
+                    <b>Can't get leads?</b>
+                    <span>We build the targeting, messaging and system behind your outreach.</span>
                   </div>
                 </div>
 
                 <div class="hero-point">
-                  <div class="icon-badge">✓</div>
+                  <div class="icon-badge">
+                    <!-- shield / deliverability -->
+                    <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                  </div>
                   <div>
-                    <b>Landing badly?</b>
-                    <span>We look at setup, deliverability and campaign logic before your outreach burns itself out.</span>
+                    <b>Don't want to deal with it?</b>
+                    <span>Good. We can guide you through it or just do it for you.</span>
                   </div>
                 </div>
               </div>
             </aside>
+
           </div>
         </div>
       </div>
     </section>
 
+    <!-- ═══ ABOUT ═══ -->
     <section id="about">
       <div class="container">
         <div class="section-head">
-          <div class="section-label">What we do</div>
           <h2>We help people show up better and reach out better</h2>
-          <p>
-            APE Solutions helps companies and individuals with LinkedIn, email, outreach, deliverability and the practical systems most people either overcomplicate or avoid.
-          </p>
+          <p>APE Solutions helps companies and individuals with LinkedIn, email, deliverability and the stuff most people either overcomplicate or avoid.</p>
         </div>
 
         <div class="audience-wrapper">
           <div class="audience-divider">Who this is for</div>
-
           <div class="audience-grid">
+
             <div class="audience-card">
               <div class="audience-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24">
-                  <rect x="3" y="7" width="18" height="12" rx="2"></rect>
-                  <path d="M8 7V5.8C8 4.8 8.8 4 9.8 4h4.4C15.2 4 16 4.8 16 5.8V7"></path>
-                  <path d="M3 11h18"></path>
-                </svg>
+                <!-- building / company -->
+                <svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="14" rx="1"/><path d="M8 7V5.8C8 4.8 8.8 4 9.8 4h4.4C15.2 4 16 4.8 16 5.8V7"/><path d="M3 11h18"/></svg>
               </div>
               <h3>For companies</h3>
-              <p>
-                Built for teams that need outreach to feel cleaner, more strategic and less chaotic.
-              </p>
+              <p>Built for teams that need outreach to feel cleaner, more strategic and less chaotic.</p>
               <ul class="audience-list">
                 <li>Lead generation and targeting that actually makes sense</li>
-                <li>Email and LinkedIn systems that do not feel improvised</li>
-                <li>Deliverability support before campaigns quietly die</li>
+                <li>Email and LinkedIn outreach systems that feel structured</li>
+                <li>Deliverability support so campaigns stop dying quietly</li>
               </ul>
             </div>
 
             <div class="audience-card">
               <div class="audience-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24">
-                  <path d="M12 3l1.9 4.6L18.5 9l-4.6 1.4L12 15l-1.9-4.6L5.5 9l4.6-1.4L12 3z"></path>
-                </svg>
+                <!-- person / individual -->
+                <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
               </div>
               <h3>For individuals</h3>
-              <p>
-                For people who need clarity, sharper positioning and a better way to get noticed.
-              </p>
+              <p>For people who need clarity, sharper positioning and a better way to get noticed.</p>
               <ul class="audience-list">
-                <li>LinkedIn and CV refinement that feels stronger and more premium</li>
-                <li>Better positioning for jobs, clients and opportunities</li>
+                <li>LinkedIn and CV refinement that feels more premium</li>
+                <li>Stronger personal positioning for jobs and opportunities</li>
                 <li>Practical direction when you are too in your head to move</li>
               </ul>
             </div>
+
           </div>
         </div>
 
         <div class="about-grid">
           <div class="panel">
-            <h3>What we actually help with</h3>
-            <p>
-              Most people are not missing effort. They are missing clarity, structure and clean execution.
-            </p>
-
-            <ul class="simple-list">
-              <li>Sharper positioning so people understand who you are and why they should care</li>
-              <li>Better messaging so your emails, profiles and outreach stop blending in</li>
-              <li>Cleaner campaign setup so results are not killed by weak systems</li>
-              <li>Practical support when you want guidance, or full handling when you do not</li>
-            </ul>
-
+            <h3>What we actually do</h3>
+            <p>We help people look sharper, message better and stop losing opportunities because the basics are messy. That means LinkedIn, cold email, deliverability, lead generation, campaign management, coaching and practical systems that make life easier.</p>
             <div class="stats">
               <div class="stat">
                 <strong>2</strong>
-                <span>core audiences: companies and individuals</span>
+                <span>main audiences: companies and individuals</span>
               </div>
-
               <div class="stat">
-                <strong>8+</strong>
-                <span>ways we help across outreach, LinkedIn, email and positioning</span>
+                <strong>7+</strong>
+                <span>core services across LinkedIn, email and growth systems</span>
               </div>
-
               <div class="stat">
                 <strong>1:1</strong>
-                <span>support for people who want clear direction without fluff</span>
+                <span>coaching for people who want guidance without the fluff</span>
               </div>
-
               <div class="stat">
-                <strong>Flexible</strong>
-                <span>you can get guidance, setup help or ongoing support</span>
+                <strong>Done-for-you</strong>
+                <span>available when you do not want to deal with any of it</span>
               </div>
             </div>
           </div>
 
           <div class="panel reason-panel">
             <h3>Why people come to us</h3>
-            <p>
-              Because the problem usually is not effort. It is unclear positioning, weak messaging, poor follow-up, spam issues or a system that never got set up properly in the first place.
-            </p>
-
+            <p>Because the problem usually is not effort. It is unclear positioning, weak messaging, poor follow-up, spam issues or a system that never got set up properly in the first place.</p>
             <div class="reason-stack">
               <div class="reason-item">
                 <div class="reason-dot"></div>
@@ -1569,7 +1224,6 @@
                   <span>They are doing a lot, but none of it feels clear, consistent or sharp.</span>
                 </div>
               </div>
-
               <div class="reason-item">
                 <div class="reason-dot"></div>
                 <div>
@@ -1577,7 +1231,6 @@
                   <span>Weak copy, weak positioning, weak setup and no clear idea what is actually blocking results.</span>
                 </div>
               </div>
-
               <div class="reason-item">
                 <div class="reason-dot"></div>
                 <div>
@@ -1588,293 +1241,426 @@
             </div>
           </div>
         </div>
+
       </div>
     </section>
 
+    <!-- ═══ SERVICES ═══ -->
     <section id="services">
       <div class="container">
         <div class="section-head">
-          <div class="section-label">Services</div>
-          <h2>Pick the part you need fixed</h2>
-          <p>
-            Or let us look at the whole thing and tell you what is actually getting in the way.
-          </p>
+          <h2>Services</h2>
+          <p>Pick the part you need fixed, or let us look at the whole thing and tell you what is wrong.</p>
         </div>
 
         <div class="services-group">
           <div class="services-group-title">
-            <div class="group-tag">For companies</div>
-            <h3>Company support</h3>
-            <p>
-              Built for teams that need clearer outreach, stronger systems and a cleaner path to conversations.
-            </p>
+            <h3>For companies</h3>
+            <span>Leads, outreach, deliverability, campaign support</span>
           </div>
-
           <div class="services-wrap">
-            <a class="service-card" href="mailto:info@apecstudio.com?subject=Email%20Outreach%20Setup%20Inquiry" aria-label="Email Outreach Setup">
+
+            <a class="service-card" href="mailto:info@apecstudio.com?subject=Email%20Outreach%20Setup%20Inquiry">
               <div class="service-top">
-                <div class="service-icon">✉</div>
-                <div class="price">From €100</div>
+                <div class="service-icon">
+                  <!-- envelope -->
+                  <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
+                </div>
+                <div class="price">EUR 100</div>
               </div>
-
               <h4>Email Outreach Setup</h4>
-              <p>
-                We build the email system so you know what to send, who to send it to and how to send it without making a mess.
-              </p>
-
+              <p>We build the email system so you know what to send, who to send it to and how to send it without making a mess.</p>
               <ul class="service-list">
-                <li>Strategic sequence ready for launch</li>
+                <li>Strategic email sequence ready for launch</li>
                 <li>Targeting direction and audience logic</li>
-                <li>Basic deliverability setup and structure</li>
+                <li>Basic deliverability setup</li>
               </ul>
-
-              <span class="service-cta">Ask about this service →</span>
+              <span class="service-cta">Ask about this service &rarr;</span>
             </a>
 
-            <a class="service-card" href="mailto:info@apecstudio.com?subject=LinkedIn%20Outreach%20Setup%20Inquiry" aria-label="LinkedIn Outreach Setup">
+            <a class="service-card" href="mailto:info@apecstudio.com?subject=LinkedIn%20Outreach%20Setup%20Inquiry">
               <div class="service-top">
-                <div class="service-icon">◎</div>
-                <div class="price">From €200</div>
+                <div class="service-icon">
+                  <!-- network / LinkedIn outreach -->
+                  <svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+                </div>
+                <div class="price">EUR 200</div>
               </div>
-
               <h4>LinkedIn Outreach Setup</h4>
-              <p>
-                We turn LinkedIn into something useful instead of random connection requests and awkward follow-ups.
-              </p>
-
+              <p>We turn LinkedIn into something useful instead of random connection requests and awkward follow-ups.</p>
               <ul class="service-list">
                 <li>ICP definition and targeting strategy</li>
                 <li>Connection and follow-up flows</li>
                 <li>Safe sending setup and warm-up guidance</li>
               </ul>
-
-              <span class="service-cta">Ask about this service →</span>
+              <span class="service-cta">Ask about this service &rarr;</span>
             </a>
 
-            <a class="service-card" href="mailto:info@apecstudio.com?subject=Campaign%20Management%20Inquiry" aria-label="Campaign Management">
+            <a class="service-card" href="mailto:info@apecstudio.com?subject=Campaign%20Management%20Inquiry">
               <div class="service-top">
-                <div class="service-icon">↺</div>
+                <div class="service-icon">
+                  <!-- refresh / campaign management -->
+                  <svg viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+                </div>
                 <div class="price">Monthly</div>
               </div>
-
               <h4>Campaign Management</h4>
-              <p>
-                We keep your outreach running cleaner and more usefully over time so it does not fall apart after week one.
-              </p>
-
+              <p>We keep your outreach running, cleaner and more useful over time so it does not fall apart after week one.</p>
               <ul class="service-list">
                 <li>Managing campaigns across email and LinkedIn</li>
-                <li>Safer scaling with warm-up and inbox care</li>
+                <li>Safe scaling with inbox and domain warm-up</li>
                 <li>Monitoring, reporting and continuous improvements</li>
                 <li>Lead generation aligned with your strategy</li>
               </ul>
-
-              <span class="service-cta">Ask about this service →</span>
+              <span class="service-cta">Ask about this service &rarr;</span>
             </a>
 
-            <a class="service-card" href="mailto:info@apecstudio.com?subject=Deliverability%20Audit%20Inquiry" aria-label="Deliverability Audit">
-              <div class="service-top">
-                <div class="service-icon">✓</div>
-                <div class="price">Custom</div>
-              </div>
-
-              <h4>Deliverability Audit</h4>
-              <p>
-                If emails are landing badly, we look at the setup, patterns and weak points before you waste more sends.
-              </p>
-
-              <ul class="service-list">
-                <li>Setup review and risk check</li>
-                <li>Messaging and sending pattern review</li>
-                <li>Clear next steps on what to fix first</li>
-              </ul>
-
-              <span class="service-cta">Ask about this service →</span>
-            </a>
-          </div>
-
-          <div class="cta-panel">
-            <div class="cta-panel-inner">
-              <div>
-                <h3>Need a second set of eyes?</h3>
-                <p>
-                  If you are not sure whether the problem is messaging, setup, positioning or deliverability, start with a free audit request and we will point you in the right direction.
-                </p>
-              </div>
-              <a href="mailto:info@apecstudio.com?subject=Free%20Audit%20Request" class="btn btn-primary">Request a free audit</a>
-            </div>
           </div>
         </div>
 
-        <p class="pricing-note">All listed prices are in EUR unless a custom quote is agreed separately.</p>
+        <div class="services-group">
+          <div class="services-group-title">
+            <h3>For individuals</h3>
+            <span>Jobs, positioning, LinkedIn, CV</span>
+          </div>
+          <div class="services-wrap">
+
+            <a class="service-card" href="mailto:info@apecstudio.com?subject=LinkedIn%20Profile%20Optimization%20Inquiry">
+              <div class="service-top">
+                <div class="service-icon">
+                  <!-- user + sparkle / linkedin profile -->
+                  <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/><polyline points="16 3 17.5 6 21 6 18.5 8.5 19.5 12 16 10 12.5 12 13.5 8.5 11 6 14.5 6"/></svg>
+                </div>
+                <div class="price">EUR 200 - 500</div>
+              </div>
+              <h4>LinkedIn Profile Optimization</h4>
+              <p>We make your LinkedIn clearly show who you are, what you do and why someone should care.</p>
+              <ul class="service-list">
+                <li>Headline, About and experience rewrite</li>
+                <li>Clear positioning and target direction</li>
+                <li>What to post and how your profile should look</li>
+                <li>Competitor profile analysis</li>
+              </ul>
+              <span class="service-cta">Ask about this service &rarr;</span>
+            </a>
+
+            <a class="service-card" href="mailto:info@apecstudio.com?subject=CV%20and%20Personal%20Branding%20Inquiry">
+              <div class="service-top">
+                <div class="service-icon">
+                  <!-- file-text / CV -->
+                  <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                </div>
+                <div class="price">EUR 150</div>
+              </div>
+              <h4>CV &amp; Personal Branding</h4>
+              <p>If your CV feels flat or generic, we fix the story, structure and positioning behind it.</p>
+              <ul class="service-list">
+                <li>CV rewrite and structure improvement</li>
+                <li>ATS-friendly formatting and optimization</li>
+                <li>Clear positioning aligned with your goals</li>
+              </ul>
+              <span class="service-cta">Ask about this service &rarr;</span>
+            </a>
+
+            <a class="service-card" href="mailto:info@apecstudio.com?subject=Coaching%20Inquiry">
+              <div class="service-top">
+                <div class="service-icon">
+                  <!-- message-square / coaching -->
+                  <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                </div>
+                <div class="price">1:1</div>
+              </div>
+              <h4>Coaching</h4>
+              <p>For people who want someone to actually tell them what to do, what to fix and what to stop wasting time on.</p>
+              <ul class="service-list">
+                <li>Campaign and sequence reviews</li>
+                <li>ICP and trigger refinement</li>
+                <li>Multichannel outreach approaches</li>
+                <li>Full outbound stack audit</li>
+                <li>Dedicated Notion page for future campaigns</li>
+              </ul>
+              <span class="service-cta">Ask about this service &rarr;</span>
+            </a>
+
+          </div>
+        </div>
+
       </div>
     </section>
 
+    <!-- ═══ COURSES ═══ -->
     <section id="courses">
       <div class="container">
-        <div class="courses-intro">
-          <div class="section-label">Courses</div>
-          <h2>Learn the playbook</h2>
-          <p>
-            Self-serve courses for people who want the framework before paying for hands-on help.
-          </p>
+        <div class="section-head">
+          <h2>Courses</h2>
+          <p>Cheap, practical and straight to the point. For people who want the playbook before paying for done-for-you help.</p>
         </div>
 
         <div class="courses-grid">
+
           <div class="course-card">
-            <div class="course-tag">Individual</div>
-            <h3>Get Hired</h3>
-            <p>
-              LinkedIn, CV, positioning, outreach and how to stop sounding like everyone else.
-            </p>
-            <div class="price-line">From €15</div>
-            <ul class="course-list">
-              <li>Short, useful lessons</li>
-              <li>Direct examples</li>
-              <li>Immediate fixes you can apply alone</li>
-            </ul>
+            <div class="course-icon">
+              <!-- briefcase -->
+              <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
+            </div>
+            <div class="tag">Individual</div>
+            <h3>Can't get a job? We'll tell you how.</h3>
+            <p>LinkedIn, CV, positioning, outreach and how to stop sounding like everyone else.</p>
+            <div class="price-line">From $15</div>
+            <p>Short, useful lessons you can actually apply right away.</p>
           </div>
 
           <div class="course-card">
-            <div class="course-tag">Company</div>
-            <h3>Get Leads</h3>
-            <p>
-              Targeting, messaging, sequences, follow-up logic and why your outreach is not landing.
-            </p>
-            <div class="price-line">From €15</div>
-            <ul class="course-list">
-              <li>Built for founders and small teams</li>
-              <li>Practical system design</li>
-              <li>Less guesswork, more structure</li>
-            </ul>
+            <div class="course-icon">
+              <!-- target -->
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+            </div>
+            <div class="tag">Company</div>
+            <h3>Can't get leads? We'll tell you how.</h3>
+            <p>Targeting, messaging, sequences, follow-up logic and why your outreach is not landing.</p>
+            <div class="price-line">From $15</div>
+            <p>Built for founders, consultants and small teams that need a cleaner system.</p>
           </div>
 
           <div class="course-card">
-            <div class="course-tag">Deliverability</div>
-            <h3>Inbox Better</h3>
-            <p>
-              Deliverability, positioning and campaign mistakes that quietly damage performance.
-            </p>
-            <div class="price-line">From €15</div>
-            <ul class="course-list">
-              <li>Simple explanations</li>
-              <li>Clear examples</li>
-              <li>Only what matters</li>
-            </ul>
+            <div class="course-icon">
+              <!-- shield-check / deliverability -->
+              <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+            </div>
+            <div class="tag">Fix it</div>
+            <h3>Can't get results? We'll tell you what is wrong.</h3>
+            <p>Deliverability, positioning and campaign mistakes that quietly kill performance.</p>
+            <div class="price-line">From $15</div>
+            <p>Simple explanations, no fake guru tone, no fluff.</p>
           </div>
+
         </div>
+
+        <p class="currency-note">Courses are priced in USD. Services are quoted in EUR. Both are listed separately to avoid confusion.</p>
+
       </div>
     </section>
 
+    <!-- ═══ PROCESS ═══ -->
     <section id="process" class="process-section">
       <div class="container">
         <div class="process-shell">
           <div class="process-intro">
-            <div class="section-label">How it works</div>
-            <h2>Clear, fast and easy to follow</h2>
-            <p>We look at the real issue first, then decide whether you need a fix, guidance, or full support.</p>
+            <h2>How it works</h2>
+            <p>Fast, clear and not weirdly overcomplicated.</p>
           </div>
 
           <div class="process-track">
+
             <article class="process-step">
               <div class="process-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24">
-                  <circle cx="11" cy="11" r="6"></circle>
-                  <line x1="16" y1="16" x2="21" y2="21"></line>
-                  <line x1="11" y1="8.5" x2="11" y2="11"></line>
-                  <line x1="13.2" y1="11.7" x2="11.8" y2="11"></line>
-                </svg>
+                <!-- search -->
+                <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"/><line x1="16" y1="16" x2="21" y2="21"/></svg>
               </div>
               <div class="process-card">
                 <h3>We look</h3>
-                <p>
-                  We figure out what is actually broken instead of guessing from symptoms.
-                </p>
+                <p>We figure out what is actually broken instead of guessing.</p>
               </div>
             </article>
 
             <article class="process-step">
               <div class="process-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24">
-                  <circle cx="8" cy="8" r="2"></circle>
-                  <circle cx="16" cy="16" r="2"></circle>
-                  <path d="M9.5 9.5L14.5 14.5"></path>
-                  <path d="M14 5l5 5"></path>
-                  <path d="M19 5l-5 5"></path>
-                  <path d="M5 19l5-5"></path>
-                </svg>
+                <!-- tool / wrench -->
+                <svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
               </div>
               <div class="process-card">
                 <h3>We fix</h3>
-                <p>
-                  We clean up the setup, positioning or messaging that is holding you back.
-                </p>
+                <p>We clean up the messaging, positioning or setup that is holding you back.</p>
               </div>
             </article>
 
             <article class="process-step">
               <div class="process-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24">
-                  <path d="M4 16c3.5-5.5 8-7 16-7"></path>
-                  <path d="M14 5l6 4-6 4"></path>
-                </svg>
+                <!-- send / guide -->
+                <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
               </div>
               <div class="process-card">
-                <h3>We guide</h3>
-                <p>
-                  You either get clear next steps or we step in more directly where it makes sense.
-                </p>
+                <h3>We guide or do it</h3>
+                <p>You either get clear instructions or we handle the work for you.</p>
               </div>
             </article>
 
             <article class="process-step">
               <div class="process-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24">
-                  <line x1="5" y1="19" x2="5" y2="12"></line>
-                  <line x1="11" y1="19" x2="11" y2="9"></line>
-                  <line x1="17" y1="19" x2="17" y2="6"></line>
-                  <path d="M4 8l4-4 4 4 7-7"></path>
-                </svg>
+                <!-- trending-up -->
+                <svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
               </div>
               <div class="process-card">
                 <h3>We improve</h3>
-                <p>
-                  We keep sharpening what works so the system stays useful instead of going stale.
-                </p>
+                <p>We keep testing and sharpening what works so it does not go stale.</p>
               </div>
             </article>
+
           </div>
         </div>
       </div>
     </section>
 
+    <!-- ═══ BOOK A CALL ═══ -->
+    <section id="book" class="book-section">
+      <div class="container">
+        <div class="book-shell">
+          <div class="book-top">
+
+            <div class="book-left">
+              <h2>Book a free call</h2>
+              <p>Not a sales call. A quick look at what is going on so we can tell you what actually needs fixing before you spend anything.</p>
+
+              <div class="book-reasons">
+                <div class="book-reason">
+                  <div class="book-reason-icon">
+                    <!-- clock -->
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  </div>
+                  20 minutes, no pressure
+                </div>
+                <div class="book-reason">
+                  <div class="book-reason-icon">
+                    <!-- check-circle -->
+                    <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                  </div>
+                  We tell you what is wrong, for free
+                </div>
+                <div class="book-reason">
+                  <div class="book-reason-icon">
+                    <!-- arrow-right -->
+                    <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                  </div>
+                  You decide what to do next
+                </div>
+              </div>
+            </div>
+
+            <div class="book-right">
+              <!--
+                SWAP THIS: paste your Calendly, Cal.com or TidyCal embed URL below
+                Example: src="https://calendly.com/yourname/30min"
+                Then remove the .calendar-placeholder div below and uncomment the iframe
+              -->
+              <!--
+              <iframe
+                class="calendar-iframe"
+                src="YOUR_CALENDAR_EMBED_URL_HERE"
+                title="Book a call with APE Solutions"
+                loading="lazy"
+              ></iframe>
+              -->
+              <div class="calendar-placeholder">
+                <div class="calendar-placeholder-icon">
+                  <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                </div>
+                <h4>Your calendar goes here</h4>
+                <p>Paste your Calendly or Cal.com embed URL to activate booking.</p>
+                <code>Replace src in the iframe comment above</code>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ TESTIMONIALS ═══ -->
+    <section class="testimonials-section">
+      <div class="container">
+        <div class="testimonials-strip">
+          <div class="section-head" style="margin-bottom:0;">
+            <h2>What people say</h2>
+            <p>Real feedback from people who came in with a mess and left with a system.</p>
+          </div>
+
+          <div class="testimonials-grid">
+
+            <div class="testimonial-card">
+              <div class="testimonial-stars">
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              </div>
+              <blockquote>"I had no idea my deliverability was the issue. Within a week of the audit everything changed."</blockquote>
+              <div class="testimonial-author">
+                <div class="author-avatar">M</div>
+                <div>
+                  <strong>Maria T.</strong>
+                  <span>Founder, B2B SaaS</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="testimonial-card">
+              <div class="testimonial-stars">
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              </div>
+              <blockquote>"My LinkedIn was embarrassingly bland. After the rewrite I started getting inbound messages from the right people."</blockquote>
+              <div class="testimonial-author">
+                <div class="author-avatar">J</div>
+                <div>
+                  <strong>James K.</strong>
+                  <span>Senior Consultant</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="testimonial-card">
+              <div class="testimonial-stars">
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              </div>
+              <blockquote>"They told me exactly what was killing my campaigns. No fluff, no upsell. Just the fix."</blockquote>
+              <div class="testimonial-author">
+                <div class="author-avatar">S</div>
+                <div>
+                  <strong>Sofia R.</strong>
+                  <span>Growth Lead, Agency</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ CONTACT ═══ -->
     <section id="contact">
       <div class="container">
         <div class="contact-card">
           <div class="contact-grid">
             <div>
               <h2>Want us to handle it?</h2>
-              <p>
-                If you are tired of overthinking LinkedIn, email, deliverability, campaigns or how you are showing up online, reach out. We’ll either show you the fix or help you sort it properly.
-              </p>
+              <p>If you are tired of overthinking LinkedIn, email, deliverability, campaigns or how you are showing up online, reach out. We will either show you the fix or do it for you.</p>
             </div>
-
             <div class="contact-actions">
               <a href="mailto:info@apecstudio.com?subject=I%20want%20help" class="btn btn-primary">I want help</a>
-              <a href="mailto:info@apecstudio.com?subject=Free%20Audit%20Request" class="btn btn-secondary">Get a free audit</a>
               <a href="mailto:info@apecstudio.com" class="contact-email">info@apecstudio.com</a>
             </div>
           </div>
         </div>
       </div>
     </section>
+
   </main>
 
   <footer>
     <div class="container footer-inner">
-      <span>© 2026 APE Solutions. All rights reserved.</span>
+      <span>&copy; 2026 APE Solutions. All rights reserved.</span>
       <a href="#home">Back to top</a>
     </div>
   </footer>
+
 </body>
 </html>
