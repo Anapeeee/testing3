@@ -97,12 +97,12 @@
       display: flex;
       align-items: center;
       gap: 14px;
+      color: var(--primary);
       font-weight: 900;
       letter-spacing: -0.03em;
       flex-shrink: 0;
     }
 
-    /* ── LOGO CIRCLE: properly centred image ── */
     .logo-circle {
       width: 58px;
       height: 58px;
@@ -112,9 +112,8 @@
       box-shadow:
         0 10px 24px rgba(28,68,107,0.16),
         0 0 0 1px rgba(28,68,107,0.06);
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      display: grid;
+      place-items: center;
       overflow: hidden;
       flex-shrink: 0;
       transition: box-shadow 0.25s ease, transform 0.25s ease;
@@ -127,13 +126,15 @@
       transform: translateY(-1px);
     }
 
-    /* KEY FIX: contain + no rogue scale/transform */
     .logo-circle img {
-      width: 80%;
-      height: 80%;
-      object-fit: contain;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
       object-position: center center;
       display: block;
+      transform: scale(1.42);
+      transform-origin: center center;
+      border-radius: 50%;
     }
 
     .logo-circle--hero {
@@ -147,23 +148,17 @@
       animation: pulseRing 3s ease-in-out infinite;
     }
 
-    /* ── BRAND NAME: two-tone "bl" + "APE" ── */
-    .brand-name {
+    .brand span {
       display: block;
       font-family: "Sora", "Inter", system-ui, sans-serif;
       font-size: 1.42rem;
       line-height: 1;
       font-weight: 700;
       letter-spacing: -0.035em;
-    }
-
-    .brand-bl {
       color: var(--primary);
-    }
-
-    .brand-ape {
-      color: var(--accent-strong);
-      letter-spacing: -0.02em;
+      text-shadow:
+        0 2px 5px rgba(0,0,0,.05),
+        0 10px 24px rgba(28,68,107,.10);
     }
 
     .nav {
@@ -652,11 +647,20 @@
       white-space: nowrap;
     }
 
+
     .course-card {
       cursor: pointer;
       text-align: left;
       width: 100%;
       font: inherit;
+    }
+
+    .course-card--featured {
+      background:
+        radial-gradient(circle at top right, rgba(119,199,227,0.14), transparent 34%),
+        linear-gradient(180deg, rgba(255,255,255,0.98), rgba(247,252,255,0.96));
+      border-color: rgba(47,121,168,0.14);
+      box-shadow: 0 14px 30px rgba(28,68,107,0.08);
     }
 
     .course-card--featured .course-tag {
@@ -759,7 +763,7 @@
     }
 
     .course-detail-box li::before {
-      content: "\2713";
+      content: "✓";
       color: var(--accent-strong);
       font-weight: 900;
       margin-right: 8px;
@@ -801,6 +805,7 @@
       align-items: center;
     }
 
+    
     .email-pill {
       display: inline-flex;
       align-items: center;
@@ -816,11 +821,14 @@
       transition: transform 0.22s ease, box-shadow 0.22s ease;
       white-space: nowrap;
     }
+        
 
+    
     .email-pill:hover {
       transform: translateY(-2px);
       box-shadow: 0 20px 40px rgba(28,68,107,0.24);
     }
+        
 
     .book-section { padding: 40px 0; }
 
@@ -995,6 +1003,65 @@
     .testimonial-author strong { display: block; color: var(--primary); font-size: 0.9rem; }
     .testimonial-author span { color: var(--muted); font-size: 0.82rem; }
 
+    .contact-card {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, rgba(28,68,107,0.98), rgba(114,199,229,0.94));
+      padding: 30px 34px;
+      color: white;
+      border-radius: 24px;
+      box-shadow: var(--shadow-strong);
+    }
+
+    .contact-card::before {
+      content: "";
+      position: absolute;
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.1);
+      top: -80px;
+      right: -80px;
+    }
+
+    .contact-grid {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .contact-card h2 {
+      font-size: clamp(2rem, 3.8vw, 3rem);
+      line-height: 1.02;
+      letter-spacing: -0.04em;
+    }
+
+    .contact-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      align-items: stretch;
+      min-width: 250px;
+    }
+
+    .contact-actions .btn { width: 100%; }
+
+    .contact-email {
+      color: white;
+      text-align: center;
+      font-weight: 800;
+      padding: 14px 18px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.18);
+      transition: background 0.2s ease;
+      display: block;
+    }
+
+    .contact-email:hover { background: rgba(255,255,255,0.18); }
+
     footer { padding: 26px 0 42px; }
 
     .footer-inner {
@@ -1010,7 +1077,7 @@
     .footer-inner a { color: var(--primary); font-weight: 800; }
 
     @media (max-width: 1120px) {
-      .hero-grid, .book-top, .testimonials-grid { grid-template-columns: 1fr; }
+      .hero-grid, .book-top, .testimonials-grid, .contact-grid { grid-template-columns: 1fr; }
       .hero-grid { min-height: auto; }
       .hero-card { margin-left: 0; max-width: none; }
       .audience-cards, .services-four, .services-three, .courses-grid, .about-mini-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
@@ -1028,10 +1095,11 @@
       .courses-shell, .about-compact-shell, .testimonials-strip { padding-bottom: 28px; }
       .tab-panels { padding: 22px 20px 28px; }
       .audience-cards, .services-four, .services-three, .courses-grid, .about-mini-grid, .testimonials-grid { grid-template-columns: 1fr; }
-      .hero-actions, .btn, .purple-pop, .email-pill { width: 100%; }
+      .hero-actions, .contact-actions, .btn, .purple-pop, .email-pill { width: 100%; }
       .course-detail-grid { grid-template-columns: 1fr; }
       .course-modal-card { padding: 28px 20px; }
       .book-shell { padding: 28px 18px; }
+      .contact-card { padding: 24px 20px; }
     }
   </style>
 </head>
@@ -1043,10 +1111,7 @@
         <div class="logo-circle">
           <img src="APE.Logo1.png" alt="BLAPE logo" />
         </div>
-        <div>
-          <!-- "bl" dark primary, "APE" accent purple — mixed case for character -->
-          <span class="brand-name"><span class="brand-bl">bl</span><span class="brand-ape">APE</span></span>
-        </div>
+        <div><span>BLAPE</span></div>
       </a>
 
       <nav class="nav" aria-label="Main navigation">
@@ -1081,7 +1146,7 @@
                   <img src="APE.Logo1.png" alt="BLAPE logo" />
                 </div>
                 <div>
-                  <strong><span style="color:rgba(255,255,255,0.9);">bl</span><span style="color:#c9aaff;">APE</span></strong>
+                  <strong>BLAPE</strong>
                   <span>We fix the parts everyone hates doing</span>
                 </div>
               </div>
@@ -1091,10 +1156,12 @@
                   <div class="icon-badge"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg></div>
                   <div><b>Can't get a job?</b><span>We build your professional presence online, LinkedIn, CV and work mindset.</span></div>
                 </div>
+
                 <div class="hero-point">
                   <div class="icon-badge"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
                   <div><b>Can't get leads?</b><span>We build the targeting, messaging and system behind your outreach.</span></div>
                 </div>
+
                 <div class="hero-point">
                   <div class="icon-badge"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
                   <div><b>Don't want to deal with any of it?</b><span>Good. We'll guide you through it or do it for you.</span></div>
@@ -1118,6 +1185,7 @@
               <button class="tab-btn" type="button" role="tab" aria-selected="false" data-tab-group="about" data-tab="overview">What we actually do</button>
             </div>
           </div>
+
           <div class="tab-panels">
             <div class="tab-panel active" data-panel-group="about" data-panel="audience">
               <div class="audience-cards">
@@ -1127,6 +1195,7 @@
                 <div class="aud-card"><div class="aud-icon"><svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="14" rx="1"/><path d="M8 7V5.8C8 4.8 8.8 4 9.8 4h4.4C15.2 4 16 4.8 16 5.8V7"/><path d="M3 11h18"/></svg></div><h4>Agencies</h4><p>You need client outreach and deliverability handled properly.</p></div>
               </div>
             </div>
+
             <div class="tab-panel" data-panel-group="about" data-panel="overview">
               <div class="services-four">
                 <div class="svc-card"><div class="svc-icon dark"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg></div><h4>Deliverability</h4><p>DNS, warm-up, spam checks and safer sending.</p></div>
@@ -1166,12 +1235,14 @@
           <div class="tab-header">
             <div class="section-kicker">Services</div>
             <h2>Pick what you need fixed.</h2>
+            
             <div class="tab-nav" role="tablist">
               <button class="tab-btn active" type="button" role="tab" aria-selected="true" data-tab-group="services" data-tab="individuals">Individuals</button>
               <button class="tab-btn" type="button" role="tab" aria-selected="false" data-tab-group="services" data-tab="companies">Companies</button>
               <button class="tab-btn" type="button" role="tab" aria-selected="false" data-tab-group="services" data-tab="coaching">Coaching</button>
             </div>
           </div>
+
           <div class="tab-panels">
             <div class="tab-panel active" data-panel-group="services" data-panel="individuals">
               <div class="services-three">
@@ -1180,6 +1251,7 @@
                 <a class="svc-card" href="mailto:info@apecstudio.com?subject=Job%20Prep%20Professional%20Presence"><div class="svc-icon"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg></div><h4>Job Prep / Professional Presence</h4><p>LinkedIn, CV, interview direction and work mindset.</p><ul class="service-list"><li>Job search plan</li><li>Interview prep</li><li>Online presence audit</li></ul><span class="mini-price">Custom</span><span class="mini-cta">Ask about this &rarr;</span></a>
               </div>
             </div>
+
             <div class="tab-panel" data-panel-group="services" data-panel="companies">
               <div class="services-three">
                 <a class="svc-card" href="mailto:info@apecstudio.com?subject=Email%20Outreach%20Setup"><div class="svc-icon"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg></div><h4>Email Outreach Setup</h4><p>Audience, copy and sequence ready to launch.</p><ul class="service-list"><li>Sequence structure</li><li>Targeting logic</li><li>Basic setup direction</li></ul><span class="mini-price">EUR 100</span><span class="mini-cta">Ask about this &rarr;</span></a>
@@ -1187,6 +1259,7 @@
                 <a class="svc-card" href="mailto:info@apecstudio.com?subject=Campaign%20Management%20and%20Deliverability"><div class="svc-icon"><svg viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg></div><h4>Campaign Management</h4><p>Campaigns, DNS, warm-up and monitoring handled.</p><ul class="service-list"><li>Email and LinkedIn campaigns</li><li>DNS / warm-up checks</li><li>Reporting and improvements</li></ul><span class="mini-price">Monthly</span><span class="mini-cta">Ask about this &rarr;</span></a>
               </div>
             </div>
+
             <div class="tab-panel" data-panel-group="services" data-panel="coaching">
               <div class="services-three">
                 <a class="svc-card" href="mailto:info@apecstudio.com?subject=1%3A1%20Coaching"><div class="svc-icon"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div><h4>1:1 Coaching</h4><p>Direct guidance on what to fix and what to stop doing.</p><ul class="service-list"><li>Profile / campaign review</li><li>Clear next steps</li><li>No fluffy advice</li></ul><span class="mini-price">1:1</span><span class="mini-cta">Ask about this &rarr;</span></a>
@@ -1206,6 +1279,7 @@
             <div>
               <div class="section-kicker">Courses</div>
               <h2>Learn it once. Apply it fast.</h2>
+              
             </div>
             <a href="mailto:info@apecstudio.com?subject=Courses" class="btn btn-dark">Ask about courses</a>
           </div>
@@ -1232,7 +1306,9 @@
                 <div class="book-reason"><div class="book-reason-icon"><svg viewBox="0 0 24 24"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>You decide what to do next</div>
               </div>
               <div class="book-contact">
+                
                 <a href="mailto:info@apecstudio.com" class="email-pill">Email us: info@apecstudio.com</a>
+    
               </div>
             </div>
             <div class="book-right">
@@ -1254,18 +1330,18 @@
         <div class="testimonials-strip">
           <div class="section-head centered" style="margin-bottom:0;"><div class="section-kicker">What people say</div><h2>Real words. Real fixes.</h2></div>
           <div class="testimonials-grid">
-            <div class="testimonial-card"><div class="testimonial-stars"><svg viewBox="0 0 24 24"><polygon points="12 2 15 9 22 9 16.5 14 18.5 22 12 17.5 5.5 22 7.5 14 2 9 9 9"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15 9 22 9 16.5 14 18.5 22 12 17.5 5.5 22 7.5 14 2 9 9 9"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15 9 22 9 16.5 14 18.5 22 12 17.5 5.5 22 7.5 14 2 9 9 9"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15 9 22 9 16.5 14 18.5 22 12 17.5 5.5 22 7.5 14 2 9 9 9"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15 9 22 9 16.5 14 18.5 22 12 17.5 5.5 22 7.5 14 2 9 9 9"/></svg></div><blockquote>"I had no idea my deliverability was the issue. Within a week of the audit everything changed."</blockquote><div class="testimonial-author"><div class="author-avatar">M</div><div><strong>Maria T.</strong><span>Founder</span></div></div></div>
-            <div class="testimonial-card"><div class="testimonial-stars"><svg viewBox="0 0 24 24"><polygon points="12 2 15 9 22 9 16.5 14 18.5 22 12 17.5 5.5 22 7.5 14 2 9 9 9"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15 9 22 9 16.5 14 18.5 22 12 17.5 5.5 22 7.5 14 2 9 9 9"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15 9 22 9 16.5 14 18.5 22 12 17.5 5.5 22 7.5 14 2 9 9 9"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15 9 22 9 16.5 14 18.5 22 12 17.5 5.5 22 7.5 14 2 9 9 9"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15 9 22 9 16.5 14 18.5 22 12 17.5 5.5 22 7.5 14 2 9 9 9"/></svg></div><blockquote>"My LinkedIn was embarrassingly bland. After the rewrite, I started getting inbound messages."</blockquote><div class="testimonial-author"><div class="author-avatar">J</div><div><strong>James K.</strong><span>Senior Consultant</span></div></div></div>
-            <div class="testimonial-card"><div class="testimonial-stars"><svg viewBox="0 0 24 24"><polygon points="12 2 15 9 22 9 16.5 14 18.5 22 12 17.5 5.5 22 7.5 14 2 9 9 9"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15 9 22 9 16.5 14 18.5 22 12 17.5 5.5 22 7.5 14 2 9 9 9"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15 9 22 9 16.5 14 18.5 22 12 17.5 5.5 22 7.5 14 2 9 9 9"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15 9 22 9 16.5 14 18.5 22 12 17.5 5.5 22 7.5 14 2 9 9 9"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15 9 22 9 16.5 14 18.5 22 12 17.5 5.5 22 7.5 14 2 9 9 9"/></svg></div><blockquote>"They told me exactly what was killing my campaigns. No fluff. Just the fix."</blockquote><div class="testimonial-author"><div class="author-avatar">S</div><div><strong>Sofia R.</strong><span>Growth Lead</span></div></div></div>
+            <div class="testimonial-card"><div class="testimonial-stars"><svg viewBox="0 0 24 24"><polygon points="12 2 15 9 22 9 16.5 14 18.5 22 12 17.5 5.5 22 7.5 14 2 9 9 9"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15 9 22 9 16.5 14 18.5 22 12 17.5 5.5 22 7.5 14 2 9 9 9"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15 9 22 9 16.5 14 18.5 22 12 17.5 5.5 22 7.5 14 2 9 9 9"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15 9 22 9 16.5 14 18.5 22 12 17.5 5.5 22 7.5 14 2 9 9 9"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15 9 22 9 16.5 14 18.5 22 12 17.5 5.5 22 7.5 14 2 9 9 9"/></svg></div><blockquote>“I had no idea my deliverability was the issue. Within a week of the audit everything changed.”</blockquote><div class="testimonial-author"><div class="author-avatar">M</div><div><strong>Maria T.</strong><span>Founder</span></div></div></div>
+            <div class="testimonial-card"><div class="testimonial-stars"><svg viewBox="0 0 24 24"><polygon points="12 2 15 9 22 9 16.5 14 18.5 22 12 17.5 5.5 22 7.5 14 2 9 9 9"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15 9 22 9 16.5 14 18.5 22 12 17.5 5.5 22 7.5 14 2 9 9 9"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15 9 22 9 16.5 14 18.5 22 12 17.5 5.5 22 7.5 14 2 9 9 9"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15 9 22 9 16.5 14 18.5 22 12 17.5 5.5 22 7.5 14 2 9 9 9"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15 9 22 9 16.5 14 18.5 22 12 17.5 5.5 22 7.5 14 2 9 9 9"/></svg></div><blockquote>“My LinkedIn was embarrassingly bland. After the rewrite, I started getting inbound messages.”</blockquote><div class="testimonial-author"><div class="author-avatar">J</div><div><strong>James K.</strong><span>Senior Consultant</span></div></div></div>
+            <div class="testimonial-card"><div class="testimonial-stars"><svg viewBox="0 0 24 24"><polygon points="12 2 15 9 22 9 16.5 14 18.5 22 12 17.5 5.5 22 7.5 14 2 9 9 9"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15 9 22 9 16.5 14 18.5 22 12 17.5 5.5 22 7.5 14 2 9 9 9"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15 9 22 9 16.5 14 18.5 22 12 17.5 5.5 22 7.5 14 2 9 9 9"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15 9 22 9 16.5 14 18.5 22 12 17.5 5.5 22 7.5 14 2 9 9 9"/></svg><svg viewBox="0 0 24 24"><polygon points="12 2 15 9 22 9 16.5 14 18.5 22 12 17.5 5.5 22 7.5 14 2 9 9 9"/></svg></div><blockquote>“They told me exactly what was killing my campaigns. No fluff. Just the fix.”</blockquote><div class="testimonial-author"><div class="author-avatar">S</div><div><strong>Sofia R.</strong><span>Growth Lead</span></div></div></div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Course Modals -->
+
     <div class="course-modal" id="course-dns" aria-hidden="true">
       <div class="course-modal-card" role="dialog" aria-modal="true" aria-labelledby="course-dns-title">
-        <button class="modal-close" type="button" data-course-close aria-label="Close">&times;</button>
+        <button class="modal-close" type="button" data-course-close aria-label="Close course details">×</button>
         <span class="course-tag">Outreach course</span>
         <h3 id="course-dns-title">DNS &amp; Deliverability</h3>
         <p>For people who send cold email and want to understand why messages land in spam, what DNS records actually do, and how to avoid basic reputation mistakes.</p>
@@ -1279,7 +1355,7 @@
 
     <div class="course-modal" id="course-warmup" aria-hidden="true">
       <div class="course-modal-card" role="dialog" aria-modal="true" aria-labelledby="course-warmup-title">
-        <button class="modal-close" type="button" data-course-close aria-label="Close">&times;</button>
+        <button class="modal-close" type="button" data-course-close aria-label="Close course details">×</button>
         <span class="course-tag">Outreach course</span>
         <h3 id="course-warmup-title">Warm-up &amp; Campaigning</h3>
         <p>For founders, freelancers and small teams who want to launch outreach without burning domains, over-sending, or writing campaigns that feel random.</p>
@@ -1293,7 +1369,7 @@
 
     <div class="course-modal" id="course-jobprep" aria-hidden="true">
       <div class="course-modal-card" role="dialog" aria-modal="true" aria-labelledby="course-jobprep-title">
-        <button class="modal-close" type="button" data-course-close aria-label="Close">&times;</button>
+        <button class="modal-close" type="button" data-course-close aria-label="Close course details">×</button>
         <span class="course-tag">Job prep course</span>
         <h3 id="course-jobprep-title">LinkedIn, CV &amp; Work Mindset</h3>
         <p>For people who want their professional presence to look sharper, clearer and more credible before applying, networking or interviewing.</p>
@@ -1309,7 +1385,7 @@
 
   <footer>
     <div class="container footer-inner">
-      <span>&copy; 2026 blAPE. All rights reserved.</span>
+      <span>&copy; 2026 BLAPE. All rights reserved.</span>
       <a href="#home">Back to top</a>
     </div>
   </footer>
@@ -1320,15 +1396,19 @@
         var tabId = this.dataset.tab;
         var group = this.dataset.tabGroup;
         var shell = this.closest('.tab-shell');
+
         shell.querySelectorAll('.tab-btn[data-tab-group="' + group + '"]').forEach(function(b) {
           b.classList.remove('active');
           b.setAttribute('aria-selected', 'false');
         });
+
         shell.querySelectorAll('.tab-panel[data-panel-group="' + group + '"]').forEach(function(p) {
           p.classList.remove('active');
         });
+
         this.classList.add('active');
         this.setAttribute('aria-selected', 'true');
+
         var panel = shell.querySelector('.tab-panel[data-panel-group="' + group + '"][data-panel="' + tabId + '"]');
         if (panel) panel.classList.add('active');
       });
@@ -1358,14 +1438,15 @@
     });
 
     document.querySelectorAll('.course-modal').forEach(function(modal) {
-      modal.addEventListener('click', function(e) {
-        if (e.target === modal) closeCourseModals();
+      modal.addEventListener('click', function(event) {
+        if (event.target === modal) closeCourseModals();
       });
     });
 
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape') closeCourseModals();
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'Escape') closeCourseModals();
     });
+
   </script>
 </body>
 </html>
