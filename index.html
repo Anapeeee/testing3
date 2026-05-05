@@ -7,7 +7,7 @@
   <meta name="description" content="BLAPE helps people and companies fix LinkedIn, CVs, outreach, deliverability, campaigns, coaching and professional presence." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Sora:wght@600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
   <style>
     :root {
@@ -34,7 +34,7 @@
     html { scroll-behavior: smooth; }
 
     body {
-      font-family: "Inter", system-ui, -apple-system, sans-serif;
+      font-family: "Syne", system-ui, -apple-system, sans-serif;
       background:
         radial-gradient(circle at top left, rgba(114,199,229,0.16), transparent 24%),
         radial-gradient(circle at top right, rgba(183,140,243,0.1), transparent 18%),
@@ -150,15 +150,15 @@
 
     .brand span {
       display: block;
-      font-family: "Sora", "Inter", system-ui, sans-serif;
-      font-size: 1.42rem;
-      line-height: 1;
-      font-weight: 700;
-      letter-spacing: -0.035em;
-      color: var(--primary);
-      text-shadow:
-        0 2px 5px rgba(0,0,0,.05),
-        0 10px 24px rgba(28,68,107,.10);
+      font-family: "Baloo 2", "Syne", system-ui, sans-serif;
+      font-size: 1.68rem;
+      line-height: 0.95;
+      font-weight: 800;
+      letter-spacing: -0.055em;
+      background: linear-gradient(105deg, #7457dd 0%, #b86ee8 48%, #f06f9f 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 6px 14px rgba(143,114,224,0.18));
     }
 
     .nav {
@@ -256,17 +256,18 @@
     }
 
     .hero h1 {
-      font-size: clamp(2.95rem, 6vw, 5.15rem);
-      line-height: 0.96;
-      letter-spacing: -0.065em;
-      max-width: 8.8ch;
+      font-family: "Baloo 2", "Syne", system-ui, sans-serif;
+      font-size: clamp(2.75rem, 5.5vw, 5rem);
+      line-height: 0.95;
+      letter-spacing: -0.055em;
+      max-width: 10.8ch;
       color: white;
       text-wrap: balance;
     }
 
     .hero h1 .accent {
       display: inline-block;
-      background: linear-gradient(135deg, #d8c3ff 0%, #b78cf3 48%, #efe7ff 100%);
+      background: linear-gradient(115deg, #ead5ff 0%, #c18af4 46%, #f3a0bd 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       filter: drop-shadow(0 8px 24px rgba(183,140,243,0.18));
@@ -547,6 +548,42 @@
       font-size: 0.88rem;
       font-weight: 800;
     }
+
+
+    .section-cta {
+      margin-top: 24px;
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .mini-grid-title {
+      color: var(--primary);
+      font-size: 1.05rem;
+      font-weight: 900;
+      letter-spacing: -0.025em;
+      margin: 4px 0 16px;
+    }
+
+    .about-mini-card {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about-mini-card::before {
+      content: "";
+      position: absolute;
+      width: 110px;
+      height: 110px;
+      right: -35px;
+      top: -42px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(240,111,159,0.18), rgba(193,138,244,0.08) 58%, transparent 72%);
+      pointer-events: none;
+    }
+
+    .about-mini-card strong, .about-mini-card p { position: relative; z-index: 1; }
 
     .compact-about { padding: 40px 0; }
 
@@ -941,7 +978,7 @@
       font-family: monospace;
     }
 
-    .testimonials-section { padding: 36px 0; }
+    .testimonials-section { padding: 28px 0; }
 
     .testimonials-strip {
       background:
@@ -949,7 +986,7 @@
         linear-gradient(180deg, rgba(255,255,255,0.94), rgba(247,252,255,0.9));
       border: 1px solid rgba(28,68,107,0.07);
       border-radius: var(--radius-xl);
-      padding: 36px 38px;
+      padding: 28px 30px;
       box-shadow: 0 18px 44px rgba(28,68,107,0.05);
     }
 
@@ -961,7 +998,7 @@
     }
 
     .testimonial-card {
-      padding: 22px;
+      padding: 18px;
       background: white;
       border: 1px solid rgba(28,68,107,0.07);
       border-radius: 20px;
@@ -1129,14 +1166,15 @@
         <div class="hero-shell">
           <div class="hero-grid">
             <div>
-              <div class="eyebrow anim-fadeup d1">Something off?</div>
+              <div class="eyebrow anim-fadeup d1">LinkedIn, outreach and deliverability</div>
               <h1 class="anim-fadeup d2">
-                Don't think<br />about it.<br />
-                <span class="accent">We'll fix it.</span>
+                Get visible.<br />Get leads.<br />
+                <span class="accent">Get unstuck.</span>
               </h1>
-              <div class="hero-kicker anim-fadeup d3">Jobs. Leads. Deliverability.</div>
+              <div class="hero-kicker anim-fadeup d3">We fix how you show up, reach people and get responses.</div>
               <div class="hero-actions anim-fadeup d4">
                 <a href="#book" class="btn btn-primary">Book a call</a>
+                <a href="mailto:info@apecstudio.com" class="btn btn-primary">Contact us</a>
               </div>
             </div>
 
@@ -1147,24 +1185,24 @@
                 </div>
                 <div>
                   <strong>BLAPE</strong>
-                  <span>We fix the parts everyone hates doing</span>
+                  <span>LinkedIn, CVs, outreach, campaigns and inboxing</span>
                 </div>
               </div>
 
               <div class="hero-points">
                 <div class="hero-point">
                   <div class="icon-badge"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg></div>
-                  <div><b>Can't get a job?</b><span>We build your professional presence online, LinkedIn, CV and work mindset.</span></div>
+                  <div><b>Can't get a job?</b><span>We build your online presence, LinkedIn, CV and work mindset.</span></div>
                 </div>
 
                 <div class="hero-point">
                   <div class="icon-badge"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
-                  <div><b>Can't get leads?</b><span>We build the targeting, messaging and system behind your outreach.</span></div>
+                  <div><b>Can't get leads?</b><span>We build your targeting, messaging and campaign system.</span></div>
                 </div>
 
                 <div class="hero-point">
                   <div class="icon-badge"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-                  <div><b>Don't want to deal with any of it?</b><span>Good. We'll guide you through it or do it for you.</span></div>
+                  <div><b>Don't want to deal with any of it?</b><span>Good. We guide you through it or do it for you.</span></div>
                 </div>
               </div>
             </aside>
@@ -1177,9 +1215,9 @@
       <div class="container">
         <div class="tab-shell">
           <div class="tab-header">
-            <div class="section-kicker">Who we help &amp; what we do</div>
-            <h2>You, if this sounds familiar.</h2>
-            <p>For people and teams who are done guessing and ready to move.</p>
+            <div class="section-kicker">Who we are</div>
+            <h2>Who we help and how.</h2>
+            <p>Our services are designed for job seekers, freelancers and businesses that want to boost their visibility and success in the market.</p>
             <div class="tab-nav" role="tablist">
               <button class="tab-btn active" type="button" role="tab" aria-selected="true" data-tab-group="about" data-tab="audience">Who this is for</button>
               <button class="tab-btn" type="button" role="tab" aria-selected="false" data-tab-group="about" data-tab="overview">What we actually do</button>
@@ -1189,10 +1227,10 @@
           <div class="tab-panels">
             <div class="tab-panel active" data-panel-group="about" data-panel="audience">
               <div class="audience-cards">
-                <div class="aud-card"><div class="aud-icon"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg></div><h4>Job Seekers</h4><p>You apply, nothing lands. We fix the profile, CV and approach.</p></div>
-                <div class="aud-card"><div class="aud-icon"><svg viewBox="0 0 24 24"><polyline points="13 2 13 9 20 9"/><path d="M20 14.5V20a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h7.5L20 7.5"/><path d="M9 13h1.5"/><path d="M9 17h6"/></svg></div><h4>Founders &amp; Freelancers</h4><p>You need leads, not another tool subscription.</p></div>
-                <div class="aud-card"><div class="aud-icon"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div><h4>Sales Teams</h4><p>Low replies, messy targeting, weak copy or spam issues.</p></div>
-                <div class="aud-card"><div class="aud-icon"><svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="14" rx="1"/><path d="M8 7V5.8C8 4.8 8.8 4 9.8 4h4.4C15.2 4 16 4.8 16 5.8V7"/><path d="M3 11h18"/></svg></div><h4>Agencies</h4><p>You need client outreach and deliverability handled properly.</p></div>
+                <div class="aud-card"><div class="aud-icon"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg></div><h4>Job Seekers</h4><p>You apply, but nothing seems to work? We improve your profile, CV and job search strategy.</p></div>
+                <div class="aud-card"><div class="aud-icon"><svg viewBox="0 0 24 24"><polyline points="13 2 13 9 20 9"/><path d="M20 14.5V20a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h7.5L20 7.5"/><path d="M9 13h1.5"/><path d="M9 17h6"/></svg></div><h4>Founders &amp; Freelancers</h4><p>You need results. We build tailored campaigns, manage outreach and help generate leads.</p></div>
+                <div class="aud-card"><div class="aud-icon"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div><h4>Sales Teams</h4><p>Low replies? We improve targeting, copy and campaign logic to lift engagement.</p></div>
+                <div class="aud-card"><div class="aud-icon"><svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="14" rx="1"/><path d="M8 7V5.8C8 4.8 8.8 4 9.8 4h4.4C15.2 4 16 4.8 16 5.8V7"/><path d="M3 11h18"/></svg></div><h4>Agencies</h4><p>You need outreach and deliverability managed properly, or a clear system your team can use.</p></div>
               </div>
             </div>
 
@@ -1205,6 +1243,9 @@
               </div>
             </div>
           </div>
+          <div class="section-cta">
+            <a href="#book" class="btn btn-dark">Ready to enhance your visibility?</a>
+          </div>
         </div>
       </div>
     </section>
@@ -1214,16 +1255,17 @@
         <div class="about-compact-shell">
           <div class="about-compact-top">
             <div>
-              <div class="section-kicker">Why people come to us</div>
+              <div class="section-kicker">Why people choose us</div>
               <h2>Less noise. More direction.</h2>
-              <p>Most people do not need more tools. They need clarity, cleaner execution and someone to spot what is actually blocking results.</p>
+              <p>Most individuals and teams do not need more tools. They need clarity, cleaner execution and someone to spot what is blocking results.</p>
             </div>
             <span class="about-pill">Done-for-you available</span>
           </div>
+          <div class="mini-grid-title">What's keeping you from success?</div>
           <div class="about-mini-grid">
-            <div class="about-mini-card"><strong>Too much noise</strong><p>Too many actions, not enough direction.</p></div>
-            <div class="about-mini-card"><strong>Too many blind spots</strong><p>Weak setup, weak copy or unclear positioning.</p></div>
-            <div class="about-mini-card"><strong>Too little time</strong><p>You need it fixed without becoming an expert.</p></div>
+            <div class="about-mini-card"><strong>Too much noise</strong><p>Excessive actions without enough guidance.</p></div>
+            <div class="about-mini-card"><strong>Too many blind spots</strong><p>Weak setup, vague messaging or unclear positioning.</p></div>
+            <div class="about-mini-card"><strong>Too little time</strong><p>Solutions implemented without requiring you to become an expert.</p></div>
           </div>
         </div>
       </div>
@@ -1235,37 +1277,37 @@
           <div class="tab-header">
             <div class="section-kicker">Services</div>
             <h2>Pick what you need fixed.</h2>
-            
-            <div class="tab-nav" role="tablist">
-              <button class="tab-btn active" type="button" role="tab" aria-selected="true" data-tab-group="services" data-tab="individuals">Individuals</button>
-              <button class="tab-btn" type="button" role="tab" aria-selected="false" data-tab-group="services" data-tab="companies">Companies</button>
-              <button class="tab-btn" type="button" role="tab" aria-selected="false" data-tab-group="services" data-tab="coaching">Coaching</button>
-            </div>
+            <p>Three clear paths. Short, practical and built around what you actually need.</p>
           </div>
 
           <div class="tab-panels">
-            <div class="tab-panel active" data-panel-group="services" data-panel="individuals">
-              <div class="services-three">
-                <a class="svc-card" href="mailto:info@apecstudio.com?subject=LinkedIn%20Profile%20Optimization"><div class="svc-icon"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div><h4>LinkedIn Profile Optimization</h4><p>Your profile made clear, sharp and aligned with your goal.</p><ul class="service-list"><li>Headline, About, experience</li><li>Positioning direction</li><li>Profile structure</li></ul><span class="mini-price">EUR 200 - 500</span><span class="mini-cta">Ask about this &rarr;</span></a>
-                <a class="svc-card" href="mailto:info@apecstudio.com?subject=CV%20and%20Personal%20Branding"><div class="svc-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div><h4>CV &amp; Personal Branding</h4><p>Cleaner story, better structure, stronger first impression.</p><ul class="service-list"><li>CV rewrite</li><li>ATS-friendly structure</li><li>Personal positioning</li></ul><span class="mini-price">EUR 150</span><span class="mini-cta">Ask about this &rarr;</span></a>
-                <a class="svc-card" href="mailto:info@apecstudio.com?subject=Job%20Prep%20Professional%20Presence"><div class="svc-icon"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg></div><h4>Job Prep / Professional Presence</h4><p>LinkedIn, CV, interview direction and work mindset.</p><ul class="service-list"><li>Job search plan</li><li>Interview prep</li><li>Online presence audit</li></ul><span class="mini-price">Custom</span><span class="mini-cta">Ask about this &rarr;</span></a>
-              </div>
-            </div>
+            <div class="services-three">
+              <a class="svc-card" href="mailto:info@apecstudio.com?subject=Individuals%20Service">
+                <div class="svc-icon"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+                <h4>Individuals</h4>
+                <p>LinkedIn, CV, positioning, interview prep and job search direction.</p>
+                <ul class="service-list"><li>Sharper profile and CV</li><li>Clear positioning</li><li>Job search plan</li></ul>
+                <span class="mini-price">From EUR 150</span>
+                <span class="mini-cta">Ask about this &rarr;</span>
+              </a>
 
-            <div class="tab-panel" data-panel-group="services" data-panel="companies">
-              <div class="services-three">
-                <a class="svc-card" href="mailto:info@apecstudio.com?subject=Email%20Outreach%20Setup"><div class="svc-icon"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg></div><h4>Email Outreach Setup</h4><p>Audience, copy and sequence ready to launch.</p><ul class="service-list"><li>Sequence structure</li><li>Targeting logic</li><li>Basic setup direction</li></ul><span class="mini-price">EUR 100</span><span class="mini-cta">Ask about this &rarr;</span></a>
-                <a class="svc-card" href="mailto:info@apecstudio.com?subject=LinkedIn%20Outreach%20Setup"><div class="svc-icon"><svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg></div><h4>LinkedIn Outreach Setup</h4><p>Connection strategy and follow-ups that make sense.</p><ul class="service-list"><li>ICP direction</li><li>Message flow</li><li>Safe outreach logic</li></ul><span class="mini-price">EUR 200</span><span class="mini-cta">Ask about this &rarr;</span></a>
-                <a class="svc-card" href="mailto:info@apecstudio.com?subject=Campaign%20Management%20and%20Deliverability"><div class="svc-icon"><svg viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg></div><h4>Campaign Management</h4><p>Campaigns, DNS, warm-up and monitoring handled.</p><ul class="service-list"><li>Email and LinkedIn campaigns</li><li>DNS / warm-up checks</li><li>Reporting and improvements</li></ul><span class="mini-price">Monthly</span><span class="mini-cta">Ask about this &rarr;</span></a>
-              </div>
-            </div>
+              <a class="svc-card" href="mailto:info@apecstudio.com?subject=Companies%20Service">
+                <div class="svc-icon"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+                <h4>Companies</h4>
+                <p>Outbound campaigns, targeting, messaging, deliverability and management.</p>
+                <ul class="service-list"><li>Email and LinkedIn outreach</li><li>DNS and inboxing checks</li><li>Campaign setup or management</li></ul>
+                <span class="mini-price">Custom / monthly</span>
+                <span class="mini-cta">Ask about this &rarr;</span>
+              </a>
 
-            <div class="tab-panel" data-panel-group="services" data-panel="coaching">
-              <div class="services-three">
-                <a class="svc-card" href="mailto:info@apecstudio.com?subject=1%3A1%20Coaching"><div class="svc-icon"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div><h4>1:1 Coaching</h4><p>Direct guidance on what to fix and what to stop doing.</p><ul class="service-list"><li>Profile / campaign review</li><li>Clear next steps</li><li>No fluffy advice</li></ul><span class="mini-price">1:1</span><span class="mini-cta">Ask about this &rarr;</span></a>
-                <a class="svc-card" href="mailto:info@apecstudio.com?subject=Campaign%20Review"><div class="svc-icon"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div><h4>Campaign Review</h4><p>We check copy, targeting, sequence and deliverability risk.</p><ul class="service-list"><li>Copy review</li><li>ICP and trigger check</li><li>Fix list</li></ul><span class="mini-price">Audit</span><span class="mini-cta">Ask about this &rarr;</span></a>
-                <a class="svc-card" href="mailto:info@apecstudio.com?subject=Outbound%20Stack%20Audit"><div class="svc-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg></div><h4>Outbound Stack Audit</h4><p>Full system review with a Notion page for future campaigns.</p><ul class="service-list"><li>Tools and setup</li><li>Campaign logic</li><li>Notion action page</li></ul><span class="mini-price">Custom</span><span class="mini-cta">Ask about this &rarr;</span></a>
-              </div>
+              <a class="svc-card" href="mailto:info@apecstudio.com?subject=Coaching%20Service">
+                <div class="svc-icon"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+                <h4>Coaching</h4>
+                <p>Direct guidance on your profile, campaign, offer or outreach system.</p>
+                <ul class="service-list"><li>Audit and clear fixes</li><li>No fluffy advice</li><li>Action page after the call</li></ul>
+                <span class="mini-price">1:1 / audit</span>
+                <span class="mini-cta">Ask about this &rarr;</span>
+              </a>
             </div>
           </div>
         </div>
@@ -1278,15 +1320,15 @@
           <div class="courses-top">
             <div>
               <div class="section-kicker">Courses</div>
-              <h2>Learn it once. Apply it fast.</h2>
+              <h2>Courses that make the system clear.</h2>
               
             </div>
             <a href="mailto:info@apecstudio.com?subject=Courses" class="btn btn-dark">Ask about courses</a>
           </div>
           <div class="courses-grid">
-            <button class="course-card" type="button" data-course-open="dns"><span class="course-tag">Outreach</span><h3>DNS &amp; Deliverability</h3><p>SPF, DKIM, DMARC, inboxing and spam basics.</p><div class="course-row"><span class="course-price">EUR 29</span><span class="course-cta">Open course &rarr;</span></div></button>
-            <button class="course-card course-card--featured" type="button" data-course-open="warmup"><span class="course-tag">Outreach</span><h3>Warm-up &amp; Campaigning</h3><p>Safe sending, sequences, leads and campaign logic.</p><div class="course-row"><span class="course-price">EUR 39</span><span class="course-cta">Open course &rarr;</span></div></button>
-            <button class="course-card" type="button" data-course-open="jobprep"><span class="course-tag">Job prep</span><h3>LinkedIn, CV &amp; Work Mindset</h3><p>Profile, CV, interview prep and professional presence.</p><div class="course-row"><span class="course-price">EUR 29</span><span class="course-cta">Open course &rarr;</span></div></button>
+            <button class="course-card" type="button" data-course-open="dns"><span class="course-tag">Outreach</span><h3>DNS &amp; Deliverability</h3><p>SPF, DKIM, DMARC and inboxing basics.</p><div class="course-row"><span class="course-price">EUR 29</span><span class="course-cta">Open course &rarr;</span></div></button>
+            <button class="course-card course-card--featured" type="button" data-course-open="warmup"><span class="course-tag">Outreach</span><h3>Warm-up &amp; Campaigning</h3><p>Warm-up, sending limits and campaign logic.</p><div class="course-row"><span class="course-price">EUR 39</span><span class="course-cta">Open course &rarr;</span></div></button>
+            <button class="course-card" type="button" data-course-open="jobprep"><span class="course-tag">Job prep</span><h3>LinkedIn, CV &amp; Work Mindset</h3><p>LinkedIn, CV and interview prep basics.</p><div class="course-row"><span class="course-price">EUR 29</span><span class="course-cta">Open course &rarr;</span></div></button>
           </div>
         </div>
       </div>
@@ -1299,7 +1341,7 @@
             <div class="book-left">
               <div class="section-kicker" style="color:rgba(255,255,255,0.72);">Contact</div>
               <h2>Book a call.</h2>
-              <p>Choose a time or email us directly. That is it.</p>
+              <p>Book a call or contact us. We will tell you what to fix, or handle it for you.</p>
               <div class="book-reasons">
                 <div class="book-reason"><div class="book-reason-icon"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></div>20 minutes, no pressure</div>
                 <div class="book-reason"><div class="book-reason-icon"><svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></div>We tell you what's wrong, for free</div>
@@ -1307,7 +1349,7 @@
               </div>
               <div class="book-contact">
                 
-                <a href="mailto:info@apecstudio.com" class="email-pill">Email us: info@apecstudio.com</a>
+                <a href="mailto:info@apecstudio.com" class="email-pill">Contact us: info@apecstudio.com</a>
     
               </div>
             </div>
