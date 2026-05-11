@@ -22,6 +22,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Sora:wght@600;700&display=swap" rel="stylesheet" />
 
+  <!-- Schema: Organization -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -35,6 +36,7 @@
   }
   </script>
 
+  <!-- Schema: Service -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -47,6 +49,7 @@
   }
   </script>
 
+  <!-- Schema: Course list -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -157,12 +160,13 @@
       100% { box-shadow: 0 0 0 0 rgba(169,140,240,0); }
     }
 
+    /* Smoother eyebrow rotator — longer fade in/out, softer easing */
     @keyframes rotateFade {
-      0%   { opacity: 0; transform: translateY(8px); }
-      8%   { opacity: 1; transform: translateY(0); }
-      20%  { opacity: 1; transform: translateY(0); }
-      28%  { opacity: 0; transform: translateY(-8px); }
-      100% { opacity: 0; transform: translateY(-8px); }
+      0%   { opacity: 0;   transform: translateY(6px);  }
+      10%  { opacity: 1;   transform: translateY(0);    }
+      22%  { opacity: 1;   transform: translateY(0);    }
+      34%  { opacity: 0;   transform: translateY(-6px); }
+      100% { opacity: 0;   transform: translateY(-6px); }
     }
 
     .anim-fadeup { opacity: 0; animation: fadeUp 0.65s cubic-bezier(.22,.68,0,1.1) forwards; }
@@ -362,13 +366,16 @@
       letter-spacing: 0.01em;
       white-space: nowrap;
       opacity: 0;
+      /* smooth timing function for both in and out */
+      animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     }
 
-    .eyebrow-item:nth-child(1) { animation: rotateFade 15s 0s infinite; }
-    .eyebrow-item:nth-child(2) { animation: rotateFade 15s 3s infinite; }
-    .eyebrow-item:nth-child(3) { animation: rotateFade 15s 6s infinite; }
-    .eyebrow-item:nth-child(4) { animation: rotateFade 15s 9s infinite; }
-    .eyebrow-item:nth-child(5) { animation: rotateFade 15s 12s infinite; }
+    /* Each item: total cycle = 18s, each visible for ~3.6s, staggered by 3.6s */
+    .eyebrow-item:nth-child(1) { animation: rotateFade 18s 0s    infinite; }
+    .eyebrow-item:nth-child(2) { animation: rotateFade 18s 3.6s  infinite; }
+    .eyebrow-item:nth-child(3) { animation: rotateFade 18s 7.2s  infinite; }
+    .eyebrow-item:nth-child(4) { animation: rotateFade 18s 10.8s infinite; }
+    .eyebrow-item:nth-child(5) { animation: rotateFade 18s 14.4s infinite; }
 
     .hero-display-headline {
       font-size: clamp(2.95rem, 6vw, 5.15rem);
@@ -579,7 +586,7 @@
     .tab-panel { display: none; }
     .tab-panel.active { display: block; }
 
-    /* ---- AUDIENCE CARDS — 2-col grid ---- */
+    /* ---- AUDIENCE CARDS (2-col bullet layout) ---- */
     .audience-cards {
       display: grid;
       grid-template-columns: repeat(2, minmax(0,1fr));
@@ -587,17 +594,6 @@
       margin-top: 4px;
     }
 
-    /* ---- OTHER GRIDS ---- */
-    .services-four, .services-three, .courses-grid, .about-mini-grid {
-      display: grid;
-      gap: 16px;
-      margin-top: 4px;
-    }
-
-    .services-four { grid-template-columns: repeat(4, minmax(0,1fr)); }
-    .services-three, .courses-grid, .about-mini-grid { grid-template-columns: repeat(3, minmax(0,1fr)); }
-
-    /* ---- AUDIENCE CARD SPECIFIC ---- */
     .aud-card {
       padding: 28px 26px;
       background: white;
@@ -612,35 +608,90 @@
       box-shadow: 0 16px 32px rgba(28,68,107,0.1);
     }
 
-    /* One-liner hook above the bullets */
-    .aud-hook {
-      display: block;
-      font-size: 0.92rem;
-      font-weight: 700;
-      color: var(--primary-2);
+    .aud-icon {
+      width: 42px; height: 42px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
       margin-bottom: 14px;
-      padding: 9px 13px;
-      background: rgba(47,121,168,0.07);
+      background: linear-gradient(180deg, rgba(114,199,229,0.18), rgba(183,140,243,0.12));
+      border: 1px solid rgba(28,68,107,0.08);
+      color: var(--primary);
+    }
+
+    /* Reduced heading size for audience cards */
+    .aud-card h4 {
+      color: var(--primary);
+      font-size: 0.98rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 10px;
+    }
+
+    /* Hook callout box inside card */
+    .aud-hook {
+      margin-bottom: 12px;
+      padding: 10px 13px;
+      background: rgba(28,68,107,0.04);
       border-left: 3px solid var(--primary-2);
       border-radius: 0 10px 10px 0;
+      color: var(--primary);
+      font-size: 0.86rem;
+      font-weight: 700;
       line-height: 1.4;
     }
 
-    .svc-card, .about-mini-card, .course-card {
-      padding: 22px 20px;
+    /* Bullet list inside audience cards */
+    .aud-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 7px;
+    }
+
+    .aud-list li {
+      display: flex;
+      gap: 9px;
+      align-items: flex-start;
+      color: #426074;
+      font-size: 0.88rem;
+      line-height: 1.45;
+    }
+
+    .aud-list li::before {
+      content: "\2013";
+      color: var(--primary-2);
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* ---- WHAT WE ACTUALLY DO PANEL (matches audience style) ---- */
+    .services-four {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 20px;
+      margin-top: 4px;
+    }
+
+    .svc-card {
+      padding: 28px 26px;
       background: white;
       border: 1px solid rgba(28,68,107,0.07);
       border-radius: 20px;
       box-shadow: 0 8px 22px rgba(28,68,107,0.06);
       transition: transform 0.22s ease, box-shadow 0.22s ease;
+      display: block;
+      text-decoration: none;
     }
 
-    .svc-card:hover, .course-card:hover {
+    .svc-card:hover {
       transform: translateY(-4px);
       box-shadow: 0 16px 32px rgba(28,68,107,0.1);
     }
 
-    .aud-icon, .svc-icon {
+    .svc-icon {
       width: 42px; height: 42px;
       border-radius: 14px;
       display: grid;
@@ -656,28 +707,98 @@
       border: 1px solid rgba(28,68,107,0.1);
     }
 
-    .aud-card h4 {
+    .svc-card h4 {
       color: var(--primary);
-      font-size: 1.08rem;
+      font-size: 0.98rem;
       font-weight: 800;
       letter-spacing: -0.02em;
-      margin-bottom: 14px;
+      margin-bottom: 10px;
     }
 
-    .svc-card h4, .about-mini-card h4, .course-card h3 {
+    .svc-hook {
+      margin-bottom: 12px;
+      padding: 10px 13px;
+      background: rgba(28,68,107,0.04);
+      border-left: 3px solid var(--primary-2);
+      border-radius: 0 10px 10px 0;
+      color: var(--primary);
+      font-size: 0.86rem;
+      font-weight: 700;
+      line-height: 1.4;
+    }
+
+    .svc-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 7px;
+    }
+
+    .svc-list li {
+      display: flex;
+      gap: 9px;
+      align-items: flex-start;
+      color: #426074;
+      font-size: 0.88rem;
+      line-height: 1.45;
+    }
+
+    .svc-list li::before {
+      content: "\2013";
+      color: var(--primary-2);
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* Services panel grids */
+    .services-three, .about-mini-grid {
+      display: grid;
+      gap: 16px;
+      margin-top: 4px;
+    }
+
+    .services-three { grid-template-columns: repeat(3, minmax(0,1fr)); }
+    .about-mini-grid { grid-template-columns: repeat(3, minmax(0,1fr)); }
+
+    .about-mini-card {
+      padding: 22px 20px;
+      background: white;
+      border: 1px solid rgba(28,68,107,0.07);
+      border-radius: 20px;
+      box-shadow: 0 8px 22px rgba(28,68,107,0.06);
+    }
+
+    .about-mini-card h4 {
       color: var(--primary);
       font-size: 1rem;
       letter-spacing: -0.02em;
       margin-bottom: 6px;
     }
 
-    .aud-card p, .svc-card p, .about-mini-card p, .course-card p {
+    .about-mini-card p {
       color: var(--muted);
       font-size: 0.88rem;
       line-height: 1.5;
     }
 
-    /* ---- BULLET LIST — shared ---- */
+    .about-mini-card strong {
+      display: block;
+      color: var(--primary);
+      font-size: 1.35rem;
+      letter-spacing: -0.04em;
+      line-height: 1.1;
+      margin-bottom: 6px;
+    }
+
+    /* Shared svc-card p/list for services panels */
+    .svc-card p {
+      color: var(--muted);
+      font-size: 0.88rem;
+      line-height: 1.5;
+    }
+
     .service-list {
       list-style: none;
       padding: 0;
@@ -701,34 +822,6 @@
       font-weight: 900;
       line-height: 1.2;
       margin-top: 1px;
-      flex-shrink: 0;
-    }
-
-    /* Audience bullet list — slightly larger for readability */
-    .aud-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: grid;
-      gap: 10px;
-    }
-
-    .aud-list li {
-      display: flex;
-      gap: 10px;
-      align-items: flex-start;
-      color: #2e4f68;
-      font-size: 0.93rem;
-      font-weight: 500;
-      line-height: 1.5;
-    }
-
-    .aud-list li::before {
-      content: "\2713";
-      color: var(--accent-strong);
-      font-weight: 900;
-      font-size: 0.95rem;
-      line-height: 1.35;
       flex-shrink: 0;
     }
 
@@ -759,6 +852,95 @@
       font-weight: 800;
     }
 
+    /* ---- COURSES ---- */
+    .courses-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 16px;
+      margin-top: 4px;
+    }
+
+    .course-card {
+      padding: 22px 20px;
+      background: white;
+      border: 1px solid rgba(28,68,107,0.07);
+      border-radius: 20px;
+      box-shadow: 0 8px 22px rgba(28,68,107,0.06);
+      transition: transform 0.22s ease, box-shadow 0.22s ease;
+      display: block;
+      min-height: 100%;
+      cursor: pointer;
+      text-align: left;
+      width: 100%;
+      font: inherit;
+    }
+
+    .course-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 32px rgba(28,68,107,0.1);
+    }
+
+    .course-card p { margin-bottom: 8px; }
+
+    .course-card h3 {
+      color: var(--primary);
+      font-size: 1rem;
+      letter-spacing: -0.02em;
+      margin-bottom: 6px;
+    }
+
+    .course-card p {
+      color: var(--muted);
+      font-size: 0.88rem;
+      line-height: 1.5;
+    }
+
+    .course-tag {
+      display: inline-flex;
+      margin-bottom: 10px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(28,68,107,0.08);
+      color: var(--primary);
+      font-size: 0.76rem;
+      font-weight: 800;
+    }
+
+    .course-card--featured {
+      background:
+        radial-gradient(circle at top right, rgba(119,199,227,0.14), transparent 34%),
+        linear-gradient(180deg, rgba(255,255,255,0.98), rgba(247,252,255,0.96));
+      border-color: rgba(47,121,168,0.14);
+      box-shadow: 0 14px 30px rgba(28,68,107,0.08);
+    }
+
+    .course-card--featured .course-tag {
+      background: rgba(47,121,168,0.08);
+      color: var(--primary);
+    }
+
+    .course-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .course-price {
+      color: var(--primary);
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      white-space: nowrap;
+    }
+
+    .course-cta {
+      display: inline-flex;
+      color: var(--primary);
+      font-size: 0.88rem;
+      font-weight: 800;
+    }
+
     /* ---- COMPACT ABOUT ---- */
     .compact-about { padding: 40px 0; }
 
@@ -778,15 +960,6 @@
       gap: 24px;
       align-items: flex-end;
       margin-bottom: 24px;
-    }
-
-    .about-mini-card strong {
-      display: block;
-      color: var(--primary);
-      font-size: 1.35rem;
-      letter-spacing: -0.04em;
-      line-height: 1.1;
-      margin-bottom: 6px;
     }
 
     /* ---- CASE STUDY ---- */
@@ -874,9 +1047,13 @@
       margin-bottom: 6px;
     }
 
-    .stat-box span { color: rgba(255,255,255,0.72); font-size: 0.84rem; line-height: 1.4; }
+    .stat-box span {
+      color: rgba(255,255,255,0.72);
+      font-size: 0.84rem;
+      line-height: 1.4;
+    }
 
-    /* ---- COURSES ---- */
+    /* ---- COURSES SECTION ---- */
     .courses-section { padding: 40px 0; }
 
     .courses-shell {
@@ -917,63 +1094,6 @@
       color: var(--accent-strong);
       font-size: 0.88rem;
       font-weight: 700;
-    }
-
-    .course-card {
-      display: block;
-      min-height: 100%;
-      cursor: pointer;
-      text-align: left;
-      width: 100%;
-      font: inherit;
-    }
-
-    .course-card p { margin-bottom: 8px; }
-
-    .course-tag {
-      display: inline-flex;
-      margin-bottom: 10px;
-      padding: 6px 10px;
-      border-radius: 999px;
-      background: rgba(28,68,107,0.08);
-      color: var(--primary);
-      font-size: 0.76rem;
-      font-weight: 800;
-    }
-
-    .course-card--featured {
-      background:
-        radial-gradient(circle at top right, rgba(119,199,227,0.14), transparent 34%),
-        linear-gradient(180deg, rgba(255,255,255,0.98), rgba(247,252,255,0.96));
-      border-color: rgba(47,121,168,0.14);
-      box-shadow: 0 14px 30px rgba(28,68,107,0.08);
-    }
-
-    .course-card--featured .course-tag {
-      background: rgba(47,121,168,0.08);
-      color: var(--primary);
-    }
-
-    .course-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      margin-top: 16px;
-    }
-
-    .course-price {
-      color: var(--primary);
-      font-weight: 900;
-      letter-spacing: -0.03em;
-      white-space: nowrap;
-    }
-
-    .course-cta {
-      display: inline-flex;
-      color: var(--primary);
-      font-size: 0.88rem;
-      font-weight: 800;
     }
 
     /* ---- COURSE MODALS ---- */
@@ -1065,7 +1185,6 @@
     }
 
     .course-detail-box b { display: block; color: var(--primary); margin-bottom: 8px; }
-
     .course-detail-box ul { display: grid; gap: 7px; list-style: none; }
 
     .course-detail-box li {
@@ -1223,7 +1342,6 @@
     .calendar-placeholder-icon svg { width: 34px; height: 34px; }
 
     .calendar-placeholder h4 { color: var(--primary); font-size: 1.2rem; letter-spacing: -0.02em; }
-
     .calendar-placeholder p { color: var(--muted); font-size: 0.95rem; max-width: 30ch; }
 
     .calendar-placeholder code {
@@ -1360,7 +1478,7 @@
       .hero-grid, .book-top, .case-study-inner { grid-template-columns: 1fr; }
       .hero-grid { min-height: auto; }
       .hero-card { margin-left: 0; max-width: none; }
-      .services-four, .services-three, .courses-grid, .about-mini-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+      .audience-cards, .services-four, .services-three, .courses-grid, .about-mini-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
       .about-compact-top, .courses-top { align-items: flex-start; flex-direction: column; }
       .book-shell, .case-study-shell { padding: 36px 28px; }
       .case-study-stats { grid-template-columns: repeat(2, 1fr); }
@@ -1398,7 +1516,7 @@
     <div class="container header-inner">
       <a href="#home" class="brand" aria-label="BLAPE home">
         <div class="logo-circle">
-          <img src="blape-outreach-branding-logo.svg" alt="BLAPE logo" />
+          <img src="APE.Logo1.png" alt="BLAPE logo" />
         </div>
         <div><span>BLAPE</span></div>
       </a>
@@ -1430,10 +1548,12 @@
                   <span class="eyebrow-item">No replies to your outreach?</span>
                 </div>
               </div>
+
               <p class="hero-display-headline anim-fadeup d2" aria-hidden="true">
                 Don't think<br />about it.<br />
                 <span class="accent">We'll fix it.</span>
               </p>
+
               <p class="hero-sub anim-fadeup d3">A small team fixing LinkedIn, cold outreach and email deliverability for people who want results.</p>
               <div class="hero-kicker anim-fadeup d4">Jobs. Leads. Deliverability.</div>
               <div class="hero-actions anim-fadeup d5">
@@ -1445,7 +1565,7 @@
             <aside class="hero-card" aria-label="Highlights">
               <div class="hero-profile">
                 <div class="logo-circle logo-circle--hero">
-                  <img src="blape-outreach-branding-logo.svg" alt="BLAPE logo" />
+                  <img src="APE.Logo1.png" alt="BLAPE logo" />
                 </div>
                 <div>
                   <strong>BLAPE</strong>
@@ -1494,80 +1614,105 @@
 
           <div class="tab-panels">
 
-            <!-- AUDIENCE PANEL — BULLETS -->
+            <!-- AUDIENCE PANEL — bullet layout -->
             <div class="tab-panel active" data-panel-group="about" data-panel="audience">
               <div class="audience-cards">
 
                 <div class="aud-card">
                   <div class="aud-icon"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg></div>
                   <h4>Job Seekers</h4>
-                  <span class="aud-hook">Applying consistently with no responses? Both areas are fixable in under a week.</span>
+                  <div class="aud-hook">Applying consistently with no responses?</div>
                   <ul class="aud-list">
-                    <li>Your profile probably doesn't match what recruiters filter for</li>
-                    <li>Your CV isn't written in the language of the role</li>
-                    <li>We fix both — LinkedIn, CV and positioning — fast</li>
+                    <li>Your profile probably does not match what recruiters filter for</li>
+                    <li>Your CV is not written in the language of the role</li>
+                    <li>Both are fixable in under a week</li>
                   </ul>
                 </div>
 
                 <div class="aud-card">
                   <div class="aud-icon"><svg viewBox="0 0 24 24"><polyline points="13 2 13 9 20 9"/><path d="M20 14.5V20a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h7.5L20 7.5"/><path d="M9 13h1.5"/><path d="M9 17h6"/></svg></div>
                   <h4>Founders &amp; Freelancers</h4>
-                  <span class="aud-hook">You need leads, not another tool subscription.</span>
+                  <div class="aud-hook">You need leads, not another tool subscription.</div>
                   <ul class="aud-list">
                     <li>We set up the targeting and write the copy</li>
-                    <li>We get the sequence running and tested</li>
-                    <li>No stack dependency, no fluff — just results</li>
+                    <li>We get the sequence running for you</li>
+                    <li>No stack dependency, no fluff</li>
                   </ul>
                 </div>
 
                 <div class="aud-card">
                   <div class="aud-icon"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
                   <h4>Sales Teams</h4>
-                  <span class="aud-hook">Reply rates below 2%? That's a signal, not bad luck.</span>
+                  <div class="aud-hook">Reply rates below 2% are a signal, not bad luck.</div>
                   <ul class="aud-list">
                     <li>Poor ICP definition or weak personalisation</li>
                     <li>Broken sequencing or damaged domain reputation</li>
-                    <li>We find the exact cause and fix it</li>
+                    <li>We find the cause and fix it</li>
                   </ul>
                 </div>
 
                 <div class="aud-card">
                   <div class="aud-icon"><svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="14" rx="1"/><path d="M8 7V5.8C8 4.8 8.8 4 9.8 4h4.4C15.2 4 16 4.8 16 5.8V7"/><path d="M3 11h18"/></svg></div>
                   <h4>Agencies</h4>
-                  <span class="aud-hook">Client outreach handled cleanly — without bouncing back onto your reputation.</span>
+                  <div class="aud-hook">Client outreach handled cleanly, without damaging your reputation.</div>
                   <ul class="aud-list">
                     <li>DNS setup, warm-up and campaign logic</li>
-                    <li>Ongoing monitoring and deliverability checks</li>
-                    <li>Done properly, without shortcuts</li>
+                    <li>Ongoing monitoring included</li>
+                    <li>Done properly, not patched together</li>
                   </ul>
                 </div>
 
               </div>
             </div>
 
-            <!-- WHAT WE ACTUALLY DO PANEL -->
+            <!-- WHAT WE ACTUALLY DO PANEL — same bullet style as audience -->
             <div class="tab-panel" data-panel-group="about" data-panel="overview">
               <div class="services-four">
+
                 <div class="svc-card">
                   <div class="svc-icon dark"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg></div>
                   <h4>Deliverability</h4>
-                  <p>DNS records, domain warm-up, spam checks and safer sending infrastructure. We fix what stops your emails from landing.</p>
+                  <div class="svc-hook">Emails landing in spam? This is why.</div>
+                  <ul class="svc-list">
+                    <li>DNS records: SPF, DKIM and DMARC configured correctly</li>
+                    <li>Domain warm-up and spam checks</li>
+                    <li>Safer sending infrastructure that protects your domain</li>
+                  </ul>
                 </div>
+
                 <div class="svc-card">
                   <div class="svc-icon dark"><svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg></div>
                   <h4>LinkedIn</h4>
-                  <p>Profile optimisation, positioning, outreach strategy and message sequences that don't get ignored.</p>
+                  <div class="svc-hook">Profile getting ignored? It is likely the positioning.</div>
+                  <ul class="svc-list">
+                    <li>Full profile optimisation and headline rewrite</li>
+                    <li>Outreach strategy that does not get flagged</li>
+                    <li>Message sequences people actually reply to</li>
+                  </ul>
                 </div>
+
                 <div class="svc-card">
                   <div class="svc-icon dark"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
                   <h4>Campaigns</h4>
-                  <p>ICP targeting, copy, sequencing and campaign logic. Built to convert, not just to send.</p>
+                  <div class="svc-hook">Built to convert, not just to send.</div>
+                  <ul class="svc-list">
+                    <li>ICP targeting and copy written for your audience</li>
+                    <li>Sequencing and follow-up logic that makes sense</li>
+                    <li>Campaign structure reviewed before it launches</li>
+                  </ul>
                 </div>
+
                 <div class="svc-card">
                   <div class="svc-icon dark"><svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></div>
                   <h4>Presence</h4>
-                  <p>CV rewrite, personal brand, interview preparation and the work mindset that keeps you moving forward.</p>
+                  <div class="svc-hook">The full picture before you start applying or pitching.</div>
+                  <ul class="svc-list">
+                    <li>CV rewrite and personal brand clarity</li>
+                    <li>Interview preparation without the filler advice</li>
+                    <li>Work mindset that keeps you moving forward</li>
+                  </ul>
                 </div>
+
               </div>
             </div>
 
@@ -1615,6 +1760,7 @@
             <!-- INDIVIDUALS -->
             <div class="tab-panel active" data-panel-group="services" data-panel="individuals">
               <div class="services-three">
+
                 <a class="svc-card" href="mailto:info@apecstudio.com?subject=LinkedIn%20Profile%20Optimization">
                   <div class="svc-icon"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
                   <h4>LinkedIn Profile Optimization</h4>
@@ -1628,6 +1774,7 @@
                   <span class="price-note">Price depends on profile complexity and whether positioning work is included.</span>
                   <span class="mini-cta">Ask about this &rarr;</span>
                 </a>
+
                 <a class="svc-card" href="mailto:info@apecstudio.com?subject=CV%20and%20Personal%20Branding">
                   <div class="svc-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
                   <h4>CV &amp; Personal Branding</h4>
@@ -1640,6 +1787,7 @@
                   <span class="mini-price">from EUR 150</span>
                   <span class="mini-cta">Ask about this &rarr;</span>
                 </a>
+
                 <a class="svc-card" href="mailto:info@apecstudio.com?subject=Job%20Prep%20Professional%20Presence">
                   <div class="svc-icon"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg></div>
                   <h4>Job Prep / Professional Presence</h4>
@@ -1652,12 +1800,14 @@
                   <span class="mini-price">Custom quote</span>
                   <span class="mini-cta">Ask about this &rarr;</span>
                 </a>
+
               </div>
             </div>
 
             <!-- COMPANIES -->
             <div class="tab-panel" data-panel-group="services" data-panel="companies">
               <div class="services-three">
+
                 <a class="svc-card" href="mailto:info@apecstudio.com?subject=Email%20Outreach%20Setup">
                   <div class="svc-icon"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg></div>
                   <h4>Email Outreach Setup</h4>
@@ -1670,6 +1820,7 @@
                   <span class="mini-price">from EUR 100</span>
                   <span class="mini-cta">Ask about this &rarr;</span>
                 </a>
+
                 <a class="svc-card" href="mailto:info@apecstudio.com?subject=LinkedIn%20Outreach%20Setup">
                   <div class="svc-icon"><svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg></div>
                   <h4>LinkedIn Outreach Setup</h4>
@@ -1682,6 +1833,7 @@
                   <span class="mini-price">from EUR 200</span>
                   <span class="mini-cta">Ask about this &rarr;</span>
                 </a>
+
                 <a class="svc-card" href="mailto:info@apecstudio.com?subject=Campaign%20Management%20and%20Deliverability">
                   <div class="svc-icon"><svg viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg></div>
                   <h4>Campaign Management</h4>
@@ -1694,12 +1846,14 @@
                   <span class="mini-price">Monthly retainer</span>
                   <span class="mini-cta">Ask about this &rarr;</span>
                 </a>
+
               </div>
             </div>
 
             <!-- COACHING -->
             <div class="tab-panel" data-panel-group="services" data-panel="coaching">
               <div class="services-three">
+
                 <a class="svc-card" href="mailto:info@apecstudio.com?subject=1%3A1%20Coaching">
                   <div class="svc-icon"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
                   <h4>1:1 Coaching Session</h4>
@@ -1712,6 +1866,7 @@
                   <span class="mini-price">Custom quote</span>
                   <span class="mini-cta">Ask about this &rarr;</span>
                 </a>
+
                 <a class="svc-card" href="mailto:info@apecstudio.com?subject=Campaign%20Review">
                   <div class="svc-icon"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
                   <h4>Campaign Review</h4>
@@ -1724,6 +1879,7 @@
                   <span class="mini-price">Custom quote</span>
                   <span class="mini-cta">Ask about this &rarr;</span>
                 </a>
+
                 <a class="svc-card" href="mailto:info@apecstudio.com?subject=Outbound%20Stack%20Audit">
                   <div class="svc-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg></div>
                   <h4>Outbound Stack Audit</h4>
@@ -1736,6 +1892,7 @@
                   <span class="mini-price">Custom quote</span>
                   <span class="mini-cta">Ask about this &rarr;</span>
                 </a>
+
               </div>
             </div>
 
@@ -1755,10 +1912,22 @@
               <p>A local gym had been running email outreach to lapsed members and cold leads for three months. Open rates were fine. Replies were not. The problem turned out to be three things: a generic subject line that read like a promotion, a first line that started with "We" instead of addressing the reader, and a sending domain with no DKIM record configured. We rewrote the sequence from the first word, fixed the DNS setup and staggered the sending volume. Replies picked up within the first week of the new campaign.</p>
             </div>
             <div class="case-study-stats">
-              <div class="stat-box"><strong>1.4%</strong><span>Reply rate before we touched the campaign</span></div>
-              <div class="stat-box"><strong>9%</strong><span>Reply rate after DNS fix and copy rewrite</span></div>
-              <div class="stat-box"><strong>4 wks</strong><span>Time from audit to consistent results</span></div>
-              <div class="stat-box"><strong>3 fixes</strong><span>DNS, subject line, first-line copy</span></div>
+              <div class="stat-box">
+                <strong>1.4%</strong>
+                <span>Reply rate before we touched the campaign</span>
+              </div>
+              <div class="stat-box">
+                <strong>9%</strong>
+                <span>Reply rate after DNS fix and copy rewrite</span>
+              </div>
+              <div class="stat-box">
+                <strong>4 wks</strong>
+                <span>Time from audit to consistent results</span>
+              </div>
+              <div class="stat-box">
+                <strong>3 fixes</strong>
+                <span>DNS, subject line, first-line copy</span>
+              </div>
             </div>
           </div>
         </div>
@@ -1776,11 +1945,13 @@
               <p>Short, direct guides you can get through in a sitting and use the same day.</p>
             </div>
           </div>
+
           <div class="courses-lead-note">
             <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 14 19.79 19.79 0 0 1 1.63 5.37 2 2 0 0 1 3.6 3h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 10.5a16 16 0 0 0 6 6l.94-.94a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 18z"/></svg>
             Subscribe to our newsletter and get these guides free. No checkout required.
             <a href="mailto:info@apecstudio.com?subject=Newsletter%20Subscription" style="color:var(--accent-strong);font-weight:800;text-decoration:underline;margin-left:4px;">Subscribe &rarr;</a>
           </div>
+
           <div class="courses-grid">
             <button class="course-card" type="button" data-course-open="dns">
               <span class="course-tag">Outreach</span>
@@ -1791,6 +1962,7 @@
                 <span class="course-cta">Open course &rarr;</span>
               </div>
             </button>
+
             <button class="course-card course-card--featured" type="button" data-course-open="warmup">
               <span class="course-tag">Outreach</span>
               <h3>Warm-up &amp; Campaigning</h3>
@@ -1800,6 +1972,7 @@
                 <span class="course-cta">Open course &rarr;</span>
               </div>
             </button>
+
             <button class="course-card" type="button" data-course-open="jobprep">
               <span class="course-tag">Job prep</span>
               <h3>LinkedIn, CV &amp; Work Mindset</h3>
@@ -1841,6 +2014,7 @@
                 <a href="mailto:info@apecstudio.com" class="email-pill">Email us: info@apecstudio.com</a>
               </div>
             </div>
+
             <div class="book-right">
               <div class="calendar-placeholder">
                 <div class="calendar-placeholder-icon">
@@ -1970,6 +2144,7 @@
   </footer>
 
   <script>
+    // Tab navigation
     document.querySelectorAll('.tab-btn').forEach(function(btn) {
       btn.addEventListener('click', function() {
         var tabId = this.dataset.tab;
@@ -1993,6 +2168,7 @@
       });
     });
 
+    // Course modals
     function closeCourseModals() {
       document.querySelectorAll('.course-modal').forEach(function(modal) {
         modal.classList.remove('active');
