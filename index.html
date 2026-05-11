@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>BLAPE | LinkedIn, Cold Outreach & Email Deliverability Experts</title>
-  <meta name="description" content="BLAPE fixes LinkedIn profiles, cold outreach and email deliverability for job seekers, founders, sales teams and agencies across Europe. Book a free 20-minute call." />
+  <meta name="description" content="Stuck job search, cold emails landing in spam, weak LinkedIn? BLAPE fixes outreach, deliverability and presence problems blocking your results. Book a free 20-min call." />
 
   <!-- Open Graph -->
   <meta property="og:title" content="BLAPE | LinkedIn, Cold Outreach & Email Deliverability" />
@@ -22,7 +22,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Sora:wght@600;700&display=swap" rel="stylesheet" />
 
-  <!-- Schema: Organization -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -36,7 +35,6 @@
   }
   </script>
 
-  <!-- Schema: Service -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -49,7 +47,6 @@
   }
   </script>
 
-  <!-- Schema: Course list -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -134,7 +131,6 @@
       margin: 0 auto;
     }
 
-    /* Visually hidden H1 for SEO */
     .seo-h1 {
       position: absolute;
       width: 1px; height: 1px;
@@ -206,8 +202,7 @@
     }
 
     .logo-circle {
-      width: 58px;
-      height: 58px;
+      width: 58px; height: 58px;
       border-radius: 50%;
       background: #ffffff;
       border: 4px solid #ffffff;
@@ -225,8 +220,7 @@
     }
 
     .logo-circle img {
-      width: 100%;
-      height: 100%;
+      width: 100%; height: 100%;
       object-fit: cover;
       object-position: center center;
       display: block;
@@ -236,8 +230,7 @@
     }
 
     .logo-circle--hero {
-      width: 82px;
-      height: 82px;
+      width: 82px; height: 82px;
       background: #ffffff;
       border: 6px solid #ffffff;
       box-shadow: 0 14px 34px rgba(0,0,0,0.18), 0 0 0 1px rgba(255,255,255,0.22);
@@ -339,8 +332,7 @@
     }
 
     .eyebrow-dot {
-      width: 8px;
-      height: 8px;
+      width: 8px; height: 8px;
       border-radius: 50%;
       background: rgba(255,255,255,0.7);
       flex-shrink: 0;
@@ -378,7 +370,6 @@
     .eyebrow-item:nth-child(4) { animation: rotateFade 15s 9s infinite; }
     .eyebrow-item:nth-child(5) { animation: rotateFade 15s 12s infinite; }
 
-    /* Visual display headline (not the SEO h1) */
     .hero-display-headline {
       font-size: clamp(2.95rem, 6vw, 5.15rem);
       line-height: 0.96;
@@ -588,18 +579,54 @@
     .tab-panel { display: none; }
     .tab-panel.active { display: block; }
 
-    /* ---- CARDS GRIDS ---- */
-    .audience-cards, .services-four, .services-three, .courses-grid, .about-mini-grid {
+    /* ---- AUDIENCE CARDS — 2-col grid ---- */
+    .audience-cards {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 20px;
+      margin-top: 4px;
+    }
+
+    /* ---- OTHER GRIDS ---- */
+    .services-four, .services-three, .courses-grid, .about-mini-grid {
       display: grid;
       gap: 16px;
       margin-top: 4px;
     }
 
-    .audience-cards { grid-template-columns: repeat(4, minmax(0,1fr)); }
     .services-four { grid-template-columns: repeat(4, minmax(0,1fr)); }
     .services-three, .courses-grid, .about-mini-grid { grid-template-columns: repeat(3, minmax(0,1fr)); }
 
-    .aud-card, .svc-card, .about-mini-card, .course-card {
+    /* ---- AUDIENCE CARD SPECIFIC ---- */
+    .aud-card {
+      padding: 28px 26px;
+      background: white;
+      border: 1px solid rgba(28,68,107,0.07);
+      border-radius: 20px;
+      box-shadow: 0 8px 22px rgba(28,68,107,0.06);
+      transition: transform 0.22s ease, box-shadow 0.22s ease;
+    }
+
+    .aud-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 32px rgba(28,68,107,0.1);
+    }
+
+    /* One-liner hook above the bullets */
+    .aud-hook {
+      display: block;
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--primary-2);
+      margin-bottom: 14px;
+      padding: 9px 13px;
+      background: rgba(47,121,168,0.07);
+      border-left: 3px solid var(--primary-2);
+      border-radius: 0 10px 10px 0;
+      line-height: 1.4;
+    }
+
+    .svc-card, .about-mini-card, .course-card {
       padding: 22px 20px;
       background: white;
       border: 1px solid rgba(28,68,107,0.07);
@@ -608,7 +635,7 @@
       transition: transform 0.22s ease, box-shadow 0.22s ease;
     }
 
-    .aud-card:hover, .svc-card:hover, .course-card:hover {
+    .svc-card:hover, .course-card:hover {
       transform: translateY(-4px);
       box-shadow: 0 16px 32px rgba(28,68,107,0.1);
     }
@@ -629,7 +656,15 @@
       border: 1px solid rgba(28,68,107,0.1);
     }
 
-    .aud-card h4, .svc-card h4, .about-mini-card h4, .course-card h3 {
+    .aud-card h4 {
+      color: var(--primary);
+      font-size: 1.08rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 14px;
+    }
+
+    .svc-card h4, .about-mini-card h4, .course-card h3 {
       color: var(--primary);
       font-size: 1rem;
       letter-spacing: -0.02em;
@@ -642,17 +677,7 @@
       line-height: 1.5;
     }
 
-    .aud-expert-note {
-      margin-top: 12px;
-      padding: 11px 13px;
-      background: rgba(28,68,107,0.04);
-      border-left: 3px solid var(--primary-2);
-      border-radius: 0 10px 10px 0;
-      color: #426074;
-      font-size: 0.82rem;
-      line-height: 1.5;
-    }
-
+    /* ---- BULLET LIST — shared ---- */
     .service-list {
       list-style: none;
       padding: 0;
@@ -676,6 +701,34 @@
       font-weight: 900;
       line-height: 1.2;
       margin-top: 1px;
+      flex-shrink: 0;
+    }
+
+    /* Audience bullet list — slightly larger for readability */
+    .aud-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 10px;
+    }
+
+    .aud-list li {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      color: #2e4f68;
+      font-size: 0.93rem;
+      font-weight: 500;
+      line-height: 1.5;
+    }
+
+    .aud-list li::before {
+      content: "\2713";
+      color: var(--accent-strong);
+      font-weight: 900;
+      font-size: 0.95rem;
+      line-height: 1.35;
       flex-shrink: 0;
     }
 
@@ -821,11 +874,7 @@
       margin-bottom: 6px;
     }
 
-    .stat-box span {
-      color: rgba(255,255,255,0.72);
-      font-size: 0.84rem;
-      line-height: 1.4;
-    }
+    .stat-box span { color: rgba(255,255,255,0.72); font-size: 0.84rem; line-height: 1.4; }
 
     /* ---- COURSES ---- */
     .courses-section { padding: 40px 0; }
@@ -1245,8 +1294,7 @@
       width: 600px; height: 600px;
       border-radius: 50%;
       background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 68%);
-      left: 50%;
-      top: 50%;
+      left: 50%; top: 50%;
       transform: translate(-50%, -50%);
       pointer-events: none;
     }
@@ -1312,7 +1360,7 @@
       .hero-grid, .book-top, .case-study-inner { grid-template-columns: 1fr; }
       .hero-grid { min-height: auto; }
       .hero-card { margin-left: 0; max-width: none; }
-      .audience-cards, .services-four, .services-three, .courses-grid, .about-mini-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+      .services-four, .services-three, .courses-grid, .about-mini-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
       .about-compact-top, .courses-top { align-items: flex-start; flex-direction: column; }
       .book-shell, .case-study-shell { padding: 36px 28px; }
       .case-study-stats { grid-template-columns: repeat(2, 1fr); }
@@ -1343,7 +1391,6 @@
 
 <body>
 
-  <!-- SEO H1 — keyword-rich, visually hidden -->
   <h1 class="seo-h1">A small team fixing LinkedIn, cold outreach and email deliverability for people and companies who want results — serving Europe.</h1>
 
   <!-- HEADER -->
@@ -1383,13 +1430,10 @@
                   <span class="eyebrow-item">No replies to your outreach?</span>
                 </div>
               </div>
-
-              <!-- Visual display headline — NOT an h1 for SEO reasons -->
               <p class="hero-display-headline anim-fadeup d2" aria-hidden="true">
                 Don't think<br />about it.<br />
                 <span class="accent">We'll fix it.</span>
               </p>
-
               <p class="hero-sub anim-fadeup d3">A small team fixing LinkedIn, cold outreach and email deliverability for people who want results.</p>
               <div class="hero-kicker anim-fadeup d4">Jobs. Leads. Deliverability.</div>
               <div class="hero-actions anim-fadeup d5">
@@ -1450,33 +1494,52 @@
 
           <div class="tab-panels">
 
-            <!-- AUDIENCE PANEL -->
+            <!-- AUDIENCE PANEL — BULLETS -->
             <div class="tab-panel active" data-panel-group="about" data-panel="audience">
               <div class="audience-cards">
 
                 <div class="aud-card">
                   <div class="aud-icon"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg></div>
                   <h4>Job Seekers</h4>
-                  <p>Applying consistently with no responses? Your profile probably doesn't match what recruiters filter for, or your CV isn't written in the language of the role. Both are fixable in under a week.</p>
+                  <span class="aud-hook">Applying consistently with no responses? Both areas are fixable in under a week.</span>
+                  <ul class="aud-list">
+                    <li>Your profile probably doesn't match what recruiters filter for</li>
+                    <li>Your CV isn't written in the language of the role</li>
+                    <li>We fix both — LinkedIn, CV and positioning — fast</li>
+                  </ul>
                 </div>
 
                 <div class="aud-card">
                   <div class="aud-icon"><svg viewBox="0 0 24 24"><polyline points="13 2 13 9 20 9"/><path d="M20 14.5V20a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h7.5L20 7.5"/><path d="M9 13h1.5"/><path d="M9 17h6"/></svg></div>
                   <h4>Founders &amp; Freelancers</h4>
-                  <p>You need leads, not another tool subscription. We set up the targeting, write the copy and get the sequence running. No stack dependency, no fluff.</p>
+                  <span class="aud-hook">You need leads, not another tool subscription.</span>
+                  <ul class="aud-list">
+                    <li>We set up the targeting and write the copy</li>
+                    <li>We get the sequence running and tested</li>
+                    <li>No stack dependency, no fluff — just results</li>
+                  </ul>
                 </div>
 
                 <div class="aud-card">
                   <div class="aud-icon"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
                   <h4>Sales Teams</h4>
-                  <p>Reply rates below 2% are a signal, not bad luck. The cause is almost always poor ICP definition, weak personalisation, broken sequencing, or domain reputation. We find it and fix it.</p>
-                  <div class="aud-expert-note">Reply rates below 2%? That's a signal, not bad luck.</div>
+                  <span class="aud-hook">Reply rates below 2%? That's a signal, not bad luck.</span>
+                  <ul class="aud-list">
+                    <li>Poor ICP definition or weak personalisation</li>
+                    <li>Broken sequencing or damaged domain reputation</li>
+                    <li>We find the exact cause and fix it</li>
+                  </ul>
                 </div>
 
                 <div class="aud-card">
                   <div class="aud-icon"><svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="14" rx="1"/><path d="M8 7V5.8C8 4.8 8.8 4 9.8 4h4.4C15.2 4 16 4.8 16 5.8V7"/><path d="M3 11h18"/></svg></div>
                   <h4>Agencies</h4>
-                  <p>Client outreach and deliverability handled cleanly, without bouncing back onto your reputation. DNS, warm-up, campaign logic and ongoing monitoring — done properly.</p>
+                  <span class="aud-hook">Client outreach handled cleanly — without bouncing back onto your reputation.</span>
+                  <ul class="aud-list">
+                    <li>DNS setup, warm-up and campaign logic</li>
+                    <li>Ongoing monitoring and deliverability checks</li>
+                    <li>Done properly, without shortcuts</li>
+                  </ul>
                 </div>
 
               </div>
@@ -1552,7 +1615,6 @@
             <!-- INDIVIDUALS -->
             <div class="tab-panel active" data-panel-group="services" data-panel="individuals">
               <div class="services-three">
-
                 <a class="svc-card" href="mailto:info@apecstudio.com?subject=LinkedIn%20Profile%20Optimization">
                   <div class="svc-icon"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
                   <h4>LinkedIn Profile Optimization</h4>
@@ -1566,7 +1628,6 @@
                   <span class="price-note">Price depends on profile complexity and whether positioning work is included.</span>
                   <span class="mini-cta">Ask about this &rarr;</span>
                 </a>
-
                 <a class="svc-card" href="mailto:info@apecstudio.com?subject=CV%20and%20Personal%20Branding">
                   <div class="svc-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
                   <h4>CV &amp; Personal Branding</h4>
@@ -1579,7 +1640,6 @@
                   <span class="mini-price">from EUR 150</span>
                   <span class="mini-cta">Ask about this &rarr;</span>
                 </a>
-
                 <a class="svc-card" href="mailto:info@apecstudio.com?subject=Job%20Prep%20Professional%20Presence">
                   <div class="svc-icon"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg></div>
                   <h4>Job Prep / Professional Presence</h4>
@@ -1592,14 +1652,12 @@
                   <span class="mini-price">Custom quote</span>
                   <span class="mini-cta">Ask about this &rarr;</span>
                 </a>
-
               </div>
             </div>
 
             <!-- COMPANIES -->
             <div class="tab-panel" data-panel-group="services" data-panel="companies">
               <div class="services-three">
-
                 <a class="svc-card" href="mailto:info@apecstudio.com?subject=Email%20Outreach%20Setup">
                   <div class="svc-icon"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg></div>
                   <h4>Email Outreach Setup</h4>
@@ -1612,7 +1670,6 @@
                   <span class="mini-price">from EUR 100</span>
                   <span class="mini-cta">Ask about this &rarr;</span>
                 </a>
-
                 <a class="svc-card" href="mailto:info@apecstudio.com?subject=LinkedIn%20Outreach%20Setup">
                   <div class="svc-icon"><svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg></div>
                   <h4>LinkedIn Outreach Setup</h4>
@@ -1625,7 +1682,6 @@
                   <span class="mini-price">from EUR 200</span>
                   <span class="mini-cta">Ask about this &rarr;</span>
                 </a>
-
                 <a class="svc-card" href="mailto:info@apecstudio.com?subject=Campaign%20Management%20and%20Deliverability">
                   <div class="svc-icon"><svg viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg></div>
                   <h4>Campaign Management</h4>
@@ -1638,14 +1694,12 @@
                   <span class="mini-price">Monthly retainer</span>
                   <span class="mini-cta">Ask about this &rarr;</span>
                 </a>
-
               </div>
             </div>
 
             <!-- COACHING -->
             <div class="tab-panel" data-panel-group="services" data-panel="coaching">
               <div class="services-three">
-
                 <a class="svc-card" href="mailto:info@apecstudio.com?subject=1%3A1%20Coaching">
                   <div class="svc-icon"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
                   <h4>1:1 Coaching Session</h4>
@@ -1658,7 +1712,6 @@
                   <span class="mini-price">Custom quote</span>
                   <span class="mini-cta">Ask about this &rarr;</span>
                 </a>
-
                 <a class="svc-card" href="mailto:info@apecstudio.com?subject=Campaign%20Review">
                   <div class="svc-icon"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
                   <h4>Campaign Review</h4>
@@ -1671,7 +1724,6 @@
                   <span class="mini-price">Custom quote</span>
                   <span class="mini-cta">Ask about this &rarr;</span>
                 </a>
-
                 <a class="svc-card" href="mailto:info@apecstudio.com?subject=Outbound%20Stack%20Audit">
                   <div class="svc-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg></div>
                   <h4>Outbound Stack Audit</h4>
@@ -1684,7 +1736,6 @@
                   <span class="mini-price">Custom quote</span>
                   <span class="mini-cta">Ask about this &rarr;</span>
                 </a>
-
               </div>
             </div>
 
@@ -1704,22 +1755,10 @@
               <p>A local gym had been running email outreach to lapsed members and cold leads for three months. Open rates were fine. Replies were not. The problem turned out to be three things: a generic subject line that read like a promotion, a first line that started with "We" instead of addressing the reader, and a sending domain with no DKIM record configured. We rewrote the sequence from the first word, fixed the DNS setup and staggered the sending volume. Replies picked up within the first week of the new campaign.</p>
             </div>
             <div class="case-study-stats">
-              <div class="stat-box">
-                <strong>1.4%</strong>
-                <span>Reply rate before we touched the campaign</span>
-              </div>
-              <div class="stat-box">
-                <strong>9%</strong>
-                <span>Reply rate after DNS fix and copy rewrite</span>
-              </div>
-              <div class="stat-box">
-                <strong>4 wks</strong>
-                <span>Time from audit to consistent results</span>
-              </div>
-              <div class="stat-box">
-                <strong>3 fixes</strong>
-                <span>DNS, subject line, first-line copy</span>
-              </div>
+              <div class="stat-box"><strong>1.4%</strong><span>Reply rate before we touched the campaign</span></div>
+              <div class="stat-box"><strong>9%</strong><span>Reply rate after DNS fix and copy rewrite</span></div>
+              <div class="stat-box"><strong>4 wks</strong><span>Time from audit to consistent results</span></div>
+              <div class="stat-box"><strong>3 fixes</strong><span>DNS, subject line, first-line copy</span></div>
             </div>
           </div>
         </div>
@@ -1737,13 +1776,11 @@
               <p>Short, direct guides you can get through in a sitting and use the same day.</p>
             </div>
           </div>
-
           <div class="courses-lead-note">
             <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 14 19.79 19.79 0 0 1 1.63 5.37 2 2 0 0 1 3.6 3h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 10.5a16 16 0 0 0 6 6l.94-.94a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 18z"/></svg>
             Subscribe to our newsletter and get these guides free. No checkout required.
             <a href="mailto:info@apecstudio.com?subject=Newsletter%20Subscription" style="color:var(--accent-strong);font-weight:800;text-decoration:underline;margin-left:4px;">Subscribe &rarr;</a>
           </div>
-
           <div class="courses-grid">
             <button class="course-card" type="button" data-course-open="dns">
               <span class="course-tag">Outreach</span>
@@ -1754,7 +1791,6 @@
                 <span class="course-cta">Open course &rarr;</span>
               </div>
             </button>
-
             <button class="course-card course-card--featured" type="button" data-course-open="warmup">
               <span class="course-tag">Outreach</span>
               <h3>Warm-up &amp; Campaigning</h3>
@@ -1764,7 +1800,6 @@
                 <span class="course-cta">Open course &rarr;</span>
               </div>
             </button>
-
             <button class="course-card" type="button" data-course-open="jobprep">
               <span class="course-tag">Job prep</span>
               <h3>LinkedIn, CV &amp; Work Mindset</h3>
@@ -1806,7 +1841,6 @@
                 <a href="mailto:info@apecstudio.com" class="email-pill">Email us: info@apecstudio.com</a>
               </div>
             </div>
-
             <div class="book-right">
               <div class="calendar-placeholder">
                 <div class="calendar-placeholder-icon">
@@ -1936,7 +1970,6 @@
   </footer>
 
   <script>
-    // Tab navigation
     document.querySelectorAll('.tab-btn').forEach(function(btn) {
       btn.addEventListener('click', function() {
         var tabId = this.dataset.tab;
@@ -1960,7 +1993,6 @@
       });
     });
 
-    // Course modals
     function closeCourseModals() {
       document.querySelectorAll('.course-modal').forEach(function(modal) {
         modal.classList.remove('active');
