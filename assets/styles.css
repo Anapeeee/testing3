@@ -71,6 +71,8 @@ p{color:var(--muted)}
 .brand-text span{display:block;font-family:"IBM Plex Mono";font-size:0.62rem;letter-spacing:0.12em;color:var(--muted);text-transform:uppercase;margin-top:2px}
 nav.nav{display:flex;align-items:center;gap:30px}
 nav.nav a{font-size:0.92rem;font-weight:600;color:var(--text);opacity:0.82}
+nav.nav a.btn{color:#fff;opacity:1}
+nav.nav a.btn.btn-ghost{color:var(--primary)}
 nav.nav a:hover{opacity:1;color:var(--primary-2)}
 .nav-links{display:flex;gap:28px}
 .menu-toggle{display:none;width:40px;height:40px;border-radius:10px;background:var(--surface);border:1px solid var(--line);align-items:center;justify-content:center}
@@ -141,9 +143,9 @@ section{padding:76px 0}
 
 /* pricing cards */
 .tier-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.tier-card{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:28px;position:relative;box-shadow:var(--shadow);display:flex;flex-direction:column}
+.tier-card{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:28px;position:relative;box-shadow:var(--shadow);display:flex;flex-direction:column;overflow:hidden}
 .tier-card.featured{border:1px solid var(--accent);box-shadow:0 24px 50px rgba(124,86,224,0.18);transform:translateY(-6px)}
-.tier-topbar{height:5px;border-radius:6px;background:linear-gradient(90deg,var(--sky),var(--accent-strong));margin:-28px -28px 22px -28px}
+.tier-topbar{height:5px;background:linear-gradient(90deg,var(--sky),var(--accent-strong));margin:-28px -28px 22px -28px}
 .tier-badge{position:absolute;top:18px;right:18px;font-family:"IBM Plex Mono";font-size:0.65rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;background:var(--accent);color:#fff;padding:5px 10px;border-radius:999px}
 .tier-name{font-family:"Sora";font-weight:800;font-size:1.3rem;color:var(--primary)}
 .tier-for{font-size:0.85rem;color:var(--muted);margin-top:6px;min-height:38px}
@@ -210,6 +212,7 @@ section{padding:76px 0}
 
 /* contact */
 .book-shell{background:linear-gradient(150deg,var(--primary),var(--primary-2));border-radius:var(--radius);padding:52px;color:#fff;display:grid;grid-template-columns:1.1fr 0.9fr;gap:40px;align-items:center;position:relative;overflow:hidden}
+.book-shell.book-shell-single{display:block}
 .book-shell::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 10% 100%, rgba(156,126,240,0.28), transparent 45%);pointer-events:none}
 .book-shell h2{color:#fff;position:relative;z-index:1}
 .book-shell p{color:rgba(255,255,255,0.78);margin-top:10px;position:relative;z-index:1}
@@ -218,6 +221,7 @@ section{padding:76px 0}
 .book-reason svg{width:16px;height:16px;stroke:var(--sky);fill:none;stroke-width:2.4}
 .email-pill{display:inline-block;margin-top:26px;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.24);padding:12px 20px;border-radius:999px;font-weight:600;font-size:0.9rem;position:relative;z-index:1}
 .book-right{background:rgba(255,255,255,0.97);border-radius:18px;padding:28px;color:var(--text);position:relative;z-index:1}
+.book-calendar-panel{margin-top:36px;background:rgba(255,255,255,0.97);border-radius:18px;padding:18px;position:relative;z-index:1}
 .newsletter-form{display:flex;gap:12px;max-width:420px;margin:0;flex-wrap:wrap}
 .newsletter-form input{flex:1;min-width:200px;padding:14px 18px;border-radius:999px;border:1px solid var(--line);background:var(--surface);font:inherit;font-size:0.92rem;color:var(--text)}
 .newsletter-form input:focus{outline:2px solid var(--accent);outline-offset:2px}
@@ -246,13 +250,32 @@ footer{padding:34px 0;border-top:1px solid var(--line)}
 @media (max-width:760px){
   nav.nav .nav-links{display:none}
   .menu-toggle{display:flex}
+  .site-header{position:sticky}
+  .header-inner{position:relative}
+  nav.nav .nav-links.mobile-open{
+    display:flex;
+    flex-direction:column;
+    position:absolute;
+    top:calc(100% + 1px);
+    left:0;
+    right:0;
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-top:none;
+    border-radius:0 0 16px 16px;
+    padding:16px 20px;
+    gap:16px;
+    box-shadow:var(--shadow);
+    z-index:1001;
+  }
+  .nav-links.mobile-open a{opacity:1;padding:6px 0}
 }
 
 /* audience link cards (home page, links out to companies.html / individuals.html) */
 .audience-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
-.audience-card{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:28px;box-shadow:var(--shadow);display:flex;flex-direction:column;transition:transform .2s ease, box-shadow .2s ease}
+.audience-card{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:28px;box-shadow:var(--shadow);display:flex;flex-direction:column;transition:transform .2s ease, box-shadow .2s ease;overflow:hidden}
 .audience-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-strong)}
-.audience-topbar{height:5px;border-radius:6px;background:linear-gradient(90deg,var(--sky),var(--accent-strong));margin:-28px -28px 20px -28px}
+.audience-topbar{height:5px;background:linear-gradient(90deg,var(--sky),var(--accent-strong));margin:-28px -28px 20px -28px}
 .audience-card h3{font-size:1.15rem;margin-bottom:8px}
 .audience-card p{font-size:0.9rem;flex-grow:1}
 .audience-card .go{margin-top:18px;font-weight:700;font-size:0.88rem;color:var(--primary-2);display:inline-flex;align-items:center;gap:6px}
