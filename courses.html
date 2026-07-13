@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Courses — BLAPE</title>
+<meta name="description" content="Cheap, practical courses on LinkedIn, CV, outreach and deliverability. From $15." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sora:wght@600;700;800&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="brand" aria-label="BLAPE home">
+      <div class="brand-mark"><img src="blape_email_monkey.svg" alt="BLAPE logo" width="28" height="28" /></div>
+      <div class="brand-text">
+        <strong>BLAPE</strong>
+        <span>LinkedIn · Email · Deliverability</span>
+      </div>
+    </a>
+    <nav class="nav" aria-label="Main navigation">
+      <div class="nav-links">
+        <a href="index.html#about">About</a>
+        <a href="companies.html">Outreach &amp; Deliverability</a>
+        <a href="individuals.html">Personal Branding</a>
+        <a href="courses.html" class="active">Courses</a>
+        <a href="resources.html">Resources</a>
+      </div>
+      <a href="contact.html" class="btn btn-primary btn-sm">Book a call</a>
+      <button class="menu-toggle" aria-label="Menu">
+        <svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+
+<section class="hero">
+  <div class="container">
+    <div class="hero-shell">
+      <div style="max-width:660px;position:relative;z-index:1">
+        <div class="eyebrow">Courses</div>
+        <h1>Cheap, practical,<br/><span class="accent">straight to the point.</span></h1>
+        <p class="hero-kicker">For people who want the playbook before paying for done-for-you help.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="courses-section">
+      <div class="courses-top">
+        <div>
+          <span class="section-kicker" style="color:var(--sky)">Courses</span>
+          <h2>Pick the one you need.</h2>
+        </div>
+        <a href="contact.html" class="btn btn-accent btn-sm">Ask about courses</a>
+      </div>
+      <div class="courses-grid">
+        <div class="course-card">
+          <span class="course-tag mono">Individual</span>
+          <h3>Can't get a job? We'll tell you how.</h3>
+          <p>LinkedIn, CV, positioning, outreach — how to stop sounding like everyone else.</p>
+          <div class="course-row"><span class="course-price">From $15</span></div>
+        </div>
+        <div class="course-card">
+          <span class="course-tag mono">Company</span>
+          <h3>Can't get leads? We'll tell you how.</h3>
+          <p>Targeting, messaging, sequences, follow-up logic — why outreach isn't landing.</p>
+          <div class="course-row"><span class="course-price">From $15</span></div>
+        </div>
+        <div class="course-card">
+          <span class="course-tag mono">Fix it</span>
+          <h3>Can't get results? We'll tell you what's wrong.</h3>
+          <p>Deliverability, positioning, and the campaign mistakes that quietly kill performance.</p>
+          <div class="course-row"><span class="course-price">From $15</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <span>&copy; 2026 BLAPE. All rights reserved.</span>
+    <div class="footer-links">
+      <a href="companies.html">Outreach &amp; Deliverability</a>
+      <a href="individuals.html">Personal Branding</a>
+      <a href="courses.html">Courses</a>
+      <a href="resources.html">Resources</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+</footer>
+<script>
+document.querySelectorAll('a[href^="#"]').forEach(function(a){
+  a.addEventListener('click', function(e){
+    var id=this.getAttribute('href');
+    if(id.length>1){
+      var el=document.querySelector(id);
+      if(el){e.preventDefault();el.scrollIntoView({behavior:'smooth',block:'start'});}
+    }
+  });
+});
+document.querySelector('.menu-toggle')?.addEventListener('click', function(){
+  document.querySelector('.nav-links').classList.toggle('mobile-open');
+});
+</script>
+</body>
+</html>
